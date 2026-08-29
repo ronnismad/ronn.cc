@@ -1,0 +1,16 @@
+{
+  // Project name — this also becomes your *.workers.dev preview subdomain.
+  "name": "ronn-cc",
+
+  // Pins the Workers runtime behaviour to this date. Safe to leave as-is.
+  "compatibility_date": "2026-08-30",
+
+  "assets": {
+    // Folder containing your site files, relative to this config.
+    // Change to "./dist" later if you adopt a framework with a build step.
+    "directory": "./public",
+
+    // Serve a custom 404.html if one exists in the assets folder.
+    "not_found_handling": "404-page"
+  }
+}
