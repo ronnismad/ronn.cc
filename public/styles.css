@@ -281,6 +281,51 @@ a { color: var(--teal); }
   50%      { transform: translate3d(38%, -10%, 0) scale(1);    }
 }
 
+
+/* ---------- distant lightning (index only) ---------- */
+
+.storm {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.storm span {
+  position: absolute;
+  inset: 0;
+  display: block;
+  opacity: 0;
+  will-change: opacity;
+}
+
+.storm span:nth-child(1) {
+  background: radial-gradient(78% 62% at 24% 2%, rgba(216,233,238,0.98), transparent 66%);
+  animation: bolt-a 26s linear infinite;
+}
+
+.storm span:nth-child(2) {
+  background: radial-gradient(88% 66% at 76% -4%, rgba(208,228,235,0.92), transparent 68%);
+  animation: bolt-b 37s linear infinite;
+}
+
+@keyframes bolt-a {
+  0%,   14.0%  { opacity: 0;    }
+  14.4%        { opacity: 0.16; }
+  15.0%        { opacity: 0.02; }
+  16.2%        { opacity: 0.24; }
+  18.0%        { opacity: 0.03; }
+  20.0%, 100%  { opacity: 0;    }
+}
+
+@keyframes bolt-b {
+  0%,   43.0%  { opacity: 0;    }
+  43.4%        { opacity: 0.14; }
+  45.0%        { opacity: 0.015;}
+  47.0%, 100%  { opacity: 0;    }
+}
+
 /* ============================================================
    INTERIOR PAGES
    ============================================================ */
@@ -570,5 +615,6 @@ a.card:hover { background: var(--raised); }
   .home::before { animation: none; transform: scale(1.06); }
   .home::after { animation: none; }
   .mist span { animation: none; }
+  .storm { display: none; }
   .link, .card, .btn, .nav a { transition: none; }
 }
