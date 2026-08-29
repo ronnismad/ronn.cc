@@ -186,7 +186,7 @@ a { color: var(--teal); }
     url("/img/forest-bw.jpg") center / cover no-repeat;
   transform: scale(1.06);
   will-change: transform;
-  animation: slow-zoom 72s ease-in-out infinite alternate;
+  animation: slow-zoom 40s ease-in-out infinite alternate;
 }
 
 @keyframes slow-zoom {
@@ -204,7 +204,7 @@ a { color: var(--teal); }
     radial-gradient(55% 38% at 22% 28%, rgba(201,216,213,0.075), transparent 68%),
     radial-gradient(48% 32% at 78% 62%, rgba(201,216,213,0.055), transparent 70%),
     radial-gradient(40% 26% at 55% 88%, rgba(201,216,213,0.045), transparent 72%);
-  animation: fog-drift 54s ease-in-out infinite alternate;
+  animation: fog-drift 34s ease-in-out infinite alternate;
 }
 
 @keyframes fog-drift {
@@ -244,8 +244,8 @@ a { color: var(--teal); }
   height: 58vh;
   left: -24vw;
   top: 4vh;
-  background: radial-gradient(closest-side, rgba(206,220,217,0.070), transparent 72%);
-  animation: cloud-a 96s ease-in-out infinite;
+  background: radial-gradient(closest-side, rgba(206,220,217,0.095), transparent 72%);
+  animation: cloud-a 44s ease-in-out infinite;
 }
 
 .mist span:nth-child(2) {
@@ -253,8 +253,8 @@ a { color: var(--teal); }
   height: 48vh;
   right: -28vw;
   bottom: 2vh;
-  background: radial-gradient(closest-side, rgba(206,220,217,0.055), transparent 74%);
-  animation: cloud-b 128s ease-in-out infinite;
+  background: radial-gradient(closest-side, rgba(206,220,217,0.075), transparent 74%);
+  animation: cloud-b 58s ease-in-out infinite;
 }
 
 .mist span:nth-child(3) {
@@ -262,23 +262,23 @@ a { color: var(--teal); }
   height: 38vh;
   left: 18vw;
   top: 38vh;
-  background: radial-gradient(closest-side, rgba(206,220,217,0.040), transparent 76%);
-  animation: cloud-c 158s ease-in-out infinite;
+  background: radial-gradient(closest-side, rgba(206,220,217,0.060), transparent 76%);
+  animation: cloud-c 72s ease-in-out infinite;
 }
 
 @keyframes cloud-a {
-  0%, 100% { transform: translate3d(-6%, 0, 0)   scale(1);    }
-  50%      { transform: translate3d(46%, -5%, 0) scale(1.18); }
+  0%, 100% { transform: translate3d(-12%, 2%, 0)  scale(1);    }
+  50%      { transform: translate3d(70%, -8%, 0)  scale(1.26); }
 }
 
 @keyframes cloud-b {
-  0%, 100% { transform: translate3d(4%, 0, 0)     scale(1.08); }
-  50%      { transform: translate3d(-40%, 4%, 0)  scale(1);    }
+  0%, 100% { transform: translate3d(10%, -2%, 0)  scale(1.14); }
+  50%      { transform: translate3d(-62%, 7%, 0)  scale(1);    }
 }
 
 @keyframes cloud-c {
-  0%, 100% { transform: translate3d(0, 2%, 0)     scale(1.12); }
-  50%      { transform: translate3d(22%, -6%, 0)  scale(1);    }
+  0%, 100% { transform: translate3d(-8%, 5%, 0)   scale(1.18); }
+  50%      { transform: translate3d(38%, -10%, 0) scale(1);    }
 }
 
 /* ============================================================
