@@ -41,114 +41,42 @@ a { color: var(--teal); }
    HOMEPAGE
    ============================================================ */
 
-.split {
+.home {
   min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 30%;
-}
-
-.mark {
-  position: relative;
-  overflow: hidden;
-  order: 2;
-  background: var(--panel);
-  border-left: 1px solid var(--line);
-}
-
-.mark__letter {
-  position: absolute;
-  left: -0.07em;
-  bottom: -0.18em;
-  margin: 0;
-  font-family: var(--display);
-  font-variation-settings: "wdth" 118, "wght" 700;
-  font-size: clamp(16rem, 30vw, 40rem);
-  line-height: 0.72;
-  color: #23282A;
-  user-select: none;
-}
-
-.mark__edge {
-  position: absolute;
-  top: 2.25rem;
-  right: 2.25rem;
-  margin: 0;
-  font-family: var(--mono);
-  font-size: 0.6875rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--muted);
-  writing-mode: vertical-rl;
-}
-
-.content {
-  order: 1;
-  padding: var(--pad);
-  display: flex;
-  flex-direction: column;
-  gap: clamp(2rem, 5vh, 3.5rem);
-}
-
-.topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 1rem;
-  font-family: var(--mono);
-  font-size: 0.6875rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.topbar__site { color: var(--fg); }
-
-.plate { margin-top: auto; }
-
-.plate__legal {
-  margin: 0;
-  font-family: var(--mono);
-  font-size: clamp(0.75rem, 1.5vw, 0.875rem);
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.plate__aka {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin: 1rem 0 0.5rem;
+  justify-content: center;
+  padding: clamp(2.5rem, 8vh, 5rem) var(--pad);
 }
 
-.plate__aka::after {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background: var(--line);
+.home__inner {
+  width: 100%;
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 5vh, 3rem);
 }
 
-.plate__aka span {
+.logo-line { margin: 0; line-height: 0; }
+
+.logo {
+  display: block;
+  width: clamp(190px, 40vw, 320px);
+  height: auto;
+}
+
+.home__legal {
+  margin: 1.25rem 0 0;
   font-family: var(--mono);
   font-size: 0.6875rem;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--muted);
 }
 
-.plate__alias {
+.home__bio {
+  max-width: 52ch;
   margin: 0;
-  font-family: var(--display);
-  font-variation-settings: "wdth" 112, "wght" 700;
-  font-size: clamp(3.5rem, 11vw, 8.5rem);
-  line-height: 0.86;
-  letter-spacing: -0.02em;
-  color: var(--fg);
-}
-
-.plate__bio {
-  max-width: 48ch;
-  margin: 1.5rem 0 0;
   font-size: clamp(1rem, 1.3vw, 1.0625rem);
   color: var(--muted);
 }
@@ -167,7 +95,7 @@ a { color: var(--teal); }
   align-items: baseline;
   justify-content: space-between;
   gap: 1.5rem;
-  padding: 0.875rem 0.5rem 0.875rem 0;
+  padding: 0.8125rem 0.5rem 0.8125rem 0;
   text-decoration: none;
   color: var(--fg);
   transition: color 0.2s ease, padding-left 0.28s ease;
@@ -186,7 +114,7 @@ a { color: var(--teal); }
   flex: none;
   font-family: var(--display);
   font-variation-settings: "wdth" 105, "wght" 550;
-  font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
+  font-size: 1.0625rem;
   letter-spacing: -0.005em;
 }
 
@@ -505,33 +433,7 @@ a.card:hover { background: var(--raised); }
    ============================================================ */
 
 @media (max-width: 820px) {
-  .split { grid-template-columns: 1fr; }
-
-  .mark {
-    order: 1;
-    height: 28vw;
-    min-height: 110px;
-    max-height: 180px;
-    border-left: none;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .mark__letter {
-    left: auto;
-    right: -0.05em;
-    bottom: -0.24em;
-    font-size: 38vw;
-  }
-
-  .mark__edge {
-    top: 1.25rem;
-    right: auto;
-    left: 1.5rem;
-    writing-mode: horizontal-tb;
-  }
-
-  .content { order: 2; }
-  .plate__alias { font-size: clamp(3rem, 18vw, 5.5rem); }
+  .home { align-items: flex-start; }
 
   .link { flex-direction: column; align-items: flex-start; gap: 0.25rem; }
   .link__meta { text-align: left; }
