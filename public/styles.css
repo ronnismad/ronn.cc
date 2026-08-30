@@ -234,9 +234,9 @@ a { color: var(--teal); }
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(55% 38% at 22% 28%, rgba(201,216,213,0.075), transparent 68%),
-    radial-gradient(48% 32% at 78% 62%, rgba(201,216,213,0.055), transparent 70%),
-    radial-gradient(40% 26% at 55% 88%, rgba(201,216,213,0.045), transparent 72%);
+    radial-gradient(55% 38% at 22% 28%, rgba(201,216,213,0.075), rgba(201,216,213,0.040) 32%, rgba(201,216,213,0.015) 52%, transparent 68%),
+    radial-gradient(48% 32% at 78% 62%, rgba(201,216,213,0.055), rgba(201,216,213,0.030) 34%, rgba(201,216,213,0.011) 54%, transparent 70%),
+    radial-gradient(40% 26% at 55% 88%, rgba(201,216,213,0.045), rgba(201,216,213,0.025) 34%, rgba(201,216,213,0.009) 54%, transparent 72%);
   animation: fog-drift 34s ease-in-out infinite alternate;
 }
 
@@ -277,7 +277,7 @@ a { color: var(--teal); }
   height: 58vh;
   left: -24vw;
   top: 4vh;
-  background: radial-gradient(closest-side, rgba(206,220,217,0.095), transparent 72%);
+  background: radial-gradient(closest-side, rgba(206,220,217,0.095), rgba(206,220,217,0.055) 34%, rgba(206,220,217,0.022) 54%, transparent 72%);
   animation: cloud-a 44s ease-in-out infinite;
 }
 
@@ -286,7 +286,7 @@ a { color: var(--teal); }
   height: 48vh;
   right: -28vw;
   bottom: 2vh;
-  background: radial-gradient(closest-side, rgba(206,220,217,0.075), transparent 74%);
+  background: radial-gradient(closest-side, rgba(206,220,217,0.075), rgba(206,220,217,0.042) 36%, rgba(206,220,217,0.016) 56%, transparent 74%);
   animation: cloud-b 58s ease-in-out infinite;
 }
 
@@ -295,7 +295,7 @@ a { color: var(--teal); }
   height: 38vh;
   left: 18vw;
   top: 38vh;
-  background: radial-gradient(closest-side, rgba(206,220,217,0.060), transparent 76%);
+  background: radial-gradient(closest-side, rgba(206,220,217,0.060), rgba(206,220,217,0.034) 38%, rgba(206,220,217,0.013) 58%, transparent 76%);
   animation: cloud-c 72s ease-in-out infinite;
 }
 
@@ -334,12 +334,12 @@ a { color: var(--teal); }
 }
 
 .storm span:nth-child(1) {
-  background: radial-gradient(78% 62% at 24% 2%, rgba(216,233,238,0.98), transparent 66%);
+  background: radial-gradient(78% 62% at 24% 2%, rgba(216,233,238,0.98), rgba(216,233,238,0.55) 28%, rgba(216,233,238,0.20) 46%, transparent 66%);
   animation: bolt-a 26s linear infinite;
 }
 
 .storm span:nth-child(2) {
-  background: radial-gradient(88% 66% at 76% -4%, rgba(208,228,235,0.92), transparent 68%);
+  background: radial-gradient(88% 66% at 76% -4%, rgba(208,228,235,0.92), rgba(208,228,235,0.50) 30%, rgba(208,228,235,0.18) 48%, transparent 68%);
   animation: bolt-b 37s linear infinite;
 }
 
@@ -387,14 +387,14 @@ a { color: var(--teal); }
 .aurora span:nth-child(1) {
   left: -6%;
   width: 62vw;
-  background: radial-gradient(42% 100% at 50% 4%, rgba(122,214,176,0.62), rgba(122,214,176,0.16) 46%, transparent 74%);
+  background: radial-gradient(42% 100% at 50% 4%, rgba(122,214,176,0.62), rgba(122,214,176,0.38) 24%, rgba(122,214,176,0.16) 46%, rgba(122,214,176,0.05) 60%, transparent 74%);
   animation: aurora-1 13s ease-in-out infinite;
 }
 
 .aurora span:nth-child(2) {
   left: 22%;
   width: 55vw;
-  background: radial-gradient(38% 100% at 50% 0%, rgba(126,198,216,0.52), rgba(126,198,216,0.14) 48%, transparent 76%);
+  background: radial-gradient(38% 100% at 50% 0%, rgba(126,198,216,0.52), rgba(126,198,216,0.32) 26%, rgba(126,198,216,0.14) 48%, rgba(126,198,216,0.04) 62%, transparent 76%);
   animation: aurora-2 16s ease-in-out infinite;
   animation-delay: 4.5s;
 }
@@ -402,7 +402,7 @@ a { color: var(--teal); }
 .aurora span:nth-child(3) {
   right: -8%;
   width: 58vw;
-  background: radial-gradient(40% 100% at 50% 6%, rgba(152,150,212,0.40), rgba(152,150,212,0.11) 44%, transparent 72%);
+  background: radial-gradient(40% 100% at 50% 6%, rgba(152,150,212,0.40), rgba(152,150,212,0.24) 22%, rgba(152,150,212,0.11) 44%, rgba(152,150,212,0.03) 58%, transparent 72%);
   animation: aurora-3 19s ease-in-out infinite;
   animation-delay: 9s;
 }
@@ -429,6 +429,19 @@ a { color: var(--teal); }
   52%       { opacity: 0.44; transform: translate3d(-8%, 0, 0)  skewX(9deg)  scaleY(1.16); }
   82%       { opacity: 0.12; }
   100%      { opacity: 0;    transform: translate3d(6%, 0, 0)   skewX(-6deg) scaleY(0.92); }
+}
+
+
+/* ---------- dither: breaks gradient banding (index only) ---------- */
+
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("/img/noise.png");
+  background-size: 160px 160px;
+  opacity: 0.035;
 }
 
 /* ============================================================
