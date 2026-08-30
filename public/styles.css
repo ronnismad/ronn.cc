@@ -359,6 +359,78 @@ a { color: var(--teal); }
   47.0%, 100%  { opacity: 0;    }
 }
 
+
+/* ---------- aurora borealis (index only) ---------- */
+
+.aurora {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 68vh;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 42%, transparent 96%);
+          mask-image: linear-gradient(180deg, #000 0%, #000 42%, transparent 96%);
+}
+
+.aurora span {
+  position: absolute;
+  top: -22%;
+  height: 105%;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.aurora span:nth-child(1) {
+  left: -6%;
+  width: 62vw;
+  background: radial-gradient(42% 100% at 50% 4%, rgba(122,214,176,0.62), rgba(122,214,176,0.16) 46%, transparent 74%);
+  animation: aurora-1 13s ease-in-out infinite;
+}
+
+.aurora span:nth-child(2) {
+  left: 22%;
+  width: 55vw;
+  background: radial-gradient(38% 100% at 50% 0%, rgba(126,198,216,0.52), rgba(126,198,216,0.14) 48%, transparent 76%);
+  animation: aurora-2 16s ease-in-out infinite;
+  animation-delay: 4.5s;
+}
+
+.aurora span:nth-child(3) {
+  right: -8%;
+  width: 58vw;
+  background: radial-gradient(40% 100% at 50% 6%, rgba(152,150,212,0.40), rgba(152,150,212,0.11) 44%, transparent 72%);
+  animation: aurora-3 19s ease-in-out infinite;
+  animation-delay: 9s;
+}
+
+@keyframes aurora-1 {
+  0%        { opacity: 0;    transform: translate3d(-10%, 0, 0) skewX(-9deg) scaleY(0.86); }
+  20%       { opacity: 0.85; }
+  50%       { opacity: 0.62; transform: translate3d(9%, 0, 0)   skewX(6deg)  scaleY(1.14); }
+  80%       { opacity: 0.18; }
+  100%      { opacity: 0;    transform: translate3d(-10%, 0, 0) skewX(-9deg) scaleY(0.86); }
+}
+
+@keyframes aurora-2 {
+  0%        { opacity: 0;    transform: translate3d(8%, 0, 0)   skewX(7deg)  scaleY(1.10); }
+  24%       { opacity: 0.78; }
+  55%       { opacity: 0.50; transform: translate3d(-11%, 0, 0) skewX(-8deg) scaleY(0.88); }
+  84%       { opacity: 0.14; }
+  100%      { opacity: 0;    transform: translate3d(8%, 0, 0)   skewX(7deg)  scaleY(1.10); }
+}
+
+@keyframes aurora-3 {
+  0%        { opacity: 0;    transform: translate3d(6%, 0, 0)   skewX(-6deg) scaleY(0.92); }
+  22%       { opacity: 0.70; }
+  52%       { opacity: 0.44; transform: translate3d(-8%, 0, 0)  skewX(9deg)  scaleY(1.16); }
+  82%       { opacity: 0.12; }
+  100%      { opacity: 0;    transform: translate3d(6%, 0, 0)   skewX(-6deg) scaleY(0.92); }
+}
+
 /* ============================================================
    INTERIOR PAGES
    ============================================================ */
@@ -649,6 +721,7 @@ a.card:hover { background: var(--raised); }
   .home::after { animation: none; }
   .mist span { animation: none; }
   .storm { display: none; }
+  .aurora span { animation: none; opacity: 0.28; }
   .link, .card, .btn, .nav a, .social a { transition: none; }
   .social a:hover { transform: none; }
 }
