@@ -3,41 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CV — Ronn</title>
-<meta name="description" content="Curriculum vitae, academic and industry">
+<title>Audio — Ronn</title>
+<meta name="description" content="A previous life, professionally">
 <meta name="theme-color" content="#17191A">
-<meta property="og:title" content="CV — Sutanu Chatterjee">
-<meta property="og:description" content="Curriculum vitae, academic and industry">
+<meta property="og:title" content="Audio — Sutanu Chatterjee">
+<meta property="og:description" content="A previous life, professionally">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://ronn.cc/cv">
+<meta property="og:url" content="https://ronn.cc/audio">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Instrument+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
-<style>
-  .work-in-progress {
-    min-height: 50vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 1rem;
-  }
-  .work-in-progress h2 {
-    margin: 0;
-    font-family: var(--display);
-    font-variation-settings: "wdth" 110, "wght" 700;
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    letter-spacing: -0.02em;
-    color: var(--fg);
-  }
-  .work-in-progress p {
-    margin: 0;
-    color: var(--muted);
-    font-size: 1.0625rem;
-  }
-</style>
 </head>
 <body>
 
@@ -47,12 +23,12 @@
     <span>Sutanu Chatterjee</span>
   </a>
   <nav class="nav">
-        <a href="/cv" class="is-current">CV</a>
+        <a href="/cv">CV</a>
         <a href="/science">Science</a>
         <a href="/english">English</a>
         <a href="/software">Software</a>
         <a href="/hardware">Hardware</a>
-        <a href="/audio">Audio</a>
+        <a href="/audio" class="is-current">Audio</a>
         <a href="/visual">Visual</a>
         <a href="/alternoid">Alternoid</a>
         <a href="/contact">Contact</a>
@@ -61,15 +37,84 @@
 
 <main class="wrap">
 
-  <section class="work-in-progress">
-    <h2>Work in Progress</h2>
-    <p>The CV page is being updated. Check back soon.</p>
+  <header class="page-head">
+    <p class="eyebrow">Previously</p>
+    <h1 class="page-title">Audio</h1>
+    <p class="lede">A previous life, professionally</p>
+  </header>
+
+  <p class="note">PLACEHOLDER &mdash; replace with your real releases and streaming links.</p>
+  <section class="block">
+    <h2 class="section-title">Listen</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Spotify</h3>
+      <p>Artist profile and discography.</p>
+      <span class="tag">Streaming</span>
+    </div>
+    <div class="card">
+      <h3>Apple Music</h3>
+      <p>Full catalogue.</p>
+      <span class="tag">Streaming</span>
+    </div>
+    <div class="card">
+      <h3>Bandcamp</h3>
+      <p>Releases available to buy directly.</p>
+      <span class="tag">Streaming</span>
+    </div>
+    <div class="card">
+      <h3>SoundCloud</h3>
+      <p>Demos, live takes, and older material.</p>
+      <span class="tag">Streaming</span>
+    </div>
+    <div class="card">
+      <h3>YouTube</h3>
+      <p>Videos and live performance.</p>
+      <span class="tag">Video</span>
+    </div>
+  </div>
   </section>
+  <section class="block">
+    <h2 class="section-title">Releases</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Release title</h3>
+      <p>Year &middot; format. A line about the record.</p>
+      <span class="tag">Album</span>
+    </div>
+    <div class="card">
+      <h3>Release title</h3>
+      <p>Year &middot; format. A line about the record.</p>
+      <span class="tag">EP</span>
+    </div>
+    <div class="card">
+      <h3>Release title</h3>
+      <p>Year &middot; format. A line about the record.</p>
+      <span class="tag">Single</span>
+    </div>
+  </div>
+  </section>
+  <section class="block">
+    <h2 class="section-title">Production</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Engineering</h3>
+      <p>Mixing, mastering, or session work you take on.</p>
+      <span class="tag">Service</span>
+    </div>
+    <div class="card">
+      <h3>Credits</h3>
+      <p>Records you played on, produced, or engineered.</p>
+      <span class="tag">History</span>
+    </div>
+  </div>
+  </section>
+
 
 </main>
 
 <footer class="foot foot--page">
-  <span>Sutanu Chatterjee @ 2026</span>
+  <span>&copy; 2026</span>
   <ul class="social">
     <li>
       <a href="#" aria-label="Facebook" data-label="Facebook" target="_blank" rel="noopener noreferrer"><!-- REPLACE with your Facebook URL -->

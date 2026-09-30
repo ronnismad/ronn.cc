@@ -3,41 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CV — Ronn</title>
-<meta name="description" content="Curriculum vitae, academic and industry">
+<title>Hardware — Ronn</title>
+<meta name="description" content="Circuits, boards, and physical builds">
 <meta name="theme-color" content="#17191A">
-<meta property="og:title" content="CV — Sutanu Chatterjee">
-<meta property="og:description" content="Curriculum vitae, academic and industry">
+<meta property="og:title" content="Hardware — Sutanu Chatterjee">
+<meta property="og:description" content="Circuits, boards, and physical builds">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://ronn.cc/cv">
+<meta property="og:url" content="https://ronn.cc/hardware">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Instrument+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
-<style>
-  .work-in-progress {
-    min-height: 50vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 1rem;
-  }
-  .work-in-progress h2 {
-    margin: 0;
-    font-family: var(--display);
-    font-variation-settings: "wdth" 110, "wght" 700;
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    letter-spacing: -0.02em;
-    color: var(--fg);
-  }
-  .work-in-progress p {
-    margin: 0;
-    color: var(--muted);
-    font-size: 1.0625rem;
-  }
-</style>
 </head>
 <body>
 
@@ -47,11 +23,11 @@
     <span>Sutanu Chatterjee</span>
   </a>
   <nav class="nav">
-        <a href="/cv" class="is-current">CV</a>
+        <a href="/cv">CV</a>
         <a href="/science">Science</a>
         <a href="/english">English</a>
         <a href="/software">Software</a>
-        <a href="/hardware">Hardware</a>
+        <a href="/hardware" class="is-current">Hardware</a>
         <a href="/audio">Audio</a>
         <a href="/visual">Visual</a>
         <a href="/alternoid">Alternoid</a>
@@ -61,15 +37,59 @@
 
 <main class="wrap">
 
-  <section class="work-in-progress">
-    <h2>Work in Progress</h2>
-    <p>The CV page is being updated. Check back soon.</p>
+  <header class="page-head">
+    <p class="eyebrow">Built</p>
+    <h1 class="page-title">Hardware</h1>
+    <p class="lede">Circuits, boards, and physical builds</p>
+  </header>
+
+  <p class="note">PLACEHOLDER &mdash; replace with real builds. Photos work well here &mdash; the gallery styles from the Visual page are available.</p>
+  <section class="block">
+    <h2 class="section-title">Builds</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Project name</h3>
+      <p>What it does and what problem it solves.</p>
+      <span class="tag">Board</span>
+    </div>
+    <div class="card">
+      <h3>Project name</h3>
+      <p>Coil, resonator, or power stage. Key specification.</p>
+      <span class="tag">RF</span>
+    </div>
+    <div class="card">
+      <h3>Project name</h3>
+      <p>Instrument, rig, or test setup you designed.</p>
+      <span class="tag">Instrument</span>
+    </div>
+  </div>
   </section>
+  <section class="block">
+    <h2 class="section-title">Tools and methods</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>PCB design</h3>
+      <p>Software you use and the kind of boards you produce.</p>
+      <span class="tag">Design</span>
+    </div>
+    <div class="card">
+      <h3>Simulation</h3>
+      <p>FEM, SPICE, or electromagnetic modelling workflow.</p>
+      <span class="tag">Analysis</span>
+    </div>
+    <div class="card">
+      <h3>Measurement</h3>
+      <p>Bench equipment and what you characterise with it.</p>
+      <span class="tag">Test</span>
+    </div>
+  </div>
+  </section>
+
 
 </main>
 
 <footer class="foot foot--page">
-  <span>Sutanu Chatterjee @ 2026</span>
+  <span>&copy; 2026</span>
   <ul class="social">
     <li>
       <a href="#" aria-label="Facebook" data-label="Facebook" target="_blank" rel="noopener noreferrer"><!-- REPLACE with your Facebook URL -->

@@ -3,41 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CV — Ronn</title>
-<meta name="description" content="Curriculum vitae, academic and industry">
+<title>English — Ronn</title>
+<meta name="description" content="Teaching, tutoring, and language work">
 <meta name="theme-color" content="#17191A">
-<meta property="og:title" content="CV — Sutanu Chatterjee">
-<meta property="og:description" content="Curriculum vitae, academic and industry">
+<meta property="og:title" content="English — Sutanu Chatterjee">
+<meta property="og:description" content="Teaching, tutoring, and language work">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://ronn.cc/cv">
+<meta property="og:url" content="https://ronn.cc/english">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Instrument+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
-<style>
-  .work-in-progress {
-    min-height: 50vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 1rem;
-  }
-  .work-in-progress h2 {
-    margin: 0;
-    font-family: var(--display);
-    font-variation-settings: "wdth" 110, "wght" 700;
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    letter-spacing: -0.02em;
-    color: var(--fg);
-  }
-  .work-in-progress p {
-    margin: 0;
-    color: var(--muted);
-    font-size: 1.0625rem;
-  }
-</style>
 </head>
 <body>
 
@@ -47,9 +23,9 @@
     <span>Sutanu Chatterjee</span>
   </a>
   <nav class="nav">
-        <a href="/cv" class="is-current">CV</a>
+        <a href="/cv">CV</a>
         <a href="/science">Science</a>
-        <a href="/english">English</a>
+        <a href="/english" class="is-current">English</a>
         <a href="/software">Software</a>
         <a href="/hardware">Hardware</a>
         <a href="/audio">Audio</a>
@@ -61,15 +37,59 @@
 
 <main class="wrap">
 
-  <section class="work-in-progress">
-    <h2>Work in Progress</h2>
-    <p>The CV page is being updated. Check back soon.</p>
+  <header class="page-head">
+    <p class="eyebrow">Teaching</p>
+    <h1 class="page-title">English</h1>
+    <p class="lede">Teaching, tutoring, and language work</p>
+  </header>
+
+  <p class="note">PLACEHOLDER &mdash; replace with your real teaching history, qualifications, and how people can book you.</p>
+  <section class="block">
+    <h2 class="section-title">Teaching</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Current role</h3>
+      <p>Where you teach now, what level, and what you cover.</p>
+      <span class="tag">Present</span>
+    </div>
+    <div class="card">
+      <h3>Previously</h3>
+      <p>Earlier institutions, years, and the students you worked with.</p>
+      <span class="tag">History</span>
+    </div>
+    <div class="card">
+      <h3>One to one</h3>
+      <p>Private tutoring — availability and how to enquire.</p>
+      <span class="tag">Tutoring</span>
+    </div>
+  </div>
   </section>
+  <section class="block">
+    <h2 class="section-title">Credentials</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Qualification</h3>
+      <p>CELTA, DELTA, TEFL, or degree. Year and awarding body.</p>
+      <span class="tag">Certificate</span>
+    </div>
+    <div class="card">
+      <h3>Specialisms</h3>
+      <p>Exam prep, business English, academic writing, pronunciation.</p>
+      <span class="tag">Focus</span>
+    </div>
+    <div class="card">
+      <h3>Languages</h3>
+      <p>Languages you speak and the levels you hold.</p>
+      <span class="tag">Languages</span>
+    </div>
+  </div>
+  </section>
+
 
 </main>
 
 <footer class="foot foot--page">
-  <span>Sutanu Chatterjee @ 2026</span>
+  <span>&copy; 2026</span>
   <ul class="social">
     <li>
       <a href="#" aria-label="Facebook" data-label="Facebook" target="_blank" rel="noopener noreferrer"><!-- REPLACE with your Facebook URL -->
