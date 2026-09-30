@@ -141,7 +141,7 @@
     }
 
     function update() {
-      targetX = clamp(mouseX, -10, 10);
+      targetX = clamp(mouseX, -5, 5);
       targetY = clamp(mouseY + scrollY * 0.04, -22, 22);
 
       currentX += (targetX - currentX) * 0.08;
@@ -167,7 +167,7 @@
     window.addEventListener('mousemove', function (e) {
       const cx = window.innerWidth / 2;
       const cy = window.innerHeight / 2;
-      mouseX = ((e.clientX - cx) / cx) * -10;
+      mouseX = ((e.clientX - cx) / cx) * -5;
       mouseY = ((e.clientY - cy) / cy) * -7;
       schedule();
     }, { passive: true });
