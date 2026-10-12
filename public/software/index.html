@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Software — Ronn</title>
-<meta name="description" content="Things I have built">
+<meta name="description" content="Browser-based wireless power transfer design tools — matching networks, coils, inverters, and rectifiers.">
 <meta name="theme-color" content="#17191A">
 <meta property="og:title" content="Software — Sutanu Chatterjee">
-<meta property="og:description" content="Things I have built">
+<meta property="og:description" content="Browser-based wireless power transfer design tools — matching networks, coils, inverters, and rectifiers.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ronn.cc/software">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,27 +15,160 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Instrument+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
 <style>
-  .coming-soon {
-    min-height: 50vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 1rem;
-  }
-  .coming-soon h2 {
-    margin: 0;
-    font-family: var(--display);
-    font-variation-settings: "wdth" 110, "wght" 700;
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    letter-spacing: -0.02em;
-    color: var(--fg);
-  }
-  .coming-soon p {
-    margin: 0;
+  .soft-lede {
+    margin: 0.75rem 0 0;
+    max-width: 36rem;
     color: var(--muted);
     font-size: 1.0625rem;
+  }
+
+  .soft-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    margin-top: 0.25rem;
+  }
+
+  .soft-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    padding: 1.85rem 1.75rem 1.65rem;
+    background: var(--panel);
+    text-decoration: none;
+    color: inherit;
+    min-height: 280px;
+    transition: background 0.18s ease;
+  }
+
+  .soft-card:hover,
+  .soft-card:focus-visible {
+    background: var(--raised);
+  }
+
+  .soft-card:focus-visible {
+    outline: 1px solid var(--teal-dim);
+    outline-offset: -1px;
+  }
+
+  .soft-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--teal), transparent 70%);
+    opacity: 0.55;
+  }
+
+  .soft-card:hover::before,
+  .soft-card:focus-visible::before {
+    opacity: 1;
+  }
+
+  .soft-kicker {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.55rem 0.75rem;
+    font-family: var(--mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--teal-dim);
+  }
+
+  .soft-kicker .live {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .soft-kicker .live::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--teal);
+    box-shadow: 0 0 0 3px rgba(169, 201, 194, 0.15);
+  }
+
+  .soft-card h2 {
+    margin: 0;
+    font-family: var(--display);
+    font-variation-settings: "wdth" 108, "wght" 700;
+    font-size: clamp(1.35rem, 2.4vw, 1.65rem);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: var(--fg);
+  }
+
+  .soft-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .soft-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem 0.55rem;
+    margin-top: 0.25rem;
+  }
+
+  .soft-meta span {
+    font-family: var(--mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border: 1px solid var(--line);
+    padding: 0.28rem 0.55rem;
+    border-radius: 999px;
+  }
+
+  .soft-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-top: 0.35rem;
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+
+  .soft-cta svg {
+    width: 12px;
+    height: 12px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.8;
+    transition: transform 0.18s ease;
+  }
+
+  .soft-card:hover .soft-cta svg,
+  .soft-card:focus-visible .soft-cta svg {
+    transform: translateX(3px);
+  }
+
+  .soft-note {
+    margin: 1.75rem 0 0;
+    color: var(--muted);
+    font-size: 0.875rem;
+  }
+
+  .soft-note a { color: var(--teal); }
+
+  @media (max-width: 640px) {
+    .soft-card { min-height: 0; padding: 1.45rem 1.25rem 1.35rem; }
   }
 </style>
 </head>
@@ -61,9 +194,55 @@
 
 <main class="wrap">
 
-  <section class="coming-soon">
-    <h2>Coming soon</h2>
-    <p>Software projects and things I have built are on their way.</p>
+  <header class="page-head">
+    <p class="eyebrow">Engineering tools</p>
+    <h1 class="page-title">Software</h1>
+    <p class="soft-lede">Browser-based design tools for wireless power transfer — reflected-impedance matching, coil and converter concept sizing, with live schematics and exportable results.</p>
+  </header>
+
+  <section class="block">
+    <h2 class="section-title">Live applications</h2>
+    <div class="soft-grid">
+
+      <a class="soft-card" href="https://ronnismad.github.io/matchingnetwork/" target="_blank" rel="noopener noreferrer">
+        <div class="soft-kicker">
+          <span class="live">Live</span>
+          <span>WPT · Matching</span>
+        </div>
+        <h2>Matching Network Designer</h2>
+        <p>Exact L-match synthesis for series-resonant WPT links. Computes reflected impedance, match loss from component Q, peak stress against ratings, and usable bandwidth — with compact circuit schematics and CSV export. English, Russian, and Chinese.</p>
+        <div class="soft-meta">
+          <span>V2.4</span>
+          <span>Single-page app</span>
+          <span>EN / RU / ZH</span>
+        </div>
+        <span class="soft-cta">
+          Open app
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </span>
+      </a>
+
+      <a class="soft-card" href="https://ronnismad.github.io/WPT-UDS-LF/" target="_blank" rel="noopener noreferrer">
+        <div class="soft-kicker">
+          <span class="live">Live</span>
+          <span>WPT · Unified suite</span>
+        </div>
+        <h2>WPT Unified Design Suite</h2>
+        <p>Concept sizing for wireless power links in one workspace: magnetic link efficiency (Wheeler, Dowell, AGM coupling, Steinmetz core loss), inverter and rectifier efficiency predictors, and a combined design summary with saveable results.</p>
+        <div class="soft-meta">
+          <span>V1.9.0</span>
+          <span>Coil · Inverter · Rectifier</span>
+          <span>EN / RU / ZH</span>
+        </div>
+        <span class="soft-cta">
+          Open app
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </span>
+      </a>
+
+    </div>
+
+    <p class="soft-note">Source code on <a href="https://github.com/ronnismad" target="_blank" rel="noopener noreferrer">GitHub</a>. Models are first-order analytical tools for concept sizing — verify critical designs with simulation and bench tests.</p>
   </section>
 
 </main>
