@@ -1,0 +1,85 @@
+{
+  "audioBase": "",
+  "tracks": [
+    {
+      "id": "chiaroscuro",
+      "title": "Chiaroscuro",
+      "artist": "Ronn",
+      "album": "Chiaroscuro",
+      "year": "",
+      "src": "music/Ronn - Chiaroschuro.mp3",
+      "art": "",
+      "duration": "3:40"
+    },
+    {
+      "id": "predicament",
+      "title": "Predicament",
+      "artist": "Ronn",
+      "album": "",
+      "year": "",
+      "src": "music/Ronn - Predicament.mp3",
+      "art": "",
+      "duration": "0:57"
+    },
+    {
+      "id": "moments",
+      "title": "Moments",
+      "artist": "The Anonym ft. Ronn",
+      "album": "",
+      "year": "",
+      "src": "music/The Anonym ft. Ronn - Moments.mp3",
+      "art": "",
+      "duration": "6:00"
+    },
+    {
+      "id": "trying",
+      "title": "Trying",
+      "artist": "Ronn",
+      "album": "",
+      "year": "",
+      "src": "music/Ronn - Trying.mp3",
+      "art": "",
+      "duration": "1:25"
+    },
+    {
+      "id": "just-stay",
+      "title": "Just Stay",
+      "artist": "Ronn",
+      "album": "",
+      "year": "",
+      "src": "music/Ronn - Just Stay.mp3",
+      "art": "",
+      "duration": "1:10"
+    },
+    {
+      "id": "always",
+      "title": "Always",
+      "artist": "Ronn",
+      "album": "Single",
+      "year": "",
+      "src": "music/Ronn - Always.mp3",
+      "art": "",
+      "duration": "1:34"
+    },
+    {
+      "id": "anno-domini",
+      "title": "Anno Domini (The Final Hour)",
+      "artist": "Ronn (Sutanu Chatterjee)",
+      "album": "",
+      "year": "",
+      "src": "music/Ronn - Anno Domini.mp3",
+      "art": "",
+      "duration": "4:00"
+    },
+    {
+      "id": "always-ii",
+      "title": "Always II",
+      "artist": "Ronn",
+      "album": "",
+      "year": "",
+      "src": "music/Ronn - Always - II.wav",
+      "art": "",
+      "duration": "1:42"
+    }
+  ]
+}
