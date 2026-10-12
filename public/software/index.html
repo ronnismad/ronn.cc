@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Software — Ronn</title>
-<meta name="description" content="Browser-based wireless power transfer design tools — matching networks, coils, inverters, and rectifiers.">
+<meta name="description" content="Things I have built — focused tools with clear interfaces and careful math.">
 <meta name="theme-color" content="#17191A">
 <meta property="og:title" content="Software — Sutanu Chatterjee">
-<meta property="og:description" content="Browser-based wireless power transfer design tools — matching networks, coils, inverters, and rectifiers.">
+<meta property="og:description" content="Things I have built — focused tools with clear interfaces and careful math.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ronn.cc/software">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,57 +17,236 @@
 <style>
   .soft-lede {
     margin: 0.75rem 0 0;
-    max-width: 36rem;
+    max-width: 34rem;
     color: var(--muted);
     font-size: 1.0625rem;
   }
 
   .soft-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
-    gap: 1px;
-    background: var(--line);
-    border: 1px solid var(--line);
-    margin-top: 0.25rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+    gap: 1.25rem;
+    margin-top: 0.5rem;
+  }
+
+  /* compact, darkened GUI panel — sharp, not blurred */
+  .soft-shot {
+    position: absolute;
+    right: 5%;
+    bottom: 6%;
+    width: 62%;
+    height: 58%;
+    z-index: 0;
+    pointer-events: none;
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: brightness(0.5) saturate(0.95) contrast(1.05);
+    border-radius: 12px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .soft-slot--match .soft-shot {
+    background-image: url("../img/app-match.jpg");
+  }
+
+  .soft-slot--suite .soft-shot {
+    background-image: url("../img/app-suite.jpg");
+  }
+
+  .soft-slot--ev .soft-shot {
+    background-image: url("../img/app-evcoil.jpg");
+  }
+
+  .soft-slot--spiral .soft-shot {
+    background-image: url("../img/app-rectspiral.jpg");
+  }
+
+  /* diagonal glass — covers upper side, no GUI, frosted */
+  .soft-glass {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    border-radius: inherit;
+    background: rgba(29, 32, 33, 0.32);
+    backdrop-filter: blur(18px) saturate(1.15);
+    -webkit-backdrop-filter: blur(18px) saturate(1.15);
+    clip-path: polygon(0 0, 100% 0, 100% 32%, 0 72%);
   }
 
   .soft-card {
     position: relative;
+    z-index: 1;
     display: flex;
     flex-direction: column;
-    gap: 0.85rem;
+    flex: 1;
+    min-height: 360px;
     padding: 1.85rem 1.75rem 1.65rem;
-    background: var(--panel);
+    overflow: hidden;
     text-decoration: none;
     color: inherit;
-    min-height: 280px;
-    transition: background 0.18s ease;
+    border: 1px solid rgba(255, 179, 71, 0.14);
+    border-radius: 18px;
+    background:
+      radial-gradient(ellipse 95% 75% at 50% 0%, rgba(255, 179, 71, 0.07), transparent 60%),
+      rgba(29, 32, 33, 0.72);
+    box-shadow:
+      0 18px 42px rgba(0, 0, 0, 0.32),
+      0 10px 32px rgba(255, 179, 71, 0.07);
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .soft-slot--suite .soft-card {
+    box-shadow:
+      0 18px 42px rgba(0, 0, 0, 0.32),
+      0 10px 32px rgba(255, 112, 67, 0.07);
   }
 
   .soft-card:hover,
   .soft-card:focus-visible {
-    background: var(--raised);
+    border-color: rgba(255, 179, 71, 0.36);
+    transform: translateY(-3px);
+    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.4), 0 0 48px rgba(255, 179, 71, 0.12);
   }
 
   .soft-card:focus-visible {
     outline: 1px solid var(--teal-dim);
-    outline-offset: -1px;
+    outline-offset: 2px;
   }
 
-  .soft-card::before {
+  /* soft under-card glow — unique orange identity per app */
+  .soft-slot {
+    position: relative;
+    display: flex;
+    isolation: isolate;
+    padding-bottom: 1.65rem;
+  }
+
+  .soft-glow {
+    position: absolute;
+    left: 4%;
+    right: 4%;
+    bottom: -0.65rem;
+    height: 58%;
+    border-radius: 50%;
+    filter: blur(26px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .soft-slot--match .soft-glow {
+    background: radial-gradient(
+      ellipse at center,
+      rgba(255, 179, 71, 0.22) 0%,
+      rgba(255, 112, 67, 0.08) 42%,
+      transparent 72%
+    );
+  }
+
+  .soft-slot--suite .soft-glow {
+    background: radial-gradient(
+      ellipse at center,
+      rgba(255, 140, 72, 0.20) 0%,
+      rgba(201, 133, 58, 0.08) 42%,
+      transparent 72%
+    );
+  }
+
+  /* green identity — same family as the GUIs' ok/lime accent */
+  .soft-slot--ev .soft-glow {
+    height: 64%;
+    bottom: -0.85rem;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(156, 204, 101, 0.34) 0%,
+      rgba(120, 180, 80, 0.13) 42%,
+      transparent 72%
+    );
+  }
+
+  .soft-slot--spiral .soft-glow {
+    height: 64%;
+    bottom: -0.85rem;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(125, 206, 160, 0.32) 0%,
+      rgba(100, 180, 140, 0.12) 42%,
+      transparent 72%
+    );
+  }
+
+  .soft-slot--ev .soft-card {
+    border-color: rgba(156, 204, 101, 0.16);
+    background:
+      radial-gradient(ellipse 95% 75% at 50% 0%, rgba(156, 204, 101, 0.09), transparent 60%),
+      rgba(29, 32, 33, 0.72);
+    box-shadow:
+      0 18px 42px rgba(0, 0, 0, 0.32),
+      0 10px 36px rgba(156, 204, 101, 0.11);
+  }
+
+  .soft-slot--spiral .soft-card {
+    border-color: rgba(125, 206, 160, 0.16);
+    background:
+      radial-gradient(ellipse 95% 75% at 50% 0%, rgba(125, 206, 160, 0.09), transparent 60%),
+      rgba(29, 32, 33, 0.72);
+    box-shadow:
+      0 18px 42px rgba(0, 0, 0, 0.32),
+      0 10px 36px rgba(125, 206, 160, 0.11);
+  }
+
+  .soft-slot--ev .soft-card:hover,
+  .soft-slot--ev .soft-card:focus-visible {
+    border-color: rgba(156, 204, 101, 0.36);
+    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.4), 0 0 48px rgba(156, 204, 101, 0.14);
+  }
+
+  .soft-slot--spiral .soft-card:hover,
+  .soft-slot--spiral .soft-card:focus-visible {
+    border-color: rgba(125, 206, 160, 0.36);
+    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.4), 0 0 48px rgba(125, 206, 160, 0.14);
+  }
+
+  .soft-slot--ev .soft-kicker .live::before {
+    background: #9ccc65;
+    box-shadow: 0 0 0 3px rgba(156, 204, 101, 0.18), 0 0 12px rgba(156, 204, 101, 0.55);
+  }
+
+  .soft-slot--spiral .soft-kicker .live::before {
+    background: #7dcea0;
+    box-shadow: 0 0 0 3px rgba(125, 206, 160, 0.18), 0 0 12px rgba(125, 206, 160, 0.55);
+  }
+
+  .soft-slot--ev .soft-meta span {
+    border-color: rgba(156, 204, 101, 0.22);
+    background: rgba(156, 204, 101, 0.08);
+  }
+
+  .soft-slot--spiral .soft-meta span {
+    border-color: rgba(125, 206, 160, 0.22);
+    background: rgba(125, 206, 160, 0.08);
+  }
+
+  .soft-slot--ev .soft-cta { color: #9ccc65; }
+  .soft-slot--spiral .soft-cta { color: #7dcea0; }
+
+  .soft-card::after {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--teal), transparent 70%);
-    opacity: 0.55;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(165deg, rgba(255, 255, 255, 0.06), transparent 42%);
+    pointer-events: none;
   }
 
-  .soft-card:hover::before,
-  .soft-card:focus-visible::before {
-    opacity: 1;
+  .soft-body {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    flex: 1;
   }
 
   .soft-kicker {
@@ -79,7 +258,7 @@
     font-size: 0.625rem;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--teal-dim);
+    color: #e0b07a;
   }
 
   .soft-kicker .live {
@@ -93,8 +272,8 @@
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: var(--teal);
-    box-shadow: 0 0 0 3px rgba(169, 201, 194, 0.15);
+    background: #ffb347;
+    box-shadow: 0 0 0 3px rgba(255, 179, 71, 0.18), 0 0 12px rgba(255, 179, 71, 0.55);
   }
 
   .soft-card h2 {
@@ -128,7 +307,8 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--muted);
-    border: 1px solid var(--line);
+    border: 1px solid rgba(255, 179, 71, 0.18);
+    background: rgba(255, 179, 71, 0.06);
     padding: 0.28rem 0.55rem;
     border-radius: 999px;
   }
@@ -142,7 +322,7 @@
     font-size: 0.6875rem;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--teal);
+    color: #ffb347;
   }
 
   .soft-cta svg {
@@ -156,7 +336,7 @@
 
   .soft-card:hover .soft-cta svg,
   .soft-card:focus-visible .soft-cta svg {
-    transform: translateX(3px);
+    transform: translate(3px, -2px);
   }
 
   .soft-note {
@@ -169,6 +349,10 @@
 
   @media (max-width: 640px) {
     .soft-card { min-height: 0; padding: 1.45rem 1.25rem 1.35rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .soft-card, .soft-cta svg { transition: none; }
   }
 </style>
 </head>
@@ -195,50 +379,114 @@
 <main class="wrap">
 
   <header class="page-head">
-    <p class="eyebrow">Engineering tools</p>
+    <p class="eyebrow">Things I have built</p>
     <h1 class="page-title">Software</h1>
-    <p class="soft-lede">Browser-based design tools for wireless power transfer — reflected-impedance matching, coil and converter concept sizing, with live schematics and exportable results.</p>
+    <p class="soft-lede">Focused tools with clear interfaces and careful math. Each one takes a problem seriously, then hands you answers you can use.</p>
   </header>
 
   <section class="block">
     <h2 class="section-title">Live applications</h2>
     <div class="soft-grid">
 
-      <a class="soft-card" href="https://ronnismad.github.io/matchingnetwork/" target="_blank" rel="noopener noreferrer">
-        <div class="soft-kicker">
-          <span class="live">Live</span>
-          <span>WPT · Matching</span>
+      <div class="soft-slot soft-slot--match">
+        <div class="soft-glow" aria-hidden="true"></div>
+        <a class="soft-card soft-card--match" href="https://ronnismad.github.io/matchingnetwork/" target="_blank" rel="noopener noreferrer">
+          <div class="soft-shot" aria-hidden="true"></div>
+          <div class="soft-glass" aria-hidden="true"></div>
+        <div class="soft-body">
+          <div class="soft-kicker">
+            <span class="live">Live</span>
+            <span>Matching · Design</span>
+          </div>
+          <h2>Matching Network Designer</h2>
+          <p>Exact L-match synthesis for two-port resonant networks. Computes reflected impedance, match loss from component Q, peak stress against ratings, and usable bandwidth — with compact circuit schematics and CSV export.</p>
+          <div class="soft-meta">
+            <span>V2.4</span>
+            <span>Single-page app</span>
+            <span>EN / RU / ZH</span>
+          </div>
+          <span class="soft-cta">
+            Open app
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </span>
         </div>
-        <h2>Matching Network Designer</h2>
-        <p>Exact L-match synthesis for series-resonant WPT links. Computes reflected impedance, match loss from component Q, peak stress against ratings, and usable bandwidth — with compact circuit schematics and CSV export. English, Russian, and Chinese.</p>
-        <div class="soft-meta">
-          <span>V2.4</span>
-          <span>Single-page app</span>
-          <span>EN / RU / ZH</span>
-        </div>
-        <span class="soft-cta">
-          Open app
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
-        </span>
-      </a>
+        </a>
+      </div>
 
-      <a class="soft-card" href="https://ronnismad.github.io/WPT-UDS-LF/" target="_blank" rel="noopener noreferrer">
-        <div class="soft-kicker">
-          <span class="live">Live</span>
-          <span>WPT · Unified suite</span>
+      <div class="soft-slot soft-slot--suite">
+        <div class="soft-glow" aria-hidden="true"></div>
+        <a class="soft-card soft-card--suite" href="https://ronnismad.github.io/WPT-UDS-LF/" target="_blank" rel="noopener noreferrer">
+          <div class="soft-shot" aria-hidden="true"></div>
+          <div class="soft-glass" aria-hidden="true"></div>
+        <div class="soft-body">
+          <div class="soft-kicker">
+            <span class="live">Live</span>
+            <span>Suite · Concept sizing</span>
+          </div>
+          <h2>WPT Unified Design Suite</h2>
+          <p>Concept sizing in one workspace: coupled-coil efficiency (Wheeler, Dowell, AGM coupling, Steinmetz core loss), power-stage efficiency predictors, and a combined design summary with saveable results.</p>
+          <div class="soft-meta">
+            <span>V1.9.0</span>
+            <span>Coil · Inverter · Rectifier</span>
+            <span>EN / RU / ZH</span>
+          </div>
+          <span class="soft-cta">
+            Open app
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </span>
         </div>
-        <h2>WPT Unified Design Suite</h2>
-        <p>Concept sizing for wireless power links in one workspace: magnetic link efficiency (Wheeler, Dowell, AGM coupling, Steinmetz core loss), inverter and rectifier efficiency predictors, and a combined design summary with saveable results.</p>
-        <div class="soft-meta">
-          <span>V1.9.0</span>
-          <span>Coil · Inverter · Rectifier</span>
-          <span>EN / RU / ZH</span>
+        </a>
+      </div>
+
+      <div class="soft-slot soft-slot--ev">
+        <div class="soft-glow" aria-hidden="true"></div>
+        <a class="soft-card soft-card--ev" href="https://ronnismad.github.io/EVCoilEstimator/" target="_blank" rel="noopener noreferrer">
+          <div class="soft-shot" aria-hidden="true"></div>
+          <div class="soft-glass" aria-hidden="true"></div>
+        <div class="soft-body">
+          <div class="soft-kicker">
+            <span class="live">Live</span>
+            <span>Coil · Estimation</span>
+          </div>
+          <h2>EV Coil Parameter Estimator</h2>
+          <p>Real-time parameter estimates for an 11-kW EV inductive charging link. Air gap, turns and aluminium shield thickness map to coupling, inductances, Q, resistance and efficiency through FEM-fitted polynomials — with a dimensioned stack preview.</p>
+          <div class="soft-meta">
+            <span>V1.0</span>
+            <span>FEM-fitted curves</span>
+            <span>SAE J2953</span>
+          </div>
+          <span class="soft-cta">
+            Open app
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </span>
         </div>
-        <span class="soft-cta">
-          Open app
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
-        </span>
-      </a>
+        </a>
+      </div>
+
+      <div class="soft-slot soft-slot--spiral">
+        <div class="soft-glow" aria-hidden="true"></div>
+        <a class="soft-card soft-card--spiral" href="https://ronnismad.github.io/rectplanarestimator2/" target="_blank" rel="noopener noreferrer">
+          <div class="soft-shot" aria-hidden="true"></div>
+          <div class="soft-glass" aria-hidden="true"></div>
+        <div class="soft-body">
+          <div class="soft-kicker">
+            <span class="live">Live</span>
+            <span>Spiral · Inductance</span>
+          </div>
+          <h2>Rectangular Planar Spiral Estimator</h2>
+          <p>Self-inductance of rectangular planar spiral coils from outer size, turns, track width and spacing. Aebischer geometry with a live engineering schematic and instant µH readout.</p>
+          <div class="soft-meta">
+            <span>V1.0</span>
+            <span>Aebischer formula</span>
+            <span>Planar spiral</span>
+          </div>
+          <span class="soft-cta">
+            Open app
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </span>
+        </div>
+        </a>
+      </div>
 
     </div>
 
