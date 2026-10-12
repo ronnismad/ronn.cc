@@ -57,6 +57,7 @@
     suppressEnded: false,
     healedSeekable: false,
     lastSeekAt: 0,
+    streamSrc: "",
   };
 
   function noteSeek() {
@@ -75,33 +76,152 @@
     }
   }
 
-  function healSeekable() {
-    if (state.healedSeekable) return;
-    if (!seekableCollapsed()) return;
-    if (!Number.isFinite(audio.duration) || audio.duration <= 0) return;
-    const src = audio.currentSrc || audio.src;
-    if (!src) return;
-    state.healedSeekable = true;
-    const t = audio.currentTime;
-    const wasPlaying = isPlaying();
-    const restore = () => {
-      if (t > 0.05) {
-        state.suppressEnded = true;
-        try {
-          audio.currentTime = t;
-        } catch (_) {
-          /* ignore */
+  /* Some hosts (Cloudflare Workers assets, some caches) ignore Range and
+     leave media.seekable stuck at [0, 0]. Chrome then rejects currentTime
+     seeks and the scrubber snaps back to 0. Reloading src does not help.
+     Seeking falls back to a blob URL so the whole file is in memory. */
+  const blobCache = new Map();
+  let seekSwapBusy = false;
+  let pendingSeek = null;
+  let seekGen = 0;
+
+  function blobUrlFor(src) {
+    if (!blobCache.has(src)) {
+      const p = fetch(src)
+        .then((r) => {
+          if (!r.ok) throw new Error("HTTP " + r.status);
+          return r.blob();
+        })
+        .then((b) => URL.createObjectURL(b))
+        .catch((err) => {
+          blobCache.delete(src);
+          throw err;
+        });
+      blobCache.set(src, p);
+    }
+    return blobCache.get(src);
+  }
+
+  function rangeCovers(time) {
+    try {
+      if (!audio.seekable || !audio.seekable.length) return false;
+      for (let i = 0; i < audio.seekable.length; i++) {
+        if (
+          time >= audio.seekable.start(i) - 0.05 &&
+          time <= audio.seekable.end(i) + 0.05
+        ) {
+          return true;
         }
       }
-      if (wasPlaying) {
-        const p = audio.play();
-        if (p && typeof p.catch === "function") p.catch(() => syncPlayUI());
+      return false;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  function mediaIsBlob() {
+    return typeof audio.src === "string" && audio.src.indexOf("blob:") === 0;
+  }
+
+  function applySeekTime(target) {
+    if (target == null || !Number.isFinite(target)) return;
+    noteSeek();
+    if (mediaIsBlob() || rangeCovers(target)) {
+      try {
+        audio.currentTime = target;
+      } catch (_) {
+        /* ignore */
       }
       syncProgress();
-      syncBuffer();
+      return;
+    }
+    pendingSeek = target;
+    ensureBlobThenSeek();
+  }
+
+  function ensureBlobThenSeek() {
+    if (seekSwapBusy) return;
+    const src = state.streamSrc;
+    if (!src) return;
+    seekSwapBusy = true;
+    const gen = seekGen;
+    blobUrlFor(src)
+      .then((url) => {
+        if (gen !== seekGen) return;
+        const t = pendingSeek;
+        pendingSeek = null;
+        const wasPlaying = isPlaying();
+        return new Promise((resolve) => {
+          let settled = false;
+          const finish = (time) => {
+            if (settled) return;
+            settled = true;
+            if (gen !== seekGen) {
+              resolve();
+              return;
+            }
+            if (Number.isFinite(time)) {
+              try {
+                audio.currentTime = time;
+              } catch (_) {
+                /* ignore */
+              }
+            }
+            syncProgress();
+            syncBuffer();
+            if (wasPlaying) {
+              const p = audio.play();
+              if (p && typeof p.catch === "function") {
+                p.catch(() => syncPlayUI());
+              }
+            } else {
+              syncPlayUI();
+            }
+            resolve();
+          };
+          audio.addEventListener("loadedmetadata", () => finish(t), {
+            once: true,
+          });
+          audio.src = url;
+          setTimeout(() => finish(t), 3000);
+        });
+      })
+      .catch(() => {
+        if (gen === seekGen && pendingSeek != null) {
+          try {
+            audio.currentTime = pendingSeek;
+          } catch (_) {
+            /* ignore */
+          }
+          pendingSeek = null;
+          syncProgress();
+        }
+      })
+      .then(() => {
+        seekSwapBusy = false;
+        if (gen === seekGen && pendingSeek != null) {
+          const t = pendingSeek;
+          pendingSeek = null;
+          applySeekTime(t);
+        }
+      });
+  }
+
+  function healSeekable() {
+    if (state.healedSeekable) return;
+    state.healedSeekable = true;
+    const src = state.streamSrc;
+    if (!src) return;
+    // Large WAVs only fetch on demand; small tracks prefetch so the first scrub is instant.
+    if (/\.wav(\?|$)/i.test(src)) return;
+    const run = () => {
+      blobUrlFor(src).catch(() => {});
     };
-    audio.addEventListener("loadedmetadata", restore, { once: true });
-    audio.src = src;
+    if (typeof window.requestIdleCallback === "function") {
+      window.requestIdleCallback(run, { timeout: 3000 });
+    } else {
+      setTimeout(run, 1200);
+    }
   }
 
   function fmtTime(sec) {
@@ -512,6 +632,9 @@
     // Setting src runs the resource selection algorithm; an extra load()
     // can leave Chrome's seekable range collapsed to [0, 0].
     state.healedSeekable = false;
+    state.streamSrc = src;
+    seekGen++;
+    pendingSeek = null;
     audio.src = src;
     if (els.seekBuffer) els.seekBuffer.style.width = "0%";
     updateHero();
@@ -545,20 +668,7 @@
       ? audio.duration
       : 0;
     if (!dur) return null;
-    let target = Math.min(1, Math.max(0, ratio)) * dur;
-    try {
-      if (audio.seekable && audio.seekable.length) {
-        const start = audio.seekable.start(0);
-        const end = audio.seekable.end(audio.seekable.length - 1);
-        // Chrome can report a collapsed [0,0] seekable range while the file
-        // is already fully buffered — treat that as fully seekable.
-        if (!(end <= start && end === 0 && dur > 0)) {
-          target = Math.min(end - 0.05, Math.max(start, target));
-        }
-      }
-    } catch (_) {
-      /* ignore invalid TimeRanges */
-    }
+    const target = Math.min(1, Math.max(0, ratio)) * dur;
     // Stay shy of the true end so a user seek never fires "ended".
     return Math.min(target, dur - 0.08);
   }
@@ -580,13 +690,11 @@
     const ratio = (clientX - rect.left) / rect.width;
     const target = seekTargetFromRatio(ratio);
     if (target == null || !Number.isFinite(target)) return;
-    noteSeek();
-    try {
-      audio.currentTime = target;
-    } catch (_) {
-      /* ignore if media not ready */
-    }
-    syncProgress();
+    const pct = Math.min(1, Math.max(0, ratio)) * 100;
+    if (els.seekFill) els.seekFill.style.width = pct + "%";
+    if (els.seekKnob) els.seekKnob.style.left = pct + "%";
+    if (els.seekCurrent) els.seekCurrent.textContent = fmtTime(target);
+    applySeekTime(target);
   }
 
   function trackMeta(track) {
@@ -679,7 +787,7 @@
     if (els.prev) {
       els.prev.addEventListener("click", () => {
         if (audio.currentTime > 3) {
-          audio.currentTime = 0;
+          applySeekTime(0);
           return;
         }
         loadTrack(state.index - 1, isPlaying() || state.index >= 0);
@@ -733,13 +841,7 @@
             t / Math.max(0.001, audio.duration)
           );
           if (target == null) return;
-          noteSeek();
-          try {
-            audio.currentTime = target;
-          } catch (_) {
-            /* ignore */
-          }
-          syncProgress();
+          applySeekTime(target);
         };
         if (e.code === "ArrowRight" || e.code === "Right") {
           e.preventDefault();
@@ -836,13 +938,8 @@
       const recentSeek = Date.now() - state.lastSeekAt < 800;
       if (state.suppressEnded || state.seeking || recentSeek) {
         state.suppressEnded = false;
-        try {
-          audio.currentTime = Math.max(0, (audio.duration || 0) - 0.08);
-        } catch (_) {
-          /* ignore */
-        }
+        applySeekTime(Math.max(0, (audio.duration || 0) - 0.08));
         syncPlayUI();
-        syncProgress();
         return;
       }
       nextTrack(true);
@@ -862,7 +959,7 @@
         navigator.mediaSession.setActionHandler("play", togglePlay);
         navigator.mediaSession.setActionHandler("pause", () => audio.pause());
         navigator.mediaSession.setActionHandler("previoustrack", () => {
-          if (audio.currentTime > 3) audio.currentTime = 0;
+          if (audio.currentTime > 3) applySeekTime(0);
           else loadTrack(state.index - 1, true);
         });
         navigator.mediaSession.setActionHandler("nexttrack", () =>
@@ -897,30 +994,14 @@
           const target = seekTargetFromRatio(
             (audio.currentTime + 5) / Math.max(0.001, audio.duration)
           );
-          if (target != null) {
-            noteSeek();
-            try {
-              audio.currentTime = target;
-            } catch (_) {
-              /* ignore */
-            }
-            syncProgress();
-          }
+          if (target != null) applySeekTime(target);
         }
       } else if (e.code === "ArrowLeft") {
         e.preventDefault();
         const target = seekTargetFromRatio(
           (audio.currentTime - 5) / Math.max(0.001, audio.duration || 1)
         );
-        if (target != null) {
-          noteSeek();
-          try {
-            audio.currentTime = target;
-          } catch (_) {
-            /* ignore */
-          }
-          syncProgress();
-        }
+        if (target != null) applySeekTime(target);
       } else if (e.key === "m" || e.key === "M") {
         audio.muted = !audio.muted;
         syncMuteUI();
