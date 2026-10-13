@@ -81,6 +81,7 @@
      seeks and the scrubber snaps back to 0. Reloading src does not help.
      Seeking falls back to a blob URL so the whole file is in memory. */
   const blobCache = new Map();
+  const blobUrls = new Map();
   let seekSwapBusy = false;
   let pendingSeek = null;
   let seekGen = 0;
@@ -92,7 +93,11 @@
           if (!r.ok) throw new Error("HTTP " + r.status);
           return r.blob();
         })
-        .then((b) => URL.createObjectURL(b))
+        .then((b) => {
+          const url = URL.createObjectURL(b);
+          blobUrls.set(src, url);
+          return url;
+        })
         .catch((err) => {
           blobCache.delete(src);
           throw err;
@@ -100,6 +105,27 @@
       blobCache.set(src, p);
     }
     return blobCache.get(src);
+  }
+
+  function retainBlobs(keepSrcs) {
+    const keep = new Set(keepSrcs.filter(Boolean));
+    for (const [src, url] of Array.from(blobUrls.entries())) {
+      if (keep.has(src)) continue;
+      try {
+        URL.revokeObjectURL(url);
+      } catch (_) {
+        /* ignore */
+      }
+      blobUrls.delete(src);
+      blobCache.delete(src);
+    }
+  }
+
+  function prefetchBlob(src) {
+    if (!src) return;
+    // Huge WAVs only fetch on demand so mobile data isn't burned up front.
+    if (/\.wav(\?|$)/i.test(src)) return;
+    blobUrlFor(src).catch(() => {});
   }
 
   function rangeCovers(time) {
@@ -208,19 +234,24 @@
   }
 
   function healSeekable() {
-    if (state.healedSeekable) return;
-    state.healedSeekable = true;
-    const src = state.streamSrc;
-    if (!src) return;
-    // Large WAVs only fetch on demand; small tracks prefetch so the first scrub is instant.
-    if (/\.wav(\?|$)/i.test(src)) return;
-    const run = () => {
-      blobUrlFor(src).catch(() => {});
-    };
-    if (typeof window.requestIdleCallback === "function") {
-      window.requestIdleCallback(run, { timeout: 3000 });
-    } else {
-      setTimeout(run, 1200);
+    // Kept as a hook after metadata; real seekability is handled by the blob fallback.
+  }
+
+  function syncPositionState() {
+    if (!("mediaSession" in navigator)) return;
+    if (typeof navigator.mediaSession.setPositionState !== "function") return;
+    try {
+      if (!Number.isFinite(audio.duration) || audio.duration <= 0) return;
+      navigator.mediaSession.setPositionState({
+        duration: audio.duration,
+        playbackRate: audio.playbackRate || 1,
+        position: Math.min(
+          Math.max(0, audio.currentTime || 0),
+          audio.duration
+        ),
+      });
+    } catch (_) {
+      /* ignore unsupported / invalid */
     }
   }
 
@@ -635,7 +666,9 @@
     state.streamSrc = src;
     seekGen++;
     pendingSeek = null;
+    retainBlobs([src]);
     audio.src = src;
+    prefetchBlob(src);
     if (els.seekBuffer) els.seekBuffer.style.width = "0%";
     updateHero();
     syncPlayUI();
@@ -925,12 +958,17 @@
       // Allow natural end-of-track advance after a user seek settles.
       state.suppressEnded = false;
       syncProgress();
+      syncPositionState();
     });
-    audio.addEventListener("timeupdate", syncProgress);
+    audio.addEventListener("timeupdate", () => {
+      syncProgress();
+      syncPositionState();
+    });
     audio.addEventListener("progress", syncBuffer);
     audio.addEventListener("loadedmetadata", () => {
       syncProgress();
       syncBuffer();
+      syncPositionState();
       healSeekable();
     });
     audio.addEventListener("ended", () => {
@@ -944,8 +982,14 @@
       }
       nextTrack(true);
     });
-    audio.addEventListener("play", syncPlayUI);
-    audio.addEventListener("pause", syncPlayUI);
+    audio.addEventListener("play", () => {
+      syncPlayUI();
+      syncPositionState();
+    });
+    audio.addEventListener("pause", () => {
+      syncPlayUI();
+      syncPositionState();
+    });
     audio.addEventListener("error", () => {
       if (els.status) {
         els.status.textContent =
@@ -965,6 +1009,26 @@
         navigator.mediaSession.setActionHandler("nexttrack", () =>
           nextTrack(true)
         );
+        navigator.mediaSession.setActionHandler("seekto", (details) => {
+          if (details && Number.isFinite(details.seekTime)) {
+            applySeekTime(details.seekTime);
+          }
+        });
+        navigator.mediaSession.setActionHandler("seekbackward", (details) => {
+          const skip =
+            details && Number.isFinite(details.seekOffset)
+              ? details.seekOffset
+              : 10;
+          applySeekTime(Math.max(0, audio.currentTime - skip));
+        });
+        navigator.mediaSession.setActionHandler("seekforward", (details) => {
+          const skip =
+            details && Number.isFinite(details.seekOffset)
+              ? details.seekOffset
+              : 10;
+          const dur = Number.isFinite(audio.duration) ? audio.duration : 0;
+          applySeekTime(Math.min(dur, audio.currentTime + skip));
+        });
       } catch (_) {
         /* ignore unsupported actions */
       }
