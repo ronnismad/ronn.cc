@@ -3,43 +3,469 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>English — Ronn</title>
-<meta name="description" content="Teaching, tutoring, and language work">
+<title>Ronnie — English Teaching | Sutanu Chatterjee</title>
+<meta name="description" content="TESOL-certified English teacher Sutanu Chatterjee (Ronn). Teaching experience in Russia, Latvia and India, from adult B1–C1 groups to speaking clubs and children’s camps.">
 <meta name="theme-color" content="#17191A">
 <meta property="og:title" content="English — Sutanu Chatterjee">
-<meta property="og:description" content="Teaching, tutoring, and language work">
+<meta property="og:description" content="TESOL-certified English teacher Sutanu Chatterjee (Ronn). Teaching experience in Russia, Latvia and India, from adult B1–C1 groups to speaking clubs and children’s camps.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ronn.cc/english">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Instrument+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Instrument+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
 <style>
-  .coming-soon {
-    min-height: 50vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 1rem;
-  }
-  .coming-soon h2 {
-    margin: 0;
-    font-family: var(--display);
-    font-variation-settings: "wdth" 110, "wght" 700;
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    letter-spacing: -0.02em;
-    color: var(--fg);
-  }
-  .coming-soon p {
-    margin: 0;
-    color: var(--muted);
-    font-size: 1.0625rem;
-  }
+.english-page { --english-accent: #c8ddd4; --english-serif: "Cormorant Garamond", Georgia, serif; }
+.english-main { padding-top: clamp(3rem, 7vw, 6rem); }
+.english-main h1, .english-main h2, .english-main h3 { margin-top: 0; }
+.english-main p { color: #bac8c3; }
+.english-main .eyebrow { color: #b9cfc6; font-size: .75rem; letter-spacing: .1em; }
+.teaching-hero { display: grid; grid-template-columns: 1.25fr 1fr; gap: clamp(2rem, 4vw, 3.5rem); align-items: center; padding-bottom: 4rem; }
+.teaching-hero h1 { font: 650 clamp(2.8rem, 4.1vw, 3.65rem)/1.05 var(--display); letter-spacing: -.055em; margin: 1.3rem 0 1.6rem; }
+.teaching-hero h1 em { font-family: var(--english-serif); font-weight: 500; color: var(--english-accent); letter-spacing: -.025em; }
+.teaching-lede { font-size: 1.125rem; line-height: 1.8; max-width: 51ch; }
+.teaching-hero .teacher-name { margin: 1.3rem 0 .2rem; color: var(--fg); font-size: 1rem; }
+.teacher-detail { margin: 0; font-size: .9rem; }
+.teaching-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-top: 2rem; }
+.english-main .btn { display: inline-flex; align-items: center; min-height: 48px; }
+.english-link { color: var(--teal); text-decoration: none; border-bottom: 1px solid #a9c9c255; padding-block: .45rem; }
+.english-link:hover { color: #e3f0e9; border-color: currentColor; }
+.english-link:focus-visible { outline: 2px solid var(--teal); outline-offset: 4px; }
+.lesson-board { border: 1px solid #b6d2c533; border-radius: 14px; padding: clamp(1.5rem, 3vw, 2.5rem); background: radial-gradient(ellipse at 95% 0%, #a9c9c20b, transparent 70%), #1c2221; }
+.lesson-board .board-caption { font: .7rem var(--mono); letter-spacing: .1em; text-transform: uppercase; margin: 0; color: #c6d9cf; }
+.board-quote { font: italic 500 clamp(1.9rem, 2.5vw, 2.25rem)/1.14 var(--english-serif); color: #e2ece5 !important; margin: 1.5rem 0 2rem; }
+.lesson-flow { display: flex; align-items: center; gap: .8rem; padding: 1.2rem 0; border-block: 1px solid #b6d2c52b; }
+.lesson-flow span { font-size: .9rem; color: #e2ece5; }
+.lesson-flow i { font-style: normal; color: var(--teal-dim); }
+.credential { padding-top: 1.4rem; display: flex; gap: .9rem; align-items: center; }
+.credential-seal { width: 48px; height: 48px; flex: none; border: 1px solid #a9c9c25a; border-radius: 50%; display: grid; place-items: center; color: var(--teal); }
+.credential strong { color: #e2ece5; font-size: 1rem; font-weight: 500; }
+.credential small { display: block; margin-top: .2rem; color: #bccbc3; font-size: .8rem; }
+.country-strip { display: grid; grid-template-columns: repeat(3, 1fr); border-block: 1px solid var(--line); margin-bottom: 4rem; }
+.country-strip > div { padding: 1.5rem 1.3rem; }
+.country-strip > div:first-child { padding-left: 0; }
+.country-strip > div + div { border-left: 1px solid var(--line); }
+.country-strip span { display: block; color: #d2e4da; font: .7rem var(--mono); letter-spacing: .07em; text-transform: uppercase; }
+.country-strip h2 { font-size: 1.4rem; margin: .5rem 0 .3rem; }
+.country-strip p { font-size: .9rem; line-height: 1.6; margin: 0; }
+.english-section { padding: 1rem 0 4rem; scroll-margin-top: 2rem; }
+.english-section-head { display: flex; justify-content: space-between; align-items: end; gap: 2rem; margin-bottom: 2rem; }
+.english-section-head h2 { font: 600 clamp(1.9rem, 3.4vw, 2.7rem)/1.15 var(--display); letter-spacing: -.045em; margin-bottom: 0; }
+.english-aside { font: italic 500 1.5rem/1.3 var(--english-serif); max-width: 25ch; color: #d0dfd6 !important; margin: 0; }
+.teaching-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.teaching-card { padding: 1.7rem; border: 1px solid #b6d2c52b; border-radius: 10px; background: #1d2322; }
+.teaching-card .card-index { font: .7rem var(--mono); color: var(--teal); }
+.teaching-card h3 { font-size: 1.3rem; line-height: 1.3; margin: 1rem 0 .7rem; letter-spacing: -.02em; }
+.teaching-card p { font-size: .95rem; line-height: 1.8; margin: 0; }
+.teaching-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1.3rem; }
+.teaching-tags span { border: 1px solid #b6d2c533; padding: .25rem .55rem; border-radius: 4px; color: #d3e4da; font-size: .75rem; }
+.experience-list { list-style: none; padding: 0; margin: 0; }
+.experience-list > li { display: grid; grid-template-columns: 190px 1fr; gap: 2rem; padding: 1.7rem 0; border-top: 1px solid var(--line); }
+.experience-list time { font: .8rem/1.7 var(--mono); color: #c4d9cd; }
+.experience-list h3 { font-size: 1.3rem; margin-bottom: .25rem; letter-spacing: -.02em; }
+.experience-list .role-meta { color: #b3ccc0; margin: 0 0 .8rem; font-size: .85rem; }
+.experience-list p { max-width: 77ch; margin: 0; line-height: 1.8; }
+.private-teaching { padding: 1.5rem; border-left: 2px solid var(--teal-dim); background: #a9c9c208; margin-top: 1rem; }
+.private-teaching h3 { margin-bottom: .5rem; font-size: 1.2rem; }
+.private-teaching p { margin: 0; max-width: 85ch; }
+.activity-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 1rem; }
+.activity { padding: 2rem; border-radius: 10px; border: 1px solid #b6d2c52b; background: #1b2220; }
+.activity h3 { font-size: 1.5rem; line-height: 1.25; margin: 1rem 0; letter-spacing: -.025em; }
+.activity p { line-height: 1.8; margin-bottom: 0; }
+.activity .activity-meta { font: .75rem/1.7 var(--mono); color: #bad2c5; }
+.topic-line { border-top: 1px solid var(--line); margin-top: 1.8rem; padding-top: 1.1rem; }
+.topic-line strong { font-weight: 500; color: #e0eae4; }
+.teaching-contact { padding: 2.5rem; border: 1px solid #b6d2c53d; background: linear-gradient(120deg, #a9c9c20c, transparent); border-radius: 12px; margin: 0 0 2rem; }
+.teaching-contact h2 { font: 600 clamp(1.9rem, 3.5vw, 2.6rem)/1.2 var(--display); letter-spacing: -.04em; margin-bottom: .8rem; }
+.teaching-contact p { max-width: 65ch; line-height: 1.8; }
+@media (max-width: 950px) {
+  .teaching-hero { gap: 2rem; grid-template-columns: 1.2fr 1fr; }
+  .teaching-grid { grid-template-columns: 1fr; }
+  .teaching-card { padding: 1.5rem; }
+  .teaching-card h3 { margin-top: .7rem; }
+  .experience-list > li { grid-template-columns: 160px 1fr; gap: 1.5rem; }
+}
+@media (max-width: 640px) {
+  .teaching-hero { grid-template-columns: 1fr; padding-bottom: 2rem; }
+  .teaching-hero h1 { font-size: clamp(2.65rem, 11vw, 3.8rem); }
+  .teaching-lede { font-size: 1rem; }
+  .country-strip { grid-template-columns: 1fr; margin-bottom: 2.5rem; }
+  .country-strip > div, .country-strip > div:first-child { padding: 1.2rem 0; }
+  .country-strip > div + div { border-left: 0; border-top: 1px solid var(--line); }
+  .english-section { padding-bottom: 2.7rem; }
+  .english-section-head { display: block; }
+  .english-aside { margin-top: 1rem; font-size: 1.35rem; }
+  .experience-list > li { grid-template-columns: 1fr; gap: .6rem; }
+  .activity-grid { grid-template-columns: 1fr; }
+  .activity { padding: 1.5rem; }
+  .teaching-contact { padding: 1.5rem; }
+}
+@media print {
+  .site-header, .foot, .teaching-actions { display: none; }
+  .english-main p, .english-main h1, .english-main h2, .english-main h3, .english-main em { color: #222 !important; }
+  .teaching-card, .activity, .lesson-board, .teaching-contact { background: white; break-inside: avoid; }
+}
+
+/* A portfolio for language schools, camps, and teaching teams. */
+.english-main { max-width: 1280px; padding-top: clamp(2.5rem, 5.5vw, 5rem); }
+.teaching-hero { grid-template-columns: 1.28fr 1fr; gap: clamp(2rem, 4vw, 4rem); align-items: center; padding-bottom: 3rem; }
+.hero-intro .eyebrow { display: flex; align-items: center; gap: .6rem; }
+.intro-dot { width: 5px; height: 5px; background: var(--teal); border-radius: 50%; flex: none; }
+.teaching-hero h1 { font-size: clamp(3.5rem, 6.2vw, 5.6rem); line-height: .98; margin: 1.3rem 0 1.5rem; }
+.teaching-hero h1 > span { color: #c6ded3; }
+.teacher-position { font: 500 clamp(1.3rem, 2.1vw, 1.65rem)/1.3 var(--body); color: #e0ece5 !important; margin: 0 0 1.2rem; letter-spacing: -.025em; }
+.teacher-position em { font: italic 500 1.35em/1.2 var(--english-serif); letter-spacing: 0; }
+.teaching-lede { font-size: 1rem; line-height: 1.8; max-width: 54ch; margin-bottom: 0; }
+.teaching-actions { margin-top: 1.5rem; }
+.teacher-dossier { position: relative; padding: 1.8rem; background: radial-gradient(ellipse at 0 0, #b9d7c918, transparent 65%), #1e2522; border: 1px solid #b6d2c53d; border-radius: 14px; }
+.teacher-dossier::before { content: ''; position: absolute; height: 42px; width: 1px; top: 1.8rem; right: -1px; background: #cce5d5; }
+.dossier-top { display: flex; gap: 1.2rem; align-items: center; padding-bottom: 1.5rem; border-bottom: 1px solid #b6d2c529; }
+.teacher-portrait { width: 112px; height: 112px; object-fit: cover; border-radius: 50%; background: #e8ece9; border: 4px solid #d6e5dc; flex: none; }
+.dossier-label { font: italic 500 1.8rem var(--english-serif); color: #e3eee7; }
+.dossier-top p { margin: .4rem 0 0; font-size: .9rem; line-height: 1.7; color: #d1ddd5; }
+.dossier-top p span { color: #afc3b8; }
+.dossier-qualification { display: flex; gap: .9rem; align-items: center; padding: 1.4rem 0 .2rem; }
+.dossier-qualification svg { width: 32px; height: 36px; fill: none; stroke: #bdd8c8; stroke-width: 1.3; flex: none; }
+.dossier-qualification strong { display: block; color: #e0ece4; font-size: 1.1rem; font-weight: 500; }
+.dossier-qualification span { display: block; color: #b5c7bc; font-size: .8rem; margin-top: .1rem; }
+.dossier-facts { margin: 0; }
+.dossier-facts > div { padding-top: 1rem; }
+.dossier-facts dt { font: .65rem var(--mono); text-transform: uppercase; letter-spacing: .08em; color: #a7c2b3; }
+.dossier-facts dd { margin: .3rem 0 0; font-size: .9rem; line-height: 1.6; color: #dce7e0; }
+.dossier-note { margin: 1.3rem 0 0; padding-top: 1.2rem; border-top: 1px solid #b6d2c529; font: italic 500 1.3rem/1.3 var(--english-serif); color: #cee0d4 !important; }
+.teacher-evidence { display: grid; grid-template-columns: repeat(4,1fr); margin: 0 0 2rem; border-block: 1px solid #b6d2c533; }
+.teacher-evidence > div { padding: 1.4rem 1.3rem; }
+.teacher-evidence > div:first-child { padding-left: 0; }
+.teacher-evidence > div + div { border-left: 1px solid #b6d2c529; }
+.teacher-evidence strong { font: 550 clamp(1.7rem, 2.7vw, 2.4rem)/1.1 var(--display); letter-spacing: -.045em; color: #dcece2; display: block; }
+.teacher-evidence strong i { font: italic 500 .8em var(--english-serif); letter-spacing: 0; }
+.teacher-evidence span { display: block; color: #b6c8bc; font-size: .8rem; margin-top: .6rem; }
+.teacher-nav { display: flex; gap: .5rem 1.5rem; flex-wrap: wrap; padding: .9rem 0 1.5rem; margin-bottom: 2.5rem; }
+.teacher-nav a { font: .7rem var(--mono); text-transform: uppercase; letter-spacing: .04em; color: #c1d6c9; text-decoration: none; min-height: 36px; display: inline-flex; align-items: center; border-bottom: 1px solid transparent; }
+.teacher-nav a:hover { color: #edf4ef; border-color: var(--teal); }
+.teacher-nav a:focus-visible { outline: 2px solid var(--teal); outline-offset: 4px; }
+.teaching-card { position: relative; background: linear-gradient(145deg,#a9c9c20a,transparent 60%),#1c2220; border-top: 2px solid #8db4a0; }
+.teaching-card:nth-child(2) { border-top-color: #9cb5b7; }
+.teaching-card:nth-child(3) { border-top-color: #bbb59d; }
+.teaching-card .card-index { font-size: .75rem; }
+.teaching-card h3 { font-size: 1.35rem; }
+.classroom-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.2rem; }
+.classroom-card { overflow: hidden; border: 1px solid #b6d2c533; border-radius: 12px; background: #1b2220; }
+.classroom-feature { display: grid; grid-template-columns: 1fr 1.1fr; grid-column: 1/-1; }
+.classroom-art { position: relative; background: #25352e; min-height: 215px; overflow: hidden; padding: 2rem; display: flex; align-items: center; gap: 2rem; }
+.art-word { font: 600 clamp(2.5rem,4.5vw,4.2rem)/.95 var(--display); letter-spacing: -.06em; color: #daeadd; }
+.art-word em { font-family: var(--english-serif); font-weight: 500; }
+.conversation-bubble { padding: 1rem 1.2rem; border: 1px solid #c9dfcc52; border-radius: 15px 15px 15px 0; font: italic 500 1.25rem/1.3 var(--english-serif); color: #d2e6d6; }
+.art-caption { position: absolute; bottom: 1rem; left: 2rem; right: 1rem; font: .6rem/1.5 var(--mono); text-transform: uppercase; letter-spacing: .05em; color: #c3d8c8; }
+.classroom-copy { padding: 1.7rem; }
+.classroom-copy .activity-meta { font: .7rem/1.6 var(--mono); text-transform: uppercase; color: #bbd4c4; }
+.classroom-copy h3 { font-size: 1.45rem; line-height: 1.25; margin: 1rem 0 .8rem; letter-spacing: -.025em; }
+.classroom-copy p { font-size: .95rem; line-height: 1.8; margin-bottom: 0; }
+.cooking-art { background: #2d3530; min-height: 210px; gap: 1rem; }
+.art-number { font: 500 5.3rem/.95 var(--display); letter-spacing: -.07em; color: #d9e6d9; }
+.art-number-note { font: italic 500 1.4rem/1.2 var(--english-serif); color: #d3dfd3; position: relative; z-index: 1; }
+.cooking-art svg { position: absolute; width: 160px; height: 70px; right: 0; bottom: 0; opacity: .2; stroke: #e0ecd9; fill: none; stroke-width: 1.3; }
+.theatre-art { background: #283438; justify-content: center; padding-bottom: 2.5rem; }
+.theatre-art svg { width: 230px; max-width: 100%; height: 110px; stroke: #bed3d4; fill: none; stroke-width: 1.3; }
+.wider-workshop { display: flex; align-items: center; gap: 1.4rem; border-block: 1px solid var(--line); padding: 1.4rem 0; margin-top: 1.6rem; }
+.workshop-icon { font: 1.6rem var(--mono); color: #bdd3c5; flex: none; }
+.wider-workshop h3 { font-size: 1.05rem; margin: 0 0 .3rem; }
+.wider-workshop p { font-size: .9rem; margin: 0; line-height: 1.7; }
+.workshop-category { font: .6rem/1.7 var(--mono); text-transform: uppercase; color: #b5c9bc; min-width: 100px; }
+.experience-list > li { position: relative; padding-left: 1.4rem; border-left: 1px solid #b6d2c533; }
+.experience-list > li::before { content: ''; position: absolute; left: -4px; top: 2rem; width: 7px; height: 7px; border-radius: 50%; background: #b1d0bb; box-shadow: 0 0 0 5px #17191a; }
+.country-strip { margin: 2rem 0 1.5rem; }
+.country-strip h2 { font-size: 1.15rem; }
+.country-strip p { font-size: .85rem; }
+.teaching-contact h2 em { font-family: var(--english-serif); font-weight: 500; color: #c8dfcf; }
+.contact-email { overflow-wrap: anywhere; font-size: .95rem; }
+.contact-email a { color: #d1e6d7; text-decoration-color: #a9c9c255; text-underline-offset: .3rem; }
+@media (max-width: 1000px) {
+ .teaching-hero { grid-template-columns: 1.2fr 1fr; gap: 2rem; }
+ .teaching-hero h1 { font-size: clamp(3.5rem,6.4vw,4.8rem); }
+ .teacher-dossier { padding: 1.3rem; }
+ .dossier-top { gap: .9rem; flex-wrap: wrap; }
+ .teacher-portrait { width: 88px; height: 88px; }
+ .dossier-label { font-size: 1.5rem; }
+ .dossier-top p { font-size: .8rem; }
+ .classroom-art { gap: 1.3rem; padding: 1.5rem; }
+ .conversation-bubble { font-size: 1.15rem; padding: .8rem; }
+ .art-caption { left: 1.5rem; }
+}
+@media (max-width: 700px) {
+ .teaching-hero { grid-template-columns: 1fr; gap: 2rem; }
+ .teaching-hero h1 { font-size: clamp(3.3rem,13vw,5rem); }
+ .teacher-position { font-size: 1.4rem; }
+ .teaching-lede { font-size: 1rem; }
+ .dossier-top { flex-wrap: nowrap; }
+ .teacher-dossier { padding: 1.5rem; }
+ .dossier-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; }
+ .dossier-facts > div:last-child { grid-column: 1/-1; }
+ .teacher-evidence { grid-template-columns: 1fr 1fr; }
+ .teacher-evidence > div { padding: 1.1rem; }
+ .teacher-evidence > div:first-child { padding-left: 1.1rem; }
+ .teacher-evidence > div:nth-child(3) { border-left: 0; }
+ .teacher-evidence > div:nth-child(n+3) { border-top: 1px solid #b6d2c529; }
+ .teacher-nav { gap: .25rem 1rem; margin-bottom: 1.5rem; }
+ .classroom-grid { grid-template-columns: 1fr; }
+ .classroom-feature { display: block; }
+ .classroom-art { min-height: 200px; }
+ .classroom-feature .classroom-art { padding-bottom: 2.5rem; }
+ .wider-workshop { flex-wrap: wrap; gap: .9rem; }
+ .wider-workshop > div { flex: 1; min-width: 180px; }
+ .workshop-category { margin-left: 0; }
+ .experience-list > li { padding-left: 1.1rem; }
+}
+@media (prefers-reduced-motion: reduce) { .english-page * { scroll-behavior: auto; } }
+@media print {
+ .teacher-nav, .teacher-dossier, .teacher-evidence, .classroom-art { display: none; }
+ .classroom-feature { display: block; }
+ .classroom-copy, .teacher-evidence > div { break-inside: avoid; }
+}
+
+@media (max-width: 400px) {
+ .classroom-feature .classroom-art { gap: 1rem; padding: 1.4rem 1.2rem 3rem; }
+ .art-word { font-size: 2.6rem; }
+ .conversation-bubble { font-size: 1rem; padding: .6rem; }
+}
+
+/* Clear downloads and a visual guide to the four language skills. */
+.cv-download-button { gap: 1rem; }
+.cv-download-button > span { font-size: 1.3rem; line-height: 1; }
+.cv-file-details { display: block; flex-basis: 100%; margin-top: -.4rem; color: #bbd0c2; font-size: .75rem; }
+.lesson-method { display: grid; grid-template-columns: 1fr 1.15fr; margin-top: 1.5rem; border: 1px solid #b6d2c533; border-radius: 12px; overflow: hidden; background: #1c2420; }
+.skills-map { background: radial-gradient(ellipse at 50% 45%,#a9c9c20d,transparent 65%),#23312b; padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; }
+.method-label { font: .7rem var(--mono); letter-spacing: .07em; text-transform: uppercase; color: #c7dece !important; margin: 0; }
+.skills-map svg { display: block; width: 100%; max-width: 360px; margin: .5rem auto 0; height: auto; }
+.skills-map svg > path { fill: none; stroke: #a9c9c280; stroke-width: 1.2; }
+.map-ring { fill: none; stroke: #a9c9c238; stroke-width: 1; stroke-dasharray: 3 7; }
+.map-core { fill: #31483c; stroke: #c9e3cf80; stroke-width: 1; }
+.map-centre { fill: #e3eee4; font: italic 500 27px var(--english-serif); }
+.skill-node { fill: #d4e6d6; }
+.map-label { fill: #d8e9dc; font: 16px var(--body); }
+.method-copy { padding: 1.8rem 2rem; }
+.method-copy h3 { font: 550 1.7rem/1.2 var(--display); letter-spacing: -.025em; margin: .8rem 0 1.2rem; }
+.method-steps { list-style: none; padding: 0; margin: 0; }
+.method-steps li { display: flex; align-items: baseline; gap: 1rem; padding: .65rem 0; }
+.method-steps li + li { border-top: 1px solid #b6d2c525; }
+.method-steps li > span { font: .7rem var(--mono); color: #a8c4b1; }
+.method-steps h4 { margin: 0 0 .2rem; font: 500 1rem var(--body); color: #e0ebe2; }
+.method-steps p { margin: 0; font-size: .9rem; line-height: 1.6; }
+@media (max-width: 700px) {
+ .lesson-method { grid-template-columns: 1fr; }
+ .skills-map { padding: 1.3rem; }
+ .skills-map svg { max-width: 320px; }
+ .method-copy { padding: 1.5rem; }
+ .teaching-hero { align-items: start; }
+ .cv-file-details { line-height: 1.6; }
+}
+@media print { .lesson-method { break-inside: avoid; } }
+
+
+.teaching-cv-card { display: grid; grid-template-columns: 180px 1fr; align-items: center; gap: 2.5rem; padding: 2rem 2.5rem; margin-bottom: 2rem; border: 1px solid #b6d2c53d; border-radius: 12px; background: linear-gradient(120deg,#b3d4bc12,transparent 75%),#1e2722; }
+.cv-preview { display: block; justify-self: center; transform: rotate(-3deg); border: 1px solid #d7e5db; border-radius: 3px; box-shadow: 8px 8px 0 #a9c9c218; line-height: 0; }
+.cv-preview img { display: block; width: 140px; height: auto; border-radius: 2px; }
+.cv-preview:focus-visible { outline: 2px solid var(--teal); outline-offset: 5px; }
+.teaching-cv-card h2 { font: 550 2rem/1.15 var(--display); letter-spacing: -.035em; margin: .5rem 0 1rem; }
+.teaching-cv-card h2 em { font: italic 500 1.15em/1 var(--english-serif); color: #c7dfce; }
+.teaching-cv-card p { max-width: 50ch; font-size: 1rem; line-height: 1.7; }
+.document-details { display: block; font-size: .75rem; color: #bdcfc2; margin-top: .7rem; }
+@media (max-width: 640px) { .teaching-cv-card { grid-template-columns: 1fr; gap: 1.5rem; padding: 1.5rem; } .cv-preview { justify-self: start; margin: .4rem 0 .5rem .4rem; } }
+@media print { .teaching-cv-card { display: none; } }
+
+
+.experience-badge { display: inline-flex; align-items: center; gap: 1rem; padding: .65rem 1rem; margin: .4rem 0 .3rem; border: 1px solid #b8d5c24d; border-radius: 8px; background: #a9c9c20b; }
+.experience-badge strong { display: flex; align-items: baseline; gap: .35rem; font: 550 2rem/1 var(--display); color: #d4eadb; letter-spacing: -.04em; }
+.experience-badge strong small { font: italic 500 1.35rem var(--english-serif); letter-spacing: 0; }
+.experience-badge > span { padding-left: 1rem; border-left: 1px solid #b8d5c233; font: 500 .85rem/1.4 var(--body); color: #dce9df; }
+.experience-badge > span small { display: block; font-size: .72rem; font-weight: 400; color: #b8cdbf; margin-top: .15rem; }
+
+
+/* Warm amber light for Ronnie's teaching portfolio. */
+.english-page { position: relative; isolation: isolate; --amber-rgb: 219, 156, 67; }
+.english-page > .site-header { background: var(--bg); }
+.english-auras { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.english-auras span { position: absolute; border-radius: 50%; filter: blur(70px); background: radial-gradient(ellipse,rgba(var(--amber-rgb),.19),rgba(var(--amber-rgb),.07) 42%,transparent 70%); }
+.english-auras span:nth-child(1) { width: 75vw; height: 70vh; top: -28vh; right: -15vw; }
+.english-auras span:nth-child(2) { width: 65vw; height: 80vh; left: -36vw; top: 12vh; opacity: .8; }
+.english-auras span:nth-child(3) { width: 58vw; height: 65vh; right: -30vw; top: 30vh; opacity: .8; }
+.english-auras span:nth-child(4) { width: 70vw; height: 60vh; bottom: -25vh; left: 15vw; opacity: .7; }
+.english-auras span:nth-child(5) { width: 40vw; height: 45vh; left: 25vw; top: 15vh; opacity: .28; }
+.english-main { --teal: #e3bb7e; --teal-dim: #b38e59; --english-accent: #e6c18e; }
+.teaching-hero h1 { font-size: clamp(4.2rem,8.4vw,7.1rem); margin-bottom: .65rem; }
+.teaching-hero h1 > span { color: #e5ba77; }
+.teacher-formal-name { color: #e4d6c2 !important; font-size: 1rem; margin: 0 0 1.6rem; }
+.teacher-formal-name > span { color: #c7b79e; font-size: .85rem; }
+.intro-dot { background: #e5ba77; }
+.experience-badge { border-color: #d4a45a54; background: #d4a45a0c; }
+.experience-badge strong { color: #f0cd96; }
+.experience-badge > span { border-color: #d4a45a38; color: #ead9c0; }
+.experience-badge > span small { color: #cdb997; }
+.teacher-dossier { border-color: #d4a45a45; background: radial-gradient(ellipse at 0 0,#d4a45a15,transparent 70%),#24221e; }
+.teacher-dossier::before { background: #edc386; }
+.dossier-qualification svg { stroke: #e1b978; }
+.teacher-portrait { border-color: #d8c5a5; }
+.dossier-note { color: #e3ccaa !important; border-color: #d4a45a30; }
+.teacher-evidence strong { color: #e8cca2; }
+.teacher-nav a { color: #dbc8a9; }
+.teaching-card { background: linear-gradient(145deg,#d4a45a0b,transparent 60%),#24221e; border-top-color: #d6ab69; }
+.teaching-card:nth-child(2) { border-top-color: #c79650; }
+.teaching-card:nth-child(3) { border-top-color: #e0c293; }
+.teaching-tags span { border-color: #d4a45a3b; color: #e4d0b2; }
+.lesson-method { background: #24221e; border-color: #d4a45a3d; }
+.skills-map { background: radial-gradient(ellipse at center,#d4a45a12,transparent 70%),#30291f; }
+.map-core { fill: #51412c; stroke: #e4bb7b80; }
+.map-ring { stroke: #d4a45a40; }
+.skills-map svg > path { stroke: #d8b27680; }
+.skill-node { fill: #e8c998; }
+.map-centre, .map-label { fill: #f0dfc6; }
+.classroom-card { background: #24221e; border-color: #d4a45a33; }
+.classroom-art { background: #352b20; }
+.cooking-art { background: #3b3023; }
+.theatre-art { background: #332b22; }
+.conversation-bubble { color: #ead6b8; border-color: #d4a45a59; }
+.art-word, .art-number, .art-number-note { color: #ead3ac; }
+.art-caption { color: #d7bf9b; }
+.teaching-cv-card { background: linear-gradient(120deg,#d4a45a13,transparent 75%),#25221d; border-color: #d4a45a45; }
+.teaching-cv-card h2 em, .teaching-contact h2 em { color: #e5c38e; }
+.teaching-contact { background: linear-gradient(120deg,#d4a45a0e,transparent); border-color: #d4a45a3d; }
+@media (max-width: 700px) {
+ .teaching-hero h1 { font-size: clamp(4rem,19vw,6rem); }
+ .english-auras span { filter: blur(45px); }
+ .english-auras span:nth-child(1) { width: 140vw; right: -65vw; }
+ .english-auras span:nth-child(2) { width: 120vw; left: -70vw; }
+ .english-auras span:nth-child(4) { width: 120vw; left: -10vw; }
+}
+@media print { .english-auras { display: none; } }
+
+.english-page > .foot--page { background: var(--bg); }
+
+.teaching-telegram { display: grid; grid-template-columns: 1fr 1fr; gap: .65rem; margin: 1rem 0 1.6rem; max-width: 510px; }
+.telegram-label { grid-column: 1/-1; display: flex; align-items: center; gap: .5rem; color: #d6c3a3; font: .7rem var(--mono); letter-spacing: .04em; text-transform: uppercase; }
+.telegram-label svg { width: 19px; height: 19px; fill: none; stroke: #e1b878; stroke-width: 1.3; stroke-linejoin: round; }
+.teaching-telegram a { display: block; padding: .8rem .9rem; border: 1px solid #d4a45a45; border-radius: 7px; text-decoration: none; background: #d4a45a08; }
+.teaching-telegram strong { display: block; color: #ecd4ae; font-size: .9rem; font-weight: 500; }
+.teaching-telegram a > span { display: flex; justify-content: space-between; gap: .6rem; color: #cdbb9f; font-size: .75rem; margin-top: .25rem; }
+.teaching-telegram i { font-style: normal; }
+.teaching-telegram a:hover { border-color: #e3bb7e; background: #d4a45a12; }
+.teaching-telegram a:focus-visible { outline: 2px solid #e3bb7e; outline-offset: 3px; }
+@media (max-width: 400px) { .teaching-telegram { grid-template-columns: 1fr; } }
+@media print { .teaching-telegram { display: none; } }
+
+
+.pronunciation-note { margin-top: 1rem; padding: 1rem !important; border-left: 2px solid #dfb776; background: #d4a45a09; border-radius: 0 5px 5px 0; }
+.dossier-facts .pronunciation-note dt { color: #dfc69f; }
+.pronunciation-note strong { color: #ecd7b7; font-weight: 500; }
+.dossier-facts .pronunciation-note dd { line-height: 1.7; }
+.dossier-facts .pronunciation-note .school-background { margin-top: .65rem; color: #c5bcae; font-size: .83rem; }
+@media (max-width: 700px) { .dossier-facts > .pronunciation-note { grid-column: 1/-1; } }
+
+/* Practical teaching: robotics feature and real classroom photography. */
+.robotics-feature { position:relative; overflow:hidden; display:grid; grid-template-columns:1.1fr 1fr; gap:2rem; padding:clamp(1.5rem,4vw,3rem); border:1px solid #d5a86160; border-radius:16px; background:radial-gradient(ellipse at 100% 10%,#c18a3426,transparent 65%),#24211c; }
+.robotics-feature h2 { font:600 clamp(2rem,4vw,3.3rem)/1.08 var(--display); letter-spacing:-.04em; margin:.8rem 0 1.2rem; }
+.robotics-feature h2 em { font-family:var(--english-serif); font-weight:500; color:#edcf9e; }
+.robotics-feature p { line-height:1.8; color:#d1c7b8; }
+.robotics-feature .eyebrow { color:#e4c08a; }
+.robotics-facts { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; border-block:1px solid #d5a86140; padding:1.2rem 0; margin-top:1.7rem; }
+.robotics-facts strong { display:block; font:550 clamp(1.5rem,3vw,2.3rem)/1.1 var(--display); color:#f1dfc1; }
+.robotics-facts span { display:block; font-size:.8rem; color:#cdbfa9; margin-top:.5rem; }
+.robotics-visual { align-self:center; min-width:0; margin:0; }
+.robotics-visual svg { display:block; width:100%; height:auto; }
+.robotics-visual figcaption { text-align:center; font:italic 500 1.35rem var(--english-serif); color:#e1c79e; margin-top:.7rem; }
+.robotics-note { font-size:.85rem; margin:1rem 0 0; }
+.robotics-section { padding-top:0; }
+.classroom-photo { display:block; width:100%; height:clamp(310px,42vw,480px); object-fit:cover; }
+.classroom-photo--cooking { object-position:center 12%; }
+.classroom-photo--camp { object-position:center 38%; }
+.photo-journal { display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:1.2rem; margin-top:1.4rem; }
+.photo-journal figure { margin:0; border:1px solid #d5a86130; border-radius:12px; overflow:hidden; background:#211f1b; }
+.photo-journal img { display:block; width:100%; height:310px; object-fit:cover; }
+.photo-journal figure:first-child img { object-position:center top; }
+.photo-journal .winter-photo { object-position:center 42%; }
+.photo-journal figcaption { padding:1.1rem 1.2rem; }
+.photo-journal strong { display:block; font-size:1rem; font-weight:500; color:#e9dbc5; }
+.photo-journal span { display:block; color:#c5bcad; font-size:.85rem; line-height:1.6; margin-top:.35rem; }
+.photo-journal-intro { margin:2.7rem 0 1rem; }
+.photo-journal-intro h3 { font:italic 500 2rem var(--english-serif); color:#ead4b2; margin-bottom:.4rem; }
+.photo-journal-intro p { line-height:1.7; margin:0; }
+@media(max-width:950px) { .robotics-feature { grid-template-columns:1fr; } .robotics-visual { max-width:510px; width:100%; margin:0 auto; } .photo-journal { grid-template-columns:repeat(2,1fr); } .photo-journal figure:first-child { grid-column:1/-1; } .photo-journal figure:first-child img { height:360px; } }
+@media(max-width:600px) { .robotics-feature { gap:1rem; } .robotics-facts { gap:.5rem; } .robotics-facts span { font-size:.75rem; } .classroom-photo { height:270px; } .photo-journal { grid-template-columns:1fr; } .photo-journal figure:first-child img,.photo-journal img { height:auto; max-height:480px; object-fit:cover; } .photo-journal .winter-photo { max-height:none; } }
+@media print { .robotics-feature,.photo-journal figure { break-inside:avoid; } }
+
+
+/* A small, accessible choice of messaging apps for lesson enquiries. */
+.lesson-planner { margin-top:1.5rem; max-width:510px; }
+.english-main .lesson-planner summary { display:inline-flex; gap:1.5rem; cursor:pointer; list-style:none; min-height:48px; background:#e3bb7e; color:#20211e; border-color:#e3bb7e; }
+.lesson-planner summary::-webkit-details-marker { display:none; }
+.lesson-planner summary::marker { content:''; }
+.lesson-planner summary:focus-visible,.lesson-platforms a:focus-visible { outline:2px solid #e3bb7e; outline-offset:4px; }
+.lesson-chevron { font-size:1.1rem; line-height:1; }
+.lesson-planner[open] .lesson-chevron { transform:rotate(45deg); }
+.lesson-options { margin-top:.8rem; padding:1.1rem; border:1px solid #d4a45a50; border-radius:10px; background:#24211d; }
+.english-main .lesson-options p { margin:0 0 .8rem; font-size:.95rem; color:#e8d7bb; }
+.lesson-platforms { display:grid; grid-template-columns:1fr 1fr; gap:.7rem; }
+.lesson-platforms a { display:block; padding:.85rem; border:1px solid #d4a45a45; border-radius:7px; text-decoration:none; background:#d4a45a08; min-width:0; }
+.lesson-platforms a:hover { background:#d4a45a18; border-color:#e3bb7e; }
+.lesson-platforms strong { display:flex; justify-content:space-between; gap:.5rem; font-size:.95rem; font-weight:500; color:#efdbb9; }
+.lesson-platforms a>span { display:block; font-size:.8rem; color:#d0c2ac; margin-top:.35rem; }
+.lesson-options small { display:block; color:#bcaf9b; font-size:.8rem; line-height:1.6; margin-top:.8rem; }
+@media(max-width:400px) { .lesson-platforms { grid-template-columns:1fr; } }
+@media print { .lesson-planner { display:none; } }
+
+
+.robotics-workshop-photo { display:block; width:100%; height:auto; border-radius:10px; border:1px solid #dfbd843d; }
+.robotics-photo-steps { display:flex; align-items:center; justify-content:space-between; gap:.5rem; padding:.85rem .3rem .1rem; color:#e6cca4; font:.75rem var(--mono); }
+.robotics-photo-steps span+span::before { content:'→'; margin-right:clamp(.5rem,2vw,1.5rem); color:#a78b64; }
+.robotics-visual figcaption { font-size:1.25rem; line-height:1.35; }
+@media(max-width:400px) { .robotics-photo-steps { font-size:.66rem; } }
+
+/* Connected language practice, explored through concrete lesson ideas. */
+.lesson-lab { margin-top:1.5rem; padding:clamp(1.3rem,3vw,2.5rem); border:1px solid #d4a45a50; border-radius:14px; background:radial-gradient(ellipse at 95% 0,#d4a45a14,transparent 60%),#23211d; }
+.lesson-lab-head { display:flex; justify-content:space-between; gap:2rem; align-items:end; }
+.lesson-lab-head h3 { font:600 clamp(1.9rem,3.5vw,2.8rem)/1.1 var(--display); letter-spacing:-.04em; margin:.8rem 0 0; }
+.lesson-lab-head h3 em { font-family:var(--english-serif); font-weight:500; color:#edd1a7; }
+.lesson-lab-head>p { max-width:30ch; line-height:1.8; margin:0; color:#d2c5b2; }
+.lesson-scenario-bar { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem; border-block:1px solid #d4a45a35; padding:1.2rem 0; margin:1.8rem 0 1.2rem; }
+.lesson-scenario-label { color:#cbb58f; font:.68rem/1.6 var(--mono); text-transform:uppercase; letter-spacing:.06em; }
+.lesson-topic-buttons { display:flex; gap:.5rem; flex-wrap:wrap; }
+.lesson-topic-buttons button { font:500 .85rem var(--body); color:#e3d2b7; background:transparent; border:1px solid #d4a45a50; border-radius:30px; padding:.7rem 1rem; min-height:44px; cursor:pointer; }
+.lesson-topic-buttons button[aria-pressed="true"] { color:#282116; background:#e3bb7e; border-color:#e3bb7e; }
+.lesson-topic-buttons button:hover { border-color:#e3bb7e; }
+.lesson-topic-buttons button:focus-visible { outline:2px solid #f0d4ac; outline-offset:4px; }
+.english-main .lesson-context { color:#e4d3b8; margin:0 0 1.2rem; line-height:1.7; font-size:1rem; }
+.language-path { display:grid; grid-template-columns:repeat(4,1fr); list-style:none; padding:0; margin:0; gap:1rem; }
+.language-step { position:relative; padding:1.2rem; border:1px solid #d4a45a40; border-radius:10px; background:#d4a45a06; min-width:0; }
+.language-step:not(:last-child)::after { content:'→'; position:absolute; right:-.9rem; top:2.2rem; color:#d7b77e; background:#25221d; z-index:1; font-size:1.2rem; }
+.language-step-top { display:flex; justify-content:space-between; align-items:center; color:#bda57f; font:.7rem var(--mono); }
+.language-step-top svg { width:28px; height:30px; stroke:#e5c490; stroke-width:1.2; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+.language-step h4 { font:500 1.35rem var(--body); margin:1rem 0 .65rem; color:#f0dec2; }
+.english-main .language-step p { font-size:.93rem; line-height:1.75; color:#d0c5b4; margin:0; }
+.lesson-outcome { display:flex; gap:1rem; align-items:center; border-top:1px solid #d4a45a35; margin-top:1.3rem; padding-top:1.3rem; }
+.outcome-mark { display:grid; place-items:center; width:44px; height:44px; border:1px solid #d4a45a60; border-radius:50%; color:#e3bb7e; font-size:1.5rem; flex:none; }
+.english-main .lesson-outcome p { font-size:1.05rem; line-height:1.6; color:#ead6b5; margin:.3rem 0 0; }
+.english-main .lesson-adaptation { font-size:.8rem; line-height:1.7; color:#bdb09c; margin:1.3rem 0 0; }
+@media(max-width:1000px) { .language-path { grid-template-columns:repeat(2,1fr); } .language-step:nth-child(2)::after { display:none; } .lesson-lab-head { align-items:start; } }
+@media(max-width:600px) { .lesson-lab-head { display:block; } .lesson-lab-head>p { margin-top:1rem; max-width:none; } .language-path { grid-template-columns:1fr; } .language-step:not(:last-child)::after { content:'↓'; display:block; right:1.4rem; top:auto; bottom:-1rem; } .lesson-topic-buttons { gap:.45rem; } .lesson-topic-buttons button { padding:.65rem .85rem; } }
+@media print { .lesson-topic-buttons { display:none; } .lesson-lab { break-inside:avoid; } }
+
+
+.lesson-scenario-bar { align-items:start; }
+.lesson-topic-groups { display:grid; gap:1rem; }
+.lesson-topic-group { display:grid; gap:.5rem; }
+.lesson-topic-heading { font:.7rem var(--mono); color:#d5bd96; }
+.lesson-prompt-example { margin:1.3rem 0 0; padding:1.3rem; border:1px solid #d4a45a45; border-left:3px solid #d4a45a; border-radius:8px; background:#d4a45a08; }
+.lesson-prompt-example[hidden] { display:none; }
+.lesson-prompt-example blockquote { margin:.8rem 0; color:#ead9be; font:400 1rem/1.8 var(--body); }
+.english-main .lesson-prompt-example p { color:#cbb58f; font-size:.8rem; line-height:1.9; margin:0; }
+.lesson-prompt-example p span { padding:0 .4rem; }
+@media(max-width:600px) { .lesson-topic-groups { width:100%; } .lesson-prompt-example { padding:1rem; } }
+
+.ai-teaching-intro { margin-top:1rem; }
+.ai-teaching-intro .english-link { display:inline; padding-block:.1rem; }
 </style>
 </head>
-<body>
+<body class="english-page">
+<div class="english-auras" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
 
 <header class="site-header">
   <a class="wordmark" href="/">
@@ -49,7 +475,7 @@
   <nav class="nav">
         <a href="/cv">CV</a>
         <a href="/science">Science</a>
-        <a href="/english" class="is-current">English</a>
+        <a href="/english" class="is-current" aria-current="page">English</a>
         <a href="/software">Software</a>
         <a href="/hardware">Hardware</a>
         <a href="/audio">Audio</a>
@@ -59,13 +485,40 @@
   </nav>
 </header>
 
-<main class="wrap">
+<main class="wrap english-main" id="english-main">
+ <section class="teaching-hero" id="teaching-profile" aria-labelledby="english-title">
+ <div class="hero-intro"><p class="eyebrow"><span class="intro-dot" aria-hidden="true"></span>English language / Teaching portfolio</p><div class="experience-badge" aria-label="English teaching experience since 2019"><strong><span data-teaching-years>7</span><small>years</small></strong><span>English teaching<small>Since 2019</small></span></div><h1 id="english-title">Ronnie<span aria-hidden="true">.</span></h1><p class="teacher-formal-name">Sutanu Chatterjee <span>· Also known as Ronn</span></p><nav class="teaching-telegram" aria-label="English with Ronn on Telegram"><span class="telegram-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 17-7-4 16-5-5-3 3 1-5 7-6-9 5Z"/></svg>English with Ronn</span><a href="https://t.me/englishwithronn" target="_blank" rel="noopener noreferrer"><strong>Telegram channel</strong><span>@englishwithronn <i aria-hidden="true">↗</i></span></a><a href="https://t.me/+RtP_oNB8EIU2ZDAy" target="_blank" rel="noopener noreferrer"><strong>Telegram group</strong><span>Open the group <i aria-hidden="true">↗</i></span></a></nav><p class="teacher-position">TESOL-certified<br><em>English language teacher.</em></p><p class="teaching-lede">I help adults, children, and teenagers speak and write English more clearly and confidently. I have taught intermediate to advanced groups, English for work and study, speaking clubs, and children’s camps. My experience includes schools in Russia and private lessons in Latvia and India.</p><p class="teaching-lede ai-teaching-intro">I also offer AI-focused English lessons: learners practise writing clear prompts, checking AI answers, and improving their own writing. The focus is on useful English, clear thinking, and making their own choices. <a class="english-link" href="#lesson-method-title">Explore lesson ideas ↗</a></p><p class="contact-email"><a href="mailto:sutanuchatterjee93@gmail.com">sutanuchatterjee93@gmail.com</a></p><details class="lesson-planner"><summary class="btn btn--solid">Plan a Lesson <span class="lesson-chevron" aria-hidden="true">＋</span></summary><div class="lesson-options"><p>Choose where to message me.</p><div class="lesson-platforms"><a href="https://wa.me/79522180528?text=Hi%20Ronnie%21%20I%27d%20like%20to%20plan%20an%20English%20lesson.%20Could%20we%20discuss%20my%20goals%20and%20your%20availability%3F" target="_blank" rel="noopener noreferrer"><strong>WhatsApp <span aria-hidden="true">↗</span></strong><span>+7 952 218 05 28</span></a><a href="https://t.me/ronnismad?text=Hi%20Ronnie%21%20I%27d%20like%20to%20plan%20an%20English%20lesson.%20Could%20we%20discuss%20my%20goals%20and%20your%20availability%3F" target="_blank" rel="noopener noreferrer"><strong>Telegram <span aria-hidden="true">↗</span></strong><span>@ronnismad</span></a></div><small>A short enquiry is ready for you to edit and send.</small></div></details><div class="teaching-actions"><a class="btn btn--solid cv-download-button" href="/english/files/Sutanu-Chatterjee-English-Teaching-CV.pdf?v=5" download>Download teaching CV <span aria-hidden="true">↓</span></a><a class="english-link" href="mailto:sutanuchatterjee93@gmail.com?subject=English%20teaching%20role">Contact me ↗</a><span class="cv-file-details">PDF · 2 pages · Updated October 2026</span></div></div>
+ <aside class="teacher-dossier" aria-label="Teacher profile at a glance"><div class="dossier-top"><img class="teacher-portrait" src="/english/images/sutanu-teaching-portrait.png" width="140" height="140" alt="Ronnie (Sutanu Chatterjee)"><div><span class="dossier-label">Hello, I’m Ronnie.</span><p>Native English speaker<br><span>British English · RP pronunciation</span></p></div></div><div class="dossier-qualification"><svg viewBox="0 0 32 36" aria-hidden="true"><path d="M16 2 29 7v10c0 8-13 16-13 16S3 25 3 17V7Z"/><path d="m9 17 5 5 10-11"/></svg><div><strong>TESOL certified</strong><span>Teaching English to Speakers of Other Languages</span><span>Alternoid Academy</span></div></div><dl class="dossier-facts"><div class="pronunciation-note"><dt>Pronunciation & language background</dt><dd>I speak British English with <strong>Received Pronunciation (RP)</strong>.</dd><dd class="school-background">My English education began in kindergarten and continued through my schooling at Don Bosco.</dd></div><div><dt>Teaching settings</dt><dd>Language schools · Private lessons<br>Speaking clubs · Camps & workshops</dd></div><div><dt>Lesson formats</dt><dd>Groups & individual lessons<br>Online & in person</dd></div><div><dt>International experience</dt><dd>Russia · Latvia · India</dd></div></dl><p class="dossier-note">Clear explanations. Regular practice.<br>A chance to use English.</p></aside>
+ </section>
+ <section class="teacher-evidence" aria-label="Teaching experience highlights"><div><strong data-teaching-years>7</strong><span>Years in English teaching · Since 2019</span></div><div><strong>B1–C1</strong><span>Intermediate to advanced groups</span></div><div><strong>6–17</strong><span>Children and teenagers</span></div><div><strong>Online<br><i>& in person</i></strong><span>Group and individual lessons</span></div></section>
+ <nav class="teacher-nav" aria-label="Teaching portfolio sections"><a href="#robotics-workshops">Robotics workshops</a><a href="#teaching-strengths">What I teach</a><a href="#classroom-examples">Examples</a><a href="#teaching-experience">Experience</a><a href="#teaching-enquiries">Contact</a></nav>
 
-  <section class="coming-soon">
-    <h2>Coming soon</h2>
-    <p>Teaching, tutoring, and language work are on their way.</p>
-  </section>
+<section class="english-section robotics-section" id="robotics-workshops" aria-labelledby="robotics-title">
+<div class="robotics-feature"><div><p class="eyebrow">01 / Featured workshop experience · Studio 787</p><h2 id="robotics-title">Build a robot.<br><em>Grow a curious mind.</em></h2><p>My teaching also reaches into robotics. In 2024, I helped organise eight Arduino-based robotics workshops with Studio 787 for children and teenagers aged 8–17.</p><p>The workshops focused on autonomous robots. I bring an engineer’s practical approach to teaching: break a big idea into clear steps, make it easy to try, and learn by doing.</p><div class="robotics-facts"><div><strong>8</strong><span>Robotics workshops</span></div><div><strong>8–17</strong><span>Ages of learners</span></div><div><strong>2024</strong><span>Studio 787</span></div></div><p class="robotics-note">Arduino · Autonomous robots · Practical learning</p></div>
+<figure class="robotics-visual"><img class="robotics-workshop-photo" src="/english/images/arduino-robotics-workshop.webp" width="780" height="855" loading="lazy" alt="Ronnie guiding a young learner as they connect components on an Arduino robot"><div class="robotics-photo-steps" aria-label="Practical robotics learning"><span>Build</span><span>Programme</span><span>Test</span></div><figcaption>Learning together, one connection at a time.</figcaption></figure></div></section>
 
+ <section class="english-section" id="teaching-strengths" aria-labelledby="teaching-focus"><div class="english-section-head"><div><p class="eyebrow">02 / What I teach</p><h2 id="teaching-focus">Clear lessons.<br>Practical English.</h2></div><p class="english-aside">Clear explanations.<br>Plenty of practice.</p></div>
+ <div class="teaching-grid"><article class="teaching-card"><span class="card-index">01 / Adults</span><h3>General English</h3><p>I have taught intermediate to advanced groups (B1, B2, and C1). Lessons connect grammar and vocabulary with reading, writing, listening, and speaking.</p><div class="teaching-tags"><span>B1–C1 groups</span><span>Speaking clubs</span></div></article><article class="teaching-card"><span class="card-index">02 / Work & study</span><h3>English for work and study</h3><p>I teach English for workplace discussions, sharing ideas, and academic communication. Learners practise language they can use in their work or studies.</p><div class="teaching-tags"><span>Workplace English</span><span>English for study</span></div></article><article class="teaching-card"><span class="card-index">03 / Young learners</span><h3>English for young learners</h3><p>I teach children and teenagers through camps, drama, conversation, and creative projects. Activities give them a chance to read, write, listen, and speak.</p><div class="teaching-tags"><span>Ages 6–17</span><span>Camps & workshops</span></div></article></div>
+ <div class="lesson-lab" aria-labelledby="lesson-method-title"><div class="lesson-lab-head"><div><p class="eyebrow">Four language skills / Connected by a purpose</p><h3 id="lesson-method-title">One idea.<br><em>Four ways to use English.</em></h3></div><p>Give learners something to do, a reason to talk, and a result they can share.</p></div><div class="lesson-scenario-bar"><span class="lesson-scenario-label">Explore a sample lesson</span><div class="lesson-topic-groups"><div class="lesson-topic-group"><span class="lesson-topic-heading">AI & prompts</span><div class="lesson-topic-buttons" role="group" aria-label="AI and prompt lesson topics"><button type="button" data-lesson-topic="prompt" aria-pressed="true" aria-controls="lesson-example">Write better prompts</button><button type="button" data-lesson-topic="check" aria-pressed="false" aria-controls="lesson-example">Check AI answers</button><button type="button" data-lesson-topic="draft" aria-pressed="false" aria-controls="lesson-example">Improve a draft</button></div></div><div class="lesson-topic-group"><span class="lesson-topic-heading">Practical projects</span><div class="lesson-topic-buttons" role="group" aria-label="Practical lesson topics"><button type="button" data-lesson-topic="robot" aria-pressed="false" aria-controls="lesson-example">Build a robot</button><button type="button" data-lesson-topic="trip" aria-pressed="false" aria-controls="lesson-example">Plan a trip</button><button type="button" data-lesson-topic="cook" aria-pressed="false" aria-controls="lesson-example">Cook together</button></div></div></div></div><div id="lesson-example" aria-live="polite" aria-atomic="true"><p class="lesson-context" data-lesson-context>A sample AI lesson: turn a vague request into a clear English prompt.</p><ol class="language-path"><li class="language-step"><div class="language-step-top"><span>01</span><svg viewBox="0 0 24 26" aria-hidden="true"><path d="M4 5h7l1 2 1-2h7v15h-7l-1 2-1-2H4zM12 7v15"/></svg></div><h4>Read</h4><p data-lesson-step="0">Compare a vague prompt with a clear one. Find the goal, context, and requested format.</p></li><li class="language-step"><div class="language-step-top"><span>02</span><svg viewBox="0 0 24 26" aria-hidden="true"><path d="M4 13v-2a8 8 0 0 1 16 0v2M4 12h3v8H4zm13 0h3v8h-3z"/></svg></div><h4>Listen</h4><p data-lesson-step="1">Listen to a partner describe what they need. Ask questions to fill in missing details.</p></li><li class="language-step"><div class="language-step-top"><span>03</span><svg viewBox="0 0 24 26" aria-hidden="true"><path d="M3 4h18v13H9l-6 4zM7 9h10M7 13h6"/></svg></div><h4>Speak</h4><p data-lesson-step="2">Explain your prompt choices. Discuss what the AI should include and leave out.</p></li><li class="language-step"><div class="language-step-top"><span>04</span><svg viewBox="0 0 24 26" aria-hidden="true"><path d="m5 15 10-10 4 4L9 19l-5 1zM13 7l4 4M4 23h17"/></svg></div><h4>Write</h4><p data-lesson-step="3">Write a prompt, review the answer, and improve one instruction.</p></li></ol><div class="lesson-outcome"><span class="outcome-mark" aria-hidden="true">↗</span><div><span class="lesson-scenario-label">Something to take away</span><p data-lesson-outcome>A reusable prompt and a short explanation of why each instruction helps.</p></div></div><aside class="lesson-prompt-example" data-prompt-example><span class="lesson-scenario-label">Example prompt / Discuss, try, improve</span><blockquote data-prompt-text>Help me practise English for a job interview. I am an intermediate learner applying for a customer service role. Ask me one question at a time. After each answer, give one language correction and let me try again.</blockquote><p>Clear goal <span aria-hidden="true">→</span> Useful context <span aria-hidden="true">→</span> Answer format <span aria-hidden="true">→</span> Review</p></aside></div><p class="lesson-adaptation">These are sample lesson ideas, not a live AI tool. I adapt the language, pace, and support to the learner’s level and goals. Learners make the final choices and check AI suggestions.</p></div></section>
+<section class="english-section" id="classroom-examples" aria-labelledby="activities-title"><div class="english-section-head"><div><p class="eyebrow">03 / Teaching in practice</p><h2 id="activities-title">English in action.</h2></div><p class="english-aside">Useful topics.<br>Real conversations.</p></div><div class="classroom-grid">
+ <article class="classroom-card classroom-feature"><div class="classroom-art" aria-hidden="true"><span class="art-word">Let’s<br><em>talk.</em></span><div class="conversation-bubble">An idea.<br>A question.<br>A different view.</div><span class="art-caption">English in Action / British Book Centre</span></div><div class="classroom-copy"><span class="activity-meta">Speaking clubs / 2019–2023</span><h3>Speaking clubs</h3><p>Led online and in-person speaking clubs about music, travel, culture, technology, privacy, and social issues. Learners used new vocabulary to share their views and listen to others.</p><div class="teaching-tags"><span>Useful vocabulary</span><span>Listening & speaking</span><span>Discussion</span></div></div></article>
+ <article class="classroom-card"><img class="classroom-photo classroom-photo--cooking" src="/english/images/cooking-with-ronnie.webp" width="960" height="960" loading="lazy" alt="Ronnie cooking while wearing an English in Action apron"><div class="classroom-copy"><span class="activity-meta">QuadCode / 2023</span><h3>Learning English through cooking</h3><p>Led a live Anglo-Indian cooking session in English for 30 professionals from different countries, in and outside Russia.</p><div class="teaching-tags"><span>English at work</span><span>Culture & conversation</span></div></div></article>
+ <article class="classroom-card"><img class="classroom-photo classroom-photo--camp" src="/english/images/varnavskii-classroom.webp" width="1500" height="1000" loading="lazy" alt="Ronnie working with young learners around a classroom table at Varnavskii Camp"><div class="classroom-copy"><span class="activity-meta">English City & Varnavskii camps</span><h3>English through creative projects</h3><p>Used conversation, grammar, drama, music-video projects, and writing for blogs and video blogs in English camps for children and teenagers.</p><div class="teaching-tags"><span>Young learners</span><span>Creative projects</span></div></div></article>
+ </div><div class="photo-journal-intro"><h3>People make the experience.</h3><p>A few moments from teaching and camp life.</p></div><div class="photo-journal" aria-label="Teaching and camp photo journal"><figure><img src="/english/images/camp-group.webp" width="1500" height="1125" loading="lazy" alt="Ronnie surrounded by a group of young learners indoors"><figcaption><strong>A sense of belonging</strong><span>Shared moments with young learners.</span></figcaption></figure><figure><img src="/english/images/camp-outdoors.webp" width="1500" height="1500" loading="lazy" alt="Ronnie and two young people posing outdoors in winter jackets"><figcaption><strong>Beyond the classroom</strong><span>Time together during camp life.</span></figcaption></figure><figure><img class="winter-photo" src="/english/images/varnavskii-winter.webp" width="1000" height="1500" loading="lazy" alt="Ronnie with two fellow camp participants beside a decorated Christmas tree"><figcaption><strong>Winter at Varnavskii</strong><span>A seasonal memory from camp.</span></figcaption></figure></div></section>
+ <section class="english-section" id="teaching-experience" aria-labelledby="experience-title"><div class="english-section-head"><div><p class="eyebrow">04 / Teaching experience</p><h2 id="experience-title">My teaching experience</h2></div><p class="english-aside">Schools, speaking clubs,<br>camps, and private lessons.</p></div>
+ <ol class="experience-list">
+ <li><time>Sep 2024 – May 2025</time><div><h3>Varnavskii Camp</h3><p class="role-meta">Conversational English · Children & teenagers aged 8–17</p><p>Taught at five weekend camps and one winter camp. Lessons included conversation, grammar, vocabulary, and preparation for drama performances in English.</p></div></li>
+ <li><time>Mar 2022 – Feb 2024</time><div><h3>Windsor English Language School</h3><p class="role-meta">English Instructor · Saint Petersburg, Russia</p><p>Taught intermediate to advanced groups (B1, B2, and C1), as well as English for work and study. Lessons included language practice and conversation.</p></div></li>
+ <li><time>Jul 2021</time><div><h3>MESTO. VALDAY</h3><p class="role-meta">Five-day English workshop · Young learners</p><p>Led daily activities to build confidence in conversation, vocabulary, listening, and writing.</p></div></li>
+ <li><time>2020 – 2022</time><div><h3>English City camps</h3><p class="role-meta">Kirochnoye & Pioner · Children & teenagers</p><p>Taught daily English lessons and activities at camps in November 2020, March 2021, and May–June 2022. Activities included reading, writing, speaking, listening, a music-video project, and writing for blogs and video blogs in English.</p></div></li>
+ <li><time>2019 – 2023</time><div><h3>English in Action & British Book Centre</h3><p class="role-meta">Speaking clubs · Saint Petersburg, Russia · Online & in person</p><p>Led discussions on culture, music, education, travel, technology, privacy, and social issues. Learners practised vocabulary, shared ideas, and listened to different views.</p></div></li>
+ </ol>
+ <section class="country-strip" aria-label="Where I have taught"><div><span>01 / Russia</span><h2>Schools, clubs & camps</h2><p>Language schools, speaking clubs, camps, and workshops.</p></div><div><span>02 / Latvia</span><h2>Private lessons</h2><p>Private English lessons based on learners’ needs.</p></div><div><span>03 / India</span><h2>Private lessons</h2><p>Private English lessons and learning support.</p></div></section>
+ <div class="private-teaching"><h3>Private lessons · Latvia, India & Russia</h3><p>I have taught private English lessons in Latvia and India. I have also taught individual and group lessons in Russia, online and in person.</p></div>
+ </section>
+
+<section class="teaching-cv-card" id="teaching-cv-download" aria-labelledby="teaching-cv-title"><a class="cv-preview" href="/english/files/Sutanu-Chatterjee-English-Teaching-CV.pdf?v=5" download aria-label="Download the English teaching CV"><img src="/english/images/teaching-cv-preview.png?v=5" width="140" height="198" loading="lazy" alt="First page of the English teaching CV"></a><div><p class="eyebrow">Keep a copy</p><h2 id="teaching-cv-title">My teaching CV.<br><em>Ready to share.</em></h2><p>My English teaching experience, AI-focused learning and prompt writing, robotics workshops, qualifications, and contact details in one clear document.</p><a class="btn btn--solid" href="/english/files/Sutanu-Chatterjee-English-Teaching-CV.pdf?v=5" download>Download teaching CV ↓</a><span class="document-details">PDF · 2 pages · October 2026</span></div></section>
+ <section class="teaching-contact" id="teaching-enquiries" aria-labelledby="teaching-contact-title"><p class="eyebrow">Let’s talk</p><h2 id="teaching-contact-title">Let’s talk about<br><em>your learners.</em></h2><p>Are you hiring a teacher for a language school, a camp, or workplace English lessons? Tell me about your learners and the role. You can also contact me about private lessons, robotics workshops, and other practical learning activities.</p><p class="contact-email"><a href="mailto:sutanuchatterjee93@gmail.com">sutanuchatterjee93@gmail.com</a></p><details class="lesson-planner"><summary class="btn btn--solid">Plan a Lesson <span class="lesson-chevron" aria-hidden="true">＋</span></summary><div class="lesson-options"><p>Choose where to message me.</p><div class="lesson-platforms"><a href="https://wa.me/79522180528?text=Hi%20Ronnie%21%20I%27d%20like%20to%20plan%20an%20English%20lesson.%20Could%20we%20discuss%20my%20goals%20and%20your%20availability%3F" target="_blank" rel="noopener noreferrer"><strong>WhatsApp <span aria-hidden="true">↗</span></strong><span>+7 952 218 05 28</span></a><a href="https://t.me/ronnismad?text=Hi%20Ronnie%21%20I%27d%20like%20to%20plan%20an%20English%20lesson.%20Could%20we%20discuss%20my%20goals%20and%20your%20availability%3F" target="_blank" rel="noopener noreferrer"><strong>Telegram <span aria-hidden="true">↗</span></strong><span>@ronnismad</span></a></div><small>A short enquiry is ready for you to edit and send.</small></div></details><div class="teaching-actions"><a class="english-link" href="mailto:sutanuchatterjee93@gmail.com?subject=English%20teaching%20enquiry">Email me ↗</a><a class="english-link" href="/english/files/Sutanu-Chatterjee-English-Teaching-CV.pdf?v=5" download>Teaching CV (PDF) ↓</a></div></section>
 </main>
 
 <footer class="foot foot--page">
@@ -124,5 +577,37 @@
   </ul>
 </footer>
 
+<script>
+(function () {
+  const years = Math.max(0, new Date().getFullYear() - 2019);
+  document.querySelectorAll('[data-teaching-years]').forEach(el => { el.textContent = String(years); });
+})();
+
+(function () {
+ const lab = document.querySelector('.lesson-lab');
+ if (!lab) return;
+ const examples = {
+  prompt: {"context": "A sample AI lesson: turn a vague request into a clear English prompt.", "steps": ["Compare a vague prompt with a clear one. Find the goal, context, and requested format.", "Listen to a partner describe what they need. Ask questions to fill in missing details.", "Explain your prompt choices. Discuss what the AI should include and leave out.", "Write a prompt, review the answer, and improve one instruction."], "outcome": "A reusable prompt and a short explanation of why each instruction helps.", "prompt": "Help me practise English for a job interview. I am an intermediate learner applying for a customer service role. Ask me one question at a time. After each answer, give one language correction and let me try again."},
+  check: {"context": "A sample critical-thinking lesson: decide which parts of an AI answer you can trust.", "steps": ["Read an AI answer and a short source text. Mark claims that need checking.", "Listen to a partner explain a concern. Note which claim they are questioning.", "Compare the evidence. Practise agreeing, disagreeing, and explaining uncertainty politely.", "Write a corrected answer in your own words. Add a source for each factual claim."], "outcome": "A checked answer, with clear reasons for the changes and sources for its claims.", "prompt": "Review this answer against the source text below. List which claims are supported, contradicted, or not covered. Quote the relevant words from the source. If there is not enough evidence, say so. Do not fill gaps with guesses."},
+  draft: {"context": "A sample workplace lesson: use AI feedback to improve an email while keeping your own voice.", "steps": ["Read a draft email and AI feedback. Decide which suggestions make the message clearer.", "Listen to the recipient’s needs in a short role-play. Note the purpose and tone.", "Explain which changes you accept or reject. Practise giving a reason for each choice.", "Rewrite the email yourself, then ask for feedback on clarity, tone, and grammar."], "outcome": "A clear email the learner can explain and confidently send.", "prompt": "Review my draft email for a polite workplace conversation. Keep my meaning and voice. Suggest up to three improvements and explain each in simple English. Ask if any detail is unclear. Let me write the final version."},
+
+  robot: { context: 'A sample project for young learners: explain how a simple robot works.', steps: ['Follow a short robot-building guide. Find the parts and the order of the steps.', 'Listen to a partner explain a step. Check that you understood it.', 'Explain your plan and ask for help when something is unclear.', 'Write a short guide: what you built, what worked, and what you changed.'], outcome: 'A short robot guide, written and explained in the learner’s own words.' },
+  trip: { context: 'A sample everyday lesson: plan a day out with a partner.', steps: ['Read two short travel guides. Compare places, prices, and opening times.', 'Listen to your partner’s ideas. Find out what they would like to do.', 'Agree on a plan. Explain your choices and practise asking for directions.', 'Write a simple itinerary with times, places, and a short message to your partner.'], outcome: 'A day-out plan the learner can explain, discuss, and share.' },
+  cook: { context: 'A sample practical lesson: share a favourite dish and explain how to make it.', steps: ['Read a short recipe. Find the ingredients, amounts, and cooking steps.', 'Listen to the instructions. Check the order and ask about unfamiliar words.', 'Describe each step to a partner. Practise giving clear instructions.', 'Write the recipe in your own words, with one helpful tip for the next cook.'], outcome: 'A personal recipe card and the confidence to explain each step.' }
+ };
+ lab.querySelectorAll('[data-lesson-topic]').forEach(button => {
+  button.addEventListener('click', () => {
+   const example = examples[button.dataset.lessonTopic];
+   lab.querySelectorAll('[data-lesson-topic]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+   lab.querySelector('[data-lesson-context]').textContent = example.context;
+   lab.querySelectorAll('[data-lesson-step]').forEach((item, index) => { item.textContent = example.steps[index]; });
+   lab.querySelector('[data-lesson-outcome]').textContent = example.outcome;
+   lab.querySelector('[data-prompt-example]').hidden = !example.prompt;
+   lab.querySelector('[data-prompt-text]').textContent = example.prompt || '';
+  });
+ });
+})();
+
+</script>
 </body>
 </html>
