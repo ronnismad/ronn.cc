@@ -62,10 +62,6 @@
     background-image: url("../img/app-rectspiral.jpg");
   }
 
-  .soft-slot--resonlab .soft-shot {
-    background-image: url("../img/app-resonlab.jpg");
-  }
-
   .soft-slot--resonlab .soft-glow {
     height: 64%;
     bottom: -0.85rem;
@@ -103,11 +99,13 @@
 
   .soft-slot--resonlab .soft-cta { color: #57cbbb; }
 
-  /* Sauryalic — brand logo in the card body (not a faded screenshot) */
+  /* Logo-led cards keep the brand visible above the description. */
+  .soft-slot--resonlab .soft-shot,
   .soft-slot--saury .soft-shot {
     display: none;
   }
 
+  .soft-slot--resonlab .soft-glass,
   .soft-slot--saury .soft-glass {
     clip-path: polygon(0 0, 100% 0, 100% 38%, 0 78%);
   }
@@ -123,6 +121,12 @@
     border-radius: 12px;
     border: 1px solid rgba(245, 222, 140, 0.22);
     box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+  }
+
+  .soft-slot--resonlab .soft-logo {
+    width: min(260px, 100%);
+    padding: 0.9rem 0.85rem;
+    border-color: rgba(87, 203, 187, 0.22);
   }
 
   /* diagonal glass — covers upper side, no GUI, frosted */
@@ -501,6 +505,7 @@
               <span class="live">Live</span>
               <span>Acoustics · Simulation</span>
             </div>
+            <img class="soft-logo" src="/img/resonlab-logo.svg" alt="ResonLab V1.3 — Acoustic Resonator Studio" width="350" height="96">
             <h2>ResonLab</h2>
             <p>Browser-based acoustic resonator design: geometry-linked Helmholtz FEM, radiation and damping, frequency response, and bandwidth Q. Joint inverse design finds dimensions for target frequency and Q within overall size limits.</p>
             <div class="soft-meta">

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 96" role="img" aria-labelledby="title">
+  <title id="title">ResonLab V1.3 — Acoustic Resonator Studio</title>
+  <svg x="8" y="8" width="80" height="80" viewBox="0 0 64 64">
+    <rect x="1" y="1" width="62" height="62" rx="15" fill="#101c2d" stroke="#2d4563" stroke-width="2"/>
+    <path d="M26 12h12v10a18 18 0 1 1-12 0Z" fill="#142e49" stroke="#79b9ff" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M18 38c4-12 10-12 14 0s10 12 14 0" fill="none" stroke="#57e0cf" stroke-width="3.5" stroke-linecap="round"/>
+    <circle cx="32" cy="38" r="2.5" fill="#e5f5ff"/>
+  </svg>
+  <text x="108" y="47" fill="#e8f2ff" font-family="Segoe UI,Arial,sans-serif" font-size="34" font-weight="650" letter-spacing="-1">ResonLab</text>
+  <rect x="274" y="24" width="64" height="27" rx="7" fill="#173b48"/>
+  <text x="306" y="42" fill="#73e2d3" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif" font-size="14" font-weight="600">V1.3</text>
+  <text x="109" y="72" fill="#9aaec6" font-family="Segoe UI,Arial,sans-serif" font-size="14">Acoustic Resonator Studio</text>
+</svg>
