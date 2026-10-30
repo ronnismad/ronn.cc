@@ -62,6 +62,47 @@
     background-image: url("../img/app-rectspiral.jpg");
   }
 
+  .soft-slot--resonlab .soft-shot {
+    background-image: url("../img/app-resonlab.jpg");
+  }
+
+  .soft-slot--resonlab .soft-glow {
+    height: 64%;
+    bottom: -0.85rem;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(87, 203, 187, 0.30) 0%,
+      rgba(61, 139, 253, 0.12) 42%,
+      transparent 72%
+    );
+  }
+
+  .soft-slot--resonlab .soft-card {
+    border-color: rgba(87, 203, 187, 0.18);
+    background:
+      radial-gradient(ellipse 95% 75% at 50% 0%, rgba(87, 203, 187, 0.09), transparent 60%),
+      rgba(29, 32, 33, 0.72);
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.32), 0 10px 36px rgba(87, 203, 187, 0.11);
+  }
+
+  .soft-slot--resonlab .soft-card:hover,
+  .soft-slot--resonlab .soft-card:focus-visible {
+    border-color: rgba(87, 203, 187, 0.4);
+    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.4), 0 0 48px rgba(87, 203, 187, 0.14);
+  }
+
+  .soft-slot--resonlab .soft-kicker .live::before {
+    background: #57cbbb;
+    box-shadow: 0 0 0 3px rgba(87, 203, 187, 0.18), 0 0 12px rgba(87, 203, 187, 0.55);
+  }
+
+  .soft-slot--resonlab .soft-meta span {
+    border-color: rgba(87, 203, 187, 0.22);
+    background: rgba(87, 203, 187, 0.08);
+  }
+
+  .soft-slot--resonlab .soft-cta { color: #57cbbb; }
+
   /* Sauryalic — brand logo in the card body (not a faded screenshot) */
   .soft-slot--saury .soft-shot {
     display: none;
@@ -450,6 +491,31 @@
     <h2 class="section-title">Live applications</h2>
     <div class="soft-grid">
 
+      <div class="soft-slot soft-slot--resonlab">
+        <div class="soft-glow" aria-hidden="true"></div>
+        <a class="soft-card soft-card--resonlab" href="https://ronnismad.github.io/resonlab/" target="_blank" rel="noopener noreferrer">
+          <div class="soft-shot" aria-hidden="true"></div>
+          <div class="soft-glass" aria-hidden="true"></div>
+          <div class="soft-body">
+            <div class="soft-kicker">
+              <span class="live">Live</span>
+              <span>Acoustics · Simulation</span>
+            </div>
+            <h2>ResonLab</h2>
+            <p>Browser-based acoustic resonator design: geometry-linked Helmholtz FEM, radiation and damping, frequency response, and bandwidth Q. Joint inverse design finds dimensions for target frequency and Q within overall size limits.</p>
+            <div class="soft-meta">
+              <span>V1.3</span>
+              <span>Axisymmetric FEM</span>
+              <span>Inverse design</span>
+            </div>
+            <span class="soft-cta">
+              Open app
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </span>
+          </div>
+        </a>
+      </div>
+
       <div class="soft-slot soft-slot--saury">
         <div class="soft-glow" aria-hidden="true"></div>
         <a class="soft-card soft-card--saury" href="https://ronnismad.github.io/sauryalic/" target="_blank" rel="noopener noreferrer">
@@ -578,7 +644,7 @@
 
     </div>
 
-    <p class="soft-note">Source code on <a href="https://github.com/ronnismad" target="_blank" rel="noopener noreferrer">GitHub</a>. Models are first-order analytical tools for concept sizing — verify critical designs with simulation and bench tests.</p>
+    <p class="soft-note">Source code on <a href="https://github.com/ronnismad" target="_blank" rel="noopener noreferrer">GitHub</a>. Models include analytical estimates and FEM with stated approximations — check assumptions and mesh convergence, and verify critical designs with bench tests.</p>
   </section>
 
 </main>
