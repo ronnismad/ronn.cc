@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 112" role="img" aria-labelledby="title">
+  <title id="title">Matching Network Designer</title>
+  <rect x="8" y="20" width="72" height="72" rx="17" fill="#292218" stroke="#6e512b"/>
+  <g fill="none" stroke="#ffb347" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M19 44h8c0-12 10-12 10 0 0-12 10-12 10 0 0-12 10-12 10 0h12M59 44v15m-9 0h18m-18 8h18m-9 0v12m-10 0h20"/>
+    <circle cx="18" cy="44" r="2.5" fill="#ffb347"/>
+    <circle cx="70" cy="44" r="2.5" fill="#ffb347"/>
+  </g>
+  <text x="96" y="52" fill="#f6e9d6" font-family="Segoe UI,Arial,sans-serif" font-size="29" font-weight="650" letter-spacing="-.6">Matching</text>
+  <text x="97" y="76" fill="#c8ad86" font-family="Segoe UI,Arial,sans-serif" font-size="15">Network Designer</text>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 112" role="img" aria-labelledby="title">
+  <title id="title">Rectangular Planar Spiral Estimator</title>
+  <rect x="8" y="20" width="72" height="72" rx="17" fill="#1c2922" stroke="#3d6650"/>
+  <path d="M18 78h49V35H24v36h35V43H32v20h19V51H40v5" fill="none" stroke="#7dcea0" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="18" cy="78" r="2.6" fill="#7dcea0"/>
+  <circle cx="40" cy="56" r="2.6" fill="#7dcea0"/>
+  <text x="96" y="52" fill="#e2f3e9" font-family="Segoe UI,Arial,sans-serif" font-size="27" font-weight="650" letter-spacing="-.6">Planar Spiral</text>
+  <text x="97" y="76" fill="#9fbea9" font-family="Segoe UI,Arial,sans-serif" font-size="15">Inductance Estimator</text>
+</svg>

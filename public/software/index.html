@@ -100,13 +100,11 @@
   .soft-slot--resonlab .soft-cta { color: #57cbbb; }
 
   /* Logo-led cards keep the brand visible above the description. */
-  .soft-slot--resonlab .soft-shot,
-  .soft-slot--saury .soft-shot {
+  .soft-slot .soft-shot {
     display: none;
   }
 
-  .soft-slot--resonlab .soft-glass,
-  .soft-slot--saury .soft-glass {
+  .soft-slot .soft-glass {
     clip-path: polygon(0 0, 100% 0, 100% 38%, 0 78%);
   }
 
@@ -128,6 +126,11 @@
     padding: 0.9rem 0.85rem;
     border-color: rgba(87, 203, 187, 0.22);
   }
+
+  .soft-logo--engineering { width: min(260px, 100%); }
+  .soft-slot--suite .soft-logo { border-color: rgba(255, 140, 72, 0.22); }
+  .soft-slot--ev .soft-logo { border-color: rgba(156, 204, 101, 0.22); }
+  .soft-slot--spiral .soft-logo { border-color: rgba(125, 206, 160, 0.22); }
 
   /* diagonal glass — covers upper side, no GUI, frosted */
   .soft-glass {
@@ -557,6 +560,7 @@
             <span class="live">Live</span>
             <span>Matching · Design</span>
           </div>
+          <img class="soft-logo soft-logo--engineering" src="/img/matching-network-logo.svg" alt="Matching Network Designer" width="320" height="112">
           <h2>Matching Network Designer</h2>
           <p>Exact L-match synthesis for two-port resonant networks. Computes reflected impedance, match loss from component Q, peak stress against ratings, and usable bandwidth — with compact circuit schematics and CSV export.</p>
           <div class="soft-meta">
@@ -582,6 +586,7 @@
             <span class="live">Live</span>
             <span>Suite · Concept sizing</span>
           </div>
+          <img class="soft-logo soft-logo--engineering" src="/img/wpt-suite-logo.svg" alt="WPT Unified Design Suite" width="320" height="112">
           <h2>WPT Unified Design Suite</h2>
           <p>Concept sizing in one workspace: coupled-coil efficiency (Wheeler, Dowell, AGM coupling, Steinmetz core loss), power-stage efficiency predictors, and a combined design summary with saveable results.</p>
           <div class="soft-meta">
@@ -607,6 +612,7 @@
             <span class="live">Live</span>
             <span>Coil · Estimation</span>
           </div>
+          <img class="soft-logo soft-logo--engineering" src="/img/ev-coil-logo.svg" alt="EV Coil Parameter Estimator" width="320" height="112">
           <h2>EV Coil Parameter Estimator</h2>
           <p>Real-time parameter estimates for an 11-kW EV inductive charging link. Air gap, turns and aluminium shield thickness map to coupling, inductances, Q, resistance and efficiency through FEM-fitted polynomials — with a dimensioned stack preview.</p>
           <div class="soft-meta">
@@ -632,6 +638,7 @@
             <span class="live">Live</span>
             <span>Spiral · Inductance</span>
           </div>
+          <img class="soft-logo soft-logo--engineering" src="/img/planar-spiral-logo.svg" alt="Rectangular Planar Spiral Estimator" width="320" height="112">
           <h2>Rectangular Planar Spiral Estimator</h2>
           <p>Self-inductance of rectangular planar spiral coils from outer size, turns, track width and spacing. Aebischer geometry with a live engineering schematic and instant µH readout.</p>
           <div class="soft-meta">
