@@ -702,3 +702,21 @@ body { overflow-wrap: break-word; }
   html { scroll-behavior: auto; }
   .link, .card, .btn, .nav a, .social a { transition: none; }
 }
+
+/* November 2026: readable labels and comfortable keyboard/touch targets. */
+.home .link__meta { font-size: .75rem; color: #abb5b2; }
+.home__bio p { color: #b6c0bd; }
+.social a { min-width: 44px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+.social a:focus-visible { outline: 2px solid var(--teal); outline-offset: 5px; border-radius: 4px; }
+.project-cases { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.1rem; }
+.project-case { padding: clamp(1.25rem, 3vw, 1.8rem); border: 1px solid var(--line); border-radius: 16px; background: var(--panel); }
+.project-case h3 { font-family: var(--display); font-size: 1.25rem; line-height: 1.3; margin: .7rem 0 1rem; }
+.project-case p { color: #b6c0bd; font-size: .95rem; }
+.project-case .case-label { color: var(--teal); font-family: var(--mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
+.project-case .case-result { color: var(--fg); padding-top: .8rem; border-top: 1px solid var(--line); }
+.toolkit-chips { display: flex; flex-wrap: wrap; gap: .55rem; list-style: none; padding: 0; }
+.toolkit-chips li { padding: .35rem .7rem; border: 1px solid var(--line); border-radius: 100px; color: #c3ceca; font-family: var(--mono); font-size: .78rem; }
+.portfolio-intro { max-width: 48rem; color: #b6c0bd; }
+.portfolio-links { display: flex; flex-wrap: wrap; gap: 1rem; margin: 1.25rem 0; }
+@media (max-width: 900px) { .project-cases { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .nav a { min-height: 32px; display: inline-flex; align-items: center; } .social { gap: .75rem; } }

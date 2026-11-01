@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 100" fill="none">
+  <title>PeroCast</title>
+  <g stroke="#d8c59c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="29" cy="25" r="9"/>
+    <path d="M29 8V3M12 25H7M17 13l-4-4M41 13l4-4M46 25h5M18 38l-4 4"/>
+    <path d="M39 42h43l-9 35H30zM36 54h43M33 66h43M53 42l-9 35M68 42l-9 35M51 78v10M39 88h25"/>
+  </g>
+  <text x="108" y="62" fill="#e6eae9" font-family="Arial, sans-serif" font-size="48" font-weight="600" letter-spacing="-1">PeroCast</text>
+</svg>
