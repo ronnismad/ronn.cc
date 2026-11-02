@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script src="/preferences-init.js?v=1"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sutanu Chatterjee — Ronn</title>
 <meta name="description" content="The personal website of Sutanu Chatterjee (Ronn), research engineer, software developer, musician, and TESOL-certified English teacher. Explore research, practical projects, music, and English learning.">
@@ -42,8 +43,10 @@
   .home::before { transform: none; will-change: auto; }
 }
 </style>
+<link rel="stylesheet" href="/preferences-theme.css?v=1">
+<link rel="stylesheet" href="/preferences.css?v=1">
 </head>
-<body class="home">
+<body class="home" data-page="home">
 
 <div class="aurora" aria-hidden="true">
   <span></span>
@@ -60,6 +63,7 @@
 <div class="grain" aria-hidden="true"></div>
 
 <main class="home__inner">
+<div class="site-preferences" role="group" aria-label="Appearance and language" translate="no"><select aria-label="Site language"><option value="en">English</option><option value="ru">Русский</option><option value="zh">中文</option></select><button type="button" aria-label="Switch to light mode" aria-pressed="false" title="Switch to light mode"><span data-theme-icon aria-hidden="true">☼</span></button></div>
 
   <header>
     <h1 class="logo-line">
@@ -166,5 +170,7 @@
 })();
 </script>
 
+<script src="/locale-data.js?v=1" defer></script>
+<script src="/preferences.js?v=1" defer></script>
 </body>
 </html>

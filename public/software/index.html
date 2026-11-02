@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script src="/preferences-init.js?v=1"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Software — Ronn</title>
 <meta name="description" content="Python applications, applied machine learning, document automation and scientific engineering tools by Sutanu Chatterjee.">
@@ -493,8 +494,10 @@
     .software-track .soft-card { padding: 1.4rem 1.2rem; min-height: 480px; }
   }
 </style>
+<link rel="stylesheet" href="/preferences-theme.css?v=1">
+<link rel="stylesheet" href="/preferences.css?v=1">
 </head>
-<body>
+<body data-page="software">
 
 <header class="site-header">
   <a class="wordmark" href="/">
@@ -509,6 +512,7 @@
         <a href="/audio">Audio</a>
         <a href="/contact">Contact</a>
   </nav>
+<div class="site-preferences" role="group" aria-label="Appearance and language" translate="no"><select aria-label="Site language"><option value="en">English</option><option value="ru">Русский</option><option value="zh">中文</option></select><button type="button" aria-label="Switch to light mode" aria-pressed="false" title="Switch to light mode"><span data-theme-icon aria-hidden="true">☼</span></button></div>
 </header>
 
 <main class="wrap">
@@ -700,5 +704,7 @@
 </footer>
 
 <script src="/software/showcase.js?v=2026-11-02" defer></script>
+<script src="/locale-data.js?v=1" defer></script>
+<script src="/preferences.js?v=1" defer></script>
 </body>
 </html>

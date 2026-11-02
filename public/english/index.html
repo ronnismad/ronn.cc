@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script src="/preferences-init.js?v=1"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ronnie — English Teaching | Sutanu Chatterjee</title>
 <meta name="description" content="TESOL-certified English teacher Sutanu Chatterjee (Ronn). Teaching experience in Russia, Latvia and India, from adult B1–C1 groups to speaking clubs and children’s camps.">
@@ -463,8 +464,10 @@
 .ai-teaching-intro { margin-top:1rem; }
 .ai-teaching-intro .english-link { display:inline; padding-block:.1rem; }
 </style>
+<link rel="stylesheet" href="/preferences-theme.css?v=1">
+<link rel="stylesheet" href="/preferences.css?v=1">
 </head>
-<body class="english-page">
+<body class="english-page" data-page="english">
 <div class="english-auras" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
 
 <header class="site-header">
@@ -480,6 +483,7 @@
         <a href="/audio">Audio</a>
         <a href="/contact">Contact</a>
   </nav>
+<div class="site-preferences" role="group" aria-label="Appearance and language" translate="no"><select aria-label="Site language"><option value="en">English</option><option value="ru">Русский</option><option value="zh">中文</option></select><button type="button" aria-label="Switch to light mode" aria-pressed="false" title="Switch to light mode"><span data-theme-icon aria-hidden="true">☼</span></button></div>
 </header>
 
 <main class="wrap english-main" id="english-main">
@@ -555,5 +559,7 @@
 })();
 
 </script>
+<script src="/locale-data.js?v=1" defer></script>
+<script src="/preferences.js?v=1" defer></script>
 </body>
 </html>
