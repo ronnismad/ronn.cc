@@ -22,3 +22,23 @@ html[lang="ru"] .nav { letter-spacing: .06em; }
   .site-preferences select { font-size: .8rem; }
 }
 @media print { .site-preferences { display: none !important; } }
+
+/* Keep secondary copy legible on the stone background and retain amber for teaching. */
+html[data-theme="light"],
+html[data-theme="light"] body { --muted: #4c6254; --teal-dim: #45634f; }
+html[data-theme="light"] .english-main {
+  --teal: #755221;
+  --teal-dim: #735737;
+  --english-accent: #755221;
+}
+html[data-theme="light"] .mini__art,
+html[data-theme="light"] .mini__art span { color: #e5e9df; }
+html[lang="zh-CN"] :is(.eyebrow,.micro,.tag,.section-title,.case-label) {
+  text-transform: none;
+}
+html[lang="zh-CN"] :is(h1,h2,h3,h4) { overflow-wrap: anywhere; }
+@media (max-width: 1100px) {
+  .site-header .nav a { min-height: 36px; display: inline-flex; align-items: center; font-size: .75rem; }
+  html[lang="ru"] .site-header .nav { gap: .25rem 1.1rem; }
+  html[lang="zh-CN"] .site-header .nav { gap: .25rem 1.4rem; }
+}

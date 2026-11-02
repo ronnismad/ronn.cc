@@ -34,6 +34,7 @@
     const parts = value.match(/^(\s*)([\s\S]*?)(\s*)$/);
     return parts[1] + t(parts[2].replace(/\s+/g,' ')) + parts[3];
   }
+  const translatedTitle = source => t(source).replace(/^(CV|Science|Software|Audio|Contact|Not found|Hardware|Visual)( — (?:Ronn|Sutanu Chatterjee))$/, (_,name,suffix) => t(name)+suffix);
   const excluded = element => element?.closest('script,style,svg,code,pre,textarea,[translate="no"],.site-preferences');
   let observer;
   function render() {
@@ -67,7 +68,7 @@
     if (title) {
       let record = originals.get(title);
       if (!record) record = { source: title.textContent };
-      title.textContent = t(record.source).replace(/^(CV|Science|Software|Audio|Contact|Not found|Hardware|Visual|Alternoid)( — Ronn)$/,(_,name,suffix)=>t(name)+suffix);
+      title.textContent = translatedTitle(record.source);
       if (language !== 'en' && record.source.includes('English Teaching')) title.textContent = language === 'ru' ? 'Ronnie — Преподаватель английского | Sutanu Chatterjee' : 'Ronnie — 英语教学 | Sutanu Chatterjee';
       originals.set(title,record);
     }
@@ -93,7 +94,7 @@
     for (const meta of document.querySelectorAll('meta[name="description"],meta[property="og:description"],meta[property="og:title"]')) {
       let record = originals.get(meta);
       if (!record) record = { source: meta.content };
-      meta.content = t(record.source); originals.set(meta,record);
+      meta.content = meta.getAttribute('property') === 'og:title' ? translatedTitle(record.source) : t(record.source); originals.set(meta,record);
     }
     const labels = {
       en: ['Site language','Switch to light mode','Switch to dark mode','Appearance and language'],
