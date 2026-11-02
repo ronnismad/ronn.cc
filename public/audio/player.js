@@ -512,6 +512,14 @@
 
   function syncPlayUI() {
     const playing = isPlaying();
+    document.querySelectorAll('[data-audio-pick]').forEach(button => {
+      const track = state.tracks.find(item => item.id === button.dataset.audioPick);
+      if (!track) return;
+      const active = state.tracks[state.index]?.id === track.id && playing;
+      button.setAttribute('aria-pressed', String(active));
+      button.setAttribute('aria-label', (active ? 'Pause ' : 'Play ') + track.title);
+      button.querySelector('[data-release-label]').textContent = active ? 'Pause track Ⅱ' : 'Play track ▷';
+    });
     if (els.heroKicker && state.index >= 0) {
       els.heroKicker.textContent = playing ? "Now playing" : "Selected";
     }
@@ -1038,7 +1046,8 @@
   function bindKeys() {
     document.addEventListener("keydown", (e) => {
       const tag = (e.target && e.target.tagName) || "";
-      if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
+      if (["INPUT", "TEXTAREA", "SELECT", "BUTTON", "A"].includes(tag)) return;
+      if (e.target?.closest?.('.video-rail, [role="button"]')) return;
       if (e.target && e.target.isContentEditable) return;
 
       if (e.target && e.target.closest && e.target.closest("#seek")) return;
@@ -1167,12 +1176,22 @@
       function scrollByCards(dir) {
         const card = rail.querySelector(".video-card");
         const step = card ? card.getBoundingClientRect().width + 16 : rail.clientWidth * 0.8;
-        rail.scrollBy({ left: dir * step, behavior: "smooth" });
+        rail.scrollBy({ left: dir * step, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
       }
 
       if (prev) prev.addEventListener("click", () => scrollByCards(-1));
       if (next) next.addEventListener("click", () => scrollByCards(1));
 
+      rail.addEventListener("keydown", (event) => {
+        if (event.target !== rail) return;
+        if (["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) {
+          event.preventDefault();
+          event.stopPropagation();
+          if (event.key === "Home" || event.key === "End") {
+            rail.scrollTo({ left: event.key === "Home" ? 0 : rail.scrollWidth, behavior: "auto" });
+          } else scrollByCards(event.key === "ArrowRight" ? 1 : -1);
+        }
+      });
       rail.addEventListener("scroll", update, { passive: true });
       window.addEventListener("resize", update);
 
@@ -1294,6 +1313,15 @@
       }
     }
 
+    document.querySelectorAll('[data-audio-pick]').forEach(button => {
+      const index = state.tracks.findIndex(track => track.id === button.dataset.audioPick);
+      button.disabled = index < 0;
+      button.addEventListener('click', () => {
+        if (index < 0) return;
+        if (state.index === index) togglePlay();
+        else loadTrack(index, true);
+      });
+    });
     renderList();
     if (state.tracks.length) {
       loadTrack(0, false);

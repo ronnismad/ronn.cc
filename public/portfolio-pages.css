@@ -11,6 +11,10 @@
 .hero-object { padding: 1.8rem; border: 1px solid #a9c9c230; border-radius: 22px; background: linear-gradient(145deg,#a9c9c209,transparent),#1d2021a0; }
 .hero-object svg { display: block; width: 100%; height: auto; }
 .hero-object p { margin: 1rem 0 0; color: #bfd0ca; font: .7rem/1.8 var(--mono); letter-spacing: .04em; }
+.hero-object.research-portrait { margin: 0; padding: 0; overflow: hidden; }
+.research-portrait img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; }
+.research-portrait figcaption { padding: 1rem 1.3rem; }
+.research-portrait p { margin: .5rem 0 0; }
 .research-directions { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1.1rem; }
 .research-story { min-width: 0; overflow: hidden; border: 1px solid #a9c9c22b; border-radius: 18px; background: #1d2021b0; }
 .research-art { padding: 1.5rem 1.2rem .8rem; background: radial-gradient(ellipse at 50% 40%,#a9c9c20c,transparent 75%); }

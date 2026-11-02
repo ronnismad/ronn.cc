@@ -1,0 +1,47 @@
+/* A listening room, in the same charcoal and sage palette as the portfolio. */
+.audio-page { isolation: isolate; }
+.audio-page::before { content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(ellipse at 80% 15%,#a9c9c20c,transparent 50%),radial-gradient(ellipse at 8% 60%,#d1b27d06,transparent 40%); }
+.audio-intro { display: grid; grid-template-columns: minmax(0,1.8fr) minmax(0,1fr); align-items: center; gap: 3rem; margin-bottom: 2.5rem; }
+.audio-intro .page-title { margin-bottom: 1rem; }
+.audio-editorial { font: italic 500 clamp(1.8rem,3.6vw,2.6rem)/1.15 'Cormorant Garamond',Georgia,serif; color: #c8ddd5; margin: 0 0 1.2rem; }
+.audio-intro .lede { font-size: 1rem; color: #bdc9c4; }
+.audio-actions { display: flex; flex-wrap: wrap; gap: .8rem 1.2rem; align-items: center; margin-top: 1.5rem; }
+.audio-actions a { display: inline-flex; align-items: center; min-height: 44px; }
+.audio-emblem { color: #a9c9c2; padding: 1.5rem; border: 1px solid #a9c9c22b; border-radius: 20px; background: #1d2021a0; }
+.audio-emblem svg { display: block; width: 100%; height: auto; }
+.audio-emblem p { font: .66rem/1.8 var(--mono); color: #b9c9c1; letter-spacing: .06em; margin: 1rem 0 0; }
+.audio-section-head { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: .7rem 1.5rem; margin-bottom: 1.2rem; }
+.audio-section-head h2 { font: 600 clamp(1.7rem,3vw,2.1rem)/1.2 var(--display); letter-spacing: -.035em; margin: 0; }
+.audio-section-head p, .audio-caption { font-size: .9rem; color: #b9c8c0; margin: 0; }
+.release-collection { margin-bottom: 3.5rem; }
+.release-rail { grid-auto-columns: minmax(185px, 23%); gap: 1rem; }
+.release-card { appearance: none; padding: 0; gap: 0; border: 1px solid #a9c9c22e; border-radius: 14px; overflow: hidden; font: inherit; color: var(--fg); text-align: left; background: var(--panel); cursor: pointer; min-width: 0; }
+.release-card img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; }
+.release-info { display: block; padding: 1rem; }
+.release-title { display: block; font: 600 1.05rem/1.35 var(--display); color: #e6eeea; }
+.release-artist { display: block; font-size: .78rem; line-height: 1.5; color: #b5c6bc; margin-top: .3rem; }
+.release-play { display: block; font: .65rem/1.6 var(--mono); color: var(--teal); text-transform: uppercase; letter-spacing: .07em; margin-top: .8rem; }
+.release-card[aria-pressed="true"] { border-color: var(--teal); box-shadow: inset 0 0 0 1px #a9c9c24d; }
+.release-card[aria-pressed="true"] .release-play { color: #e5d2aa; }
+.release-card:hover { border-color: #a9c9c28c; }
+.release-card:focus-visible { outline: 2px solid var(--teal); outline-offset: 4px; }
+.release-card:disabled { opacity: .65; cursor: wait; }
+.audio-layout { scroll-margin-top: 1rem; }
+.audio-page .row__meta, .audio-page .row__time { color: #aebfb6; }
+.audio-page .track-panel { background: #1d2021a6; border-color: #a9c9c22e; }
+.audio-work { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1rem; }
+.audio-work article { padding: 1.5rem; border: 1px solid #a9c9c22e; border-radius: 16px; background: linear-gradient(145deg,#a9c9c207,transparent),var(--panel); min-width: 0; }
+.audio-work svg { display: block; width: 100%; height: 90px; color: #a9c9c2; margin-bottom: 1.4rem; }
+.audio-work h3 { font: 600 1.3rem/1.3 var(--display); margin: 0 0 1rem; }
+.audio-work p { font-size: .95rem; color: #bdcbc3; }
+.audio-work .audio-work-label { color: #a9c9c2; font: .65rem/1.6 var(--mono); text-transform: uppercase; letter-spacing: .06em; }
+.audio-toolkit { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; padding: 0; margin: 1.5rem 0; }
+.audio-toolkit li { font: .75rem var(--mono); padding: .5rem .7rem; border: 1px solid var(--line); border-radius: 99px; color: #c3d2c9; }
+.audio-page .video-group-title { color: #c7d7ce; font-size: 1rem; }
+.audio-page .video-card__title { color: #d4e0d9; font-size: .9rem; line-height: 1.5; }
+.audio-outro { margin-top: 3rem; padding: 1.8rem; border: 1px solid #a9c9c22e; border-radius: 16px; background: #a9c9c207; }
+.audio-outro h2 { font: italic 500 2rem/1.2 'Cormorant Garamond',Georgia,serif; margin: 0 0 .8rem; }
+.audio-outro p { color: #becdc4; }
+@media (max-width: 900px) { .audio-intro { grid-template-columns: minmax(0,1.4fr) minmax(0,1fr); gap: 1.5rem; } .audio-work { grid-template-columns: 1fr; } .audio-work article { display: grid; grid-template-columns: 110px minmax(0,1fr); gap: 1.5rem; align-items: center; } .audio-work svg { margin: 0; } .release-rail { grid-auto-columns: 38%; } }
+@media (max-width: 600px) { .audio-intro { grid-template-columns: 1fr; } .audio-emblem { display: none; } .release-rail { grid-auto-columns: 76%; } .release-info { padding: .9rem; } .audio-work article { display: block; } .audio-work svg { margin-bottom: 1rem; } .audio-outro { padding: 1.3rem; } }
+@media (prefers-reduced-motion: reduce) { .release-card { transition: none; } }
