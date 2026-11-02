@@ -435,3 +435,32 @@
 @media print {
   .cv-section-head > p, .skill-group > p, .cv-end > p { color: #333; }
 }
+
+/* Research portrait: compact identity card above the employer downloads. */
+.cv-profile-side { min-width: 0; display: grid; gap: 1.2rem; align-content: start; }
+.cv-portrait { margin: 0; padding: 1rem; display: flex; align-items: center; gap: 1.1rem; border: 1px solid #c0e3d42e; border-radius: 14px; background: linear-gradient(135deg,#a9c9c20c,transparent 70%),#1b2221b8; }
+.cv-portrait img { width: 144px; height: 144px; flex: none; border-radius: 8px; object-fit: cover; border: 1px solid #a9c9c230; }
+.cv-portrait figcaption { min-width: 0; }
+.cv-portrait-name { display: block; color: #e5eee8; font: 500 1.05rem/1.4 var(--display); }
+.cv-portrait-field { display: block; color: #b8ccc2; font-size: .85rem; line-height: 1.6; margin-top: .5rem; }
+.professional-identity > .eyebrow { position: relative; display: block; padding-left: 1rem; }
+.professional-identity > .eyebrow::before { position: absolute; left: 0; top: .55rem; }
+.cv-portrait-download { display: none; }
+@media (min-width: 621px) and (max-width: 1000px) {
+  .cv-portrait { padding: .8rem; gap: .8rem; }
+  .cv-portrait img { width: 105px; height: 105px; }
+  .cv-portrait-name { font-size: 1rem; }
+  .cv-portrait-field { font-size: .8rem; }
+}
+@media (max-width: 620px) {
+  .cv-hero--portrait { gap: 1.5rem; }
+  .cv-hero--portrait .professional-intro, .cv-hero--portrait .cv-profile-side { display: contents; }
+  .professional-identity { order: 1; }
+  .cv-portrait { order: 2; padding: .85rem; }
+  .cv-portrait img { width: 104px; height: 104px; }
+  .professional-biography { order: 3; }
+  .cv-hero--portrait .hero-documents { order: 4; }
+  .cv-portrait-download { display: inline-flex; align-items: center; min-height: 44px; margin-top: .8rem; font-size: .85rem; }
+  .cv-hero--portrait .hero-actions .mobile-download-shortcut { display: none !important; }
+  .cv-hero--portrait .professional-biography > .cv-intro:first-child { margin-top: 0; }
+}
