@@ -1,0 +1,24 @@
+/* Shared editorial typography. Body copy and interface controls retain Instrument Sans. */
+:root { --site-serif:"Cormorant Garamond", Georgia, serif; }
+html[lang="zh-CN"] { --site-serif:"Noto Serif SC", "Songti SC", SimSun, serif; }
+body main :is(h1,h2,h3):not(.logo-line),
+body :is(.editorial-line,.audio-editorial,.audio-outro h2,.board-quote) {
+  font-family:var(--site-serif);
+  font-variation-settings:normal;
+  font-synthesis:none;
+  letter-spacing:normal;
+  text-transform:none;
+  overflow-wrap:break-word;
+}
+body main :is(h1,h2,h3):not(.logo-line) { font-weight:600; line-height:1.2; }
+body .cv-wrap { --editorial:var(--site-serif); }
+body.english-page { --english-serif:var(--site-serif); }
+html[lang="zh-CN"] body main :is(h1,h2,h3):not(.logo-line) { line-height:1.5; font-weight:600; }
+html[lang="zh-CN"] body :is(.editorial-line,.audio-editorial,.audio-outro h2,.board-quote),
+html[lang="zh-CN"] body main :is(h1,h2,h3) em { font-style:normal; line-height:1.5; }
+@media(max-width:640px) {
+ body main .page-title { font-size:clamp(2.2rem,9vw,3.5rem); }
+ html[lang="ru"] body main h1:not(.logo-line) { overflow-wrap:anywhere; }
+}
+
+html[lang="zh-CN"] :is(.cv-section-head > p,.skill-group > p,.cv-end > p) { font-style:normal; line-height:1.6; }
