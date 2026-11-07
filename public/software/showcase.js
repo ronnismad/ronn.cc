@@ -5,10 +5,17 @@
   const next = document.querySelector('[data-software-next]');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const cards = [...track.querySelectorAll('.soft-slot')];
+  const position = document.querySelector('[data-software-position]');
   const positions = () => cards.map(card => card.offsetLeft - cards[0].offsetLeft);
   function update() {
     previous.disabled = track.scrollLeft < 2;
     next.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 2;
+    if (position) {
+      const stops = positions();
+      const active = stops.reduce((closest, left, index) =>
+        Math.abs(left - track.scrollLeft) < Math.abs(stops[closest] - track.scrollLeft) ? index : closest, 0);
+      position.textContent = `${active + 1} / ${cards.length}`;
+    }
   }
   function move(direction) {
     const stops = positions();

@@ -1,0 +1,19 @@
+/* Let the applications lead, with supporting results below the shelf. */
+.showcase-position { display: none; }
+@media (max-width: 640px) {
+  body[data-page="software"] > main.wrap { padding-top: 2rem; }
+  body[data-page="software"] .page-head { margin-bottom: 2rem; }
+  body[data-page="software"] .soft-lede { font-size: 1rem; line-height: 1.65; }
+  body[data-page="software"] .employer-context { margin: 1rem 0; }
+  body[data-page="software"] .employer-actions { gap: .25rem 1.15rem; margin: 1rem 0 0; }
+  body[data-page="software"] .employer-actions a { font-size: .875rem; }
+  body[data-page="software"] .employer-actions .explore-apps { flex-basis: 100%; justify-content: flex-start; gap: .5rem; color: var(--teal); font-weight: 500; }
+  body[data-page="software"] .showcase-controls { align-items: center; gap: .75rem; }
+  .showcase-position { display: inline-block; min-width: 3rem; color: var(--muted); font: .875rem/1.5 var(--body); text-align: center; font-variant-numeric: tabular-nums; }
+  body[data-page="software"] .software-track { align-items: start; }
+  body[data-page="software"] .software-track .soft-card { min-height: 0; padding: 1.15rem 1rem; }
+  body[data-page="software"] .software-track .soft-body { height: auto; gap: .8rem; }
+  body[data-page="software"] .software-track .soft-body > p { flex: none; }
+  body[data-page="software"] .software-track .soft-cta { margin-top: .25rem; padding-top: .5rem; min-height: 32px; }
+  body[data-page="software"] .software-track .soft-logo { max-height: 72px; object-fit: contain; object-position: left center; }
+}
