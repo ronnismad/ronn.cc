@@ -1,0 +1,23 @@
+.teacher-hiring { margin:2rem 0 3rem; }
+.teacher-hiring > h2 { font-size:clamp(1.8rem,3.5vw,2.4rem); margin:0 0 .7rem; }
+.teacher-hiring > p { max-width:65ch; color:var(--fg); line-height:1.7; }
+.teacher-hiring-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; margin-top:1.4rem; }
+.teacher-hiring-card { padding:1.4rem; background:var(--panel); border:1px solid var(--line); border-radius:10px; display:flex; flex-direction:column; }
+.teacher-hiring-card .hiring-caption { color:var(--english-accent); font-size:.85rem; margin:0 0 .7rem; }
+.teacher-hiring-card h3 { font-family:var(--body); font-size:1.3rem; font-weight:500; line-height:1.4; margin:0 0 1rem; }
+.teacher-hiring-card p { font-size:1rem; line-height:1.7; margin:0 0 1rem; }
+.teacher-hiring-card dl { margin:0 0 1rem; }
+.teacher-hiring-card dt { font-size:.85rem; color:var(--english-accent); font-weight:500; margin-bottom:.4rem; }
+.teacher-hiring-card dd { font-size:.95rem; line-height:1.7; margin:0; }
+.teacher-hiring-card a { min-height:44px; display:inline-flex; align-items:center; margin-top:auto; color:var(--english-accent); text-underline-offset:5px; }
+.teacher-hiring-card a:focus-visible { outline:2px solid var(--english-accent); outline-offset:4px; }
+.teacher-hire-shortcuts { display:flex; flex-wrap:wrap; gap:.5rem 1.25rem; margin:1rem 0; }
+.teacher-hire-shortcuts a { min-height:44px; display:inline-flex; align-items:center; color:var(--english-accent); text-underline-offset:5px; }
+.teacher-nav a { font-family:var(--body); font-size:.9rem; text-transform:none; letter-spacing:0; min-height:44px; }
+.teaching-hero > *, .teacher-hiring-card { min-width:0; }
+.experience-badge { max-width:100%; }
+.experience-badge > span { min-width:0; overflow-wrap:anywhere; }
+.hero-intro .teaching-actions a { max-width:100%; white-space:normal; overflow-wrap:anywhere; }
+.teacher-hire-shortcuts a { max-width:100%; overflow-wrap:anywhere; }
+@media(max-width:700px) { .teaching-hero { grid-template-columns:minmax(0,1fr); } }
+@media(max-width:1000px) { .teacher-hiring-grid { grid-template-columns:1fr; } }
