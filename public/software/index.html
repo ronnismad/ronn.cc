@@ -498,6 +498,7 @@
 <link rel="stylesheet" href="/preferences.css?v=3">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&amp;family=Noto+Serif+SC:wght@500;600&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/typography.css?v=1">
+<link rel="stylesheet" href="/employer-pages.css?v=2">
 </head>
 <body data-page="software">
 
@@ -522,11 +523,13 @@
   <header class="page-head">
     <p class="eyebrow">Things I have built</p>
     <h1 class="page-title">Software</h1>
-    <p class="soft-lede">Scientific models made useful. Explore my engineering applications, then the software, machine learning and device projects behind my work.</p>
+    <p class="soft-lede">I build scientific applications and practical software for data, models and devices. Explore seven public engineering tools, then the client automation, ML and embedded-testing projects that show how I work.</p>
+<p class="employer-context">International research collaboration across Europe and Asia. Remote roles preferred; relocation can be discussed.</p><div class="employer-actions"><a href="#applied-projects">Project results</a><a href="/cv/files/Sutanu-Chatterjee-Complete-CV-2026.pdf?v=20261104" download>Complete CV (English PDF)</a><a href="mailto:sutanuchatterjee93@gmail.com">Discuss a role</a></div>
   </header>
 
 
-  <section class="block software-showcase" aria-labelledby="software-showcase-title">
+  <div class="employer-proof"><a href="#ocr-project"><strong>≈40%</strong><span>Less manual data-entry time in a client OCR project</span><small>View project evidence ↗</small></a><a href="/cv/#selected-work"><strong>11 kW</strong><span>Wireless-charging system studied with the ITMO and Yablochkov team</span><small>View project evidence ↗</small></a><a href="#software-track"><strong>7</strong><span>Engineering applications available to explore</span><small>View project evidence ↗</small></a></div>
+<section class="block software-showcase" aria-labelledby="software-showcase-title">
     <div class="showcase-heading">
       <div><p class="eyebrow">Explore the applications</p><h2 id="software-showcase-title">Engineering, at your fingertips.</h2></div>
       <div class="showcase-controls" hidden><button type="button" data-software-previous aria-label="Previous software application" aria-controls="software-track">←</button><button type="button" data-software-next aria-label="Next software application" aria-controls="software-track">→</button></div>
@@ -695,7 +698,7 @@
     <p class="soft-note">Source code on <a href="https://github.com/ronnismad" target="_blank" rel="noopener noreferrer">GitHub</a>. Models include analytical estimates and FEM with stated approximations — check assumptions and mesh convergence, and verify critical designs with bench tests.</p>
   </section>
 
-<section class="block" aria-labelledby="applied-projects-title" id="applied-projects"><h2 class="section-title" id="applied-projects-title">Applied projects</h2><p class="portfolio-intro">Client work, research models and device testing, alongside the public applications above. Private client code and data are not available for download.</p><div class="project-cases"><article class="project-case"><p class="case-label">Client project / Document processing</p><h3>From scanned invoices to useful data.</h3><p>Built an automated pipeline for a client’s accounts-payable team. OpenCV handles deskewing, denoising and thresholding; PaddleOCR extracts text, with Tesseract as a fallback. Python and regular expressions structure the fields as JSON.</p><p class="case-result">Reduced manual data-entry time by approximately 40%.</p><p class="case-label">OpenCV · PaddleOCR · Tesseract · Python · JSON</p></article><article class="project-case"><p class="case-label">Research / ML surrogate modelling</p><h3>Finding the cause, not just fitting the model.</h3><p>Developed a PyTorch surrogate to predict material thickness for RF reflection-loss targets. When its predictions disagreed with simulations, I traced the mismatch to a reversed material list while examining the code and results with agentic AI tools.</p><p class="case-result">Identified an input-ordering bug behind the simulation/model mismatch.</p><p class="case-label">PyTorch · Surrogate models · RF simulation · Debugging</p></article><article class="project-case"><p class="case-label">Engineering / Automated device testing</p><h3>Software that meets the real world.</h3><p>Wrote Python and pytest automation for serial COM and other communication protocols. My embedded work spans STM32, ESP32 and Arduino/AVR platforms, with GNSS and LoRa projects and testing on the lab bench and in practical use.</p><p class="case-result">Connects software checks with measurement and real-use validation.</p><p class="case-label">Python · pytest · Embedded C/C++ · GNSS · LoRa</p></article></div></section>
+<section class="block" id="applied-projects" aria-labelledby="applied-title"><div class="cv-section-head"><h2 id="applied-title">Project results and my contribution.</h2></div><p class="portfolio-intro">Client delivery, research debugging and device testing. Private client code and data are not published; public applications are linked separately.</p><div class="employer-cases"><article class="employer-case" id="ocr-project"><p class="case-label">Client work / Document automation</p><h3>Invoice-to-JSON automation</h3><p class="result-lead">Approximately 40% less time spent on manual data entry.</p><dl><dt>The task</dt><dd>Extract useful fields from scanned invoices and receipts for an accounts-payable team.</dd><dt>My contribution</dt><dd>Built the pipeline: image deskewing, denoising and thresholding in OpenCV; PaddleOCR with a Tesseract fallback; Python parsing into structured JSON.</dd></dl><p class="case-tools">Python · OpenCV · PaddleOCR · Tesseract · JSON</p></article><article class="employer-case" id="rf-surrogate-project"><p class="case-label">Research / Physics-informed software</p><h3>RF surrogate modelling</h3><p class="result-lead">Traced a simulation/model mismatch to a reversed material list.</p><dl><dt>The task</dt><dd>Predict material thickness for a target RF reflection loss using a PyTorch surrogate model.</dd><dt>My contribution</dt><dd>Developed the surrogate and investigated inconsistent predictions by inspecting code, inputs and simulation results with agentic AI support.</dd></dl><p class="case-tools">Python · PyTorch · RF simulation · Surrogate models</p></article><article class="employer-case" id="embedded-test-project"><p class="case-label">Engineering / Software meets hardware</p><h3>Automated embedded-device testing</h3><p class="result-lead">Automated communication checks, backed by bench testing and real-use validation.</p><dl><dt>The task</dt><dd>Check device communication and behaviour beyond a software-only model.</dd><dt>My contribution</dt><dd>Wrote Python/pytest checks for serial COM and other protocols. Worked with STM32, ESP32 and Arduino/AVR, including GNSS and LoRa projects.</dd></dl><p class="case-tools">Python · pytest · Embedded C/C++ · GNSS · LoRa</p></article></div></section>
 <section class="block" aria-labelledby="software-toolkit"><h2 class="section-title" id="software-toolkit">Tools I work with</h2><ul class="toolkit-chips"><li>Python</li><li>C++ / Embedded C</li><li>PyTorch</li><li>TensorFlow</li><li>pandas / NumPy</li><li>scikit-learn</li><li>SQL / PostgreSQL</li><li>FastAPI / Flask / Django</li><li>Docker</li><li>Linux</li><li>Git / GitHub</li><li>pytest</li><li>OpenCV / PaddleOCR / Tesseract</li><li>Local LLMs / AI agents</li></ul><p class="portfolio-intro">Hands-on AI/ML work since 2022, including MLPs, CNNs, surrogate models and local-model agents connected to applications. I use Codex and Claude Code to support development, with code inspection and testing as part of the workflow.</p><div class="portfolio-links"><a href="/cv/#documents">Download my CVs ↗</a><a href="mailto:sutanuchatterjee93@gmail.com?subject=Software%20or%20research%20role">Discuss a role or project ↗</a></div></section>
 
 </main>
@@ -706,7 +709,7 @@
 </footer>
 
 <script src="/software/showcase.js?v=2026-11-02" defer></script>
-<script src="/locale-data.js?v=3" defer></script>
+<script src="/locale-data.js?v=6" defer></script>
 <script src="/preferences.js?v=3" defer></script>
 </body>
 </html>

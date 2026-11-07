@@ -1,7 +1,9 @@
-.home-settings { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.75rem; }
-.weather-toggle { border:1px solid var(--line); border-radius:7px; padding:.6rem .8rem; min-height:44px; font:.8rem/1.4 var(--body); background:var(--panel); color:var(--fg); cursor:pointer; }
-.weather-toggle:disabled { cursor:default; }
-.weather-toggle[hidden] { display:none; }
+.home-settings { display:flex; justify-content:flex-end; align-items:center; flex-wrap:wrap; gap:.75rem; }
+.home { padding-top:1rem; }
+.home-primary { position:sticky; top:.5rem; z-index:10; display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); padding:.4rem; border:1px solid var(--line); border-radius:8px; background:var(--panel); box-shadow:0 8px 25px #0002; gap:.2rem; }
+.home-primary a { display:flex; align-items:center; justify-content:center; min-height:44px; padding:.4rem; color:var(--fg); text-decoration:none; font-size:.95rem; line-height:1.4; border-radius:4px; }
+.home-primary a:hover { background:var(--raised); color:var(--teal); }
+@media(max-width:640px) { .home-primary { grid-template-columns:repeat(3,minmax(0,1fr)); } .home-primary a { font-size:.85rem; } }
 .home .mist,.home .aurora { display:none; }
 .home-weather { position:fixed; inset:0; width:100%; height:100%; z-index:0; pointer-events:none; opacity:.75; mask-image:radial-gradient(ellipse at 50% 45%,rgba(0,0,0,.15) 15%,rgba(0,0,0,.65) 65%,#000 100%); }
 html[data-theme="light"] .home-weather { opacity:.55; }
@@ -19,5 +21,7 @@ html[data-theme="light"] .home-weather { opacity:.55; }
 .hiring-docs { display:flex; flex-wrap:wrap; gap:.5rem 1.4rem; }
 .hiring-docs a { display:inline-flex; align-items:center; min-height:44px; text-underline-offset:5px; }
 .hiring-availability { margin:1rem 0 0; color:var(--teal); font-size:.9rem; }
-@media(max-width:560px) { .hiring-roles { grid-template-columns:1fr; gap:1rem; } .home-settings { justify-content:flex-end; } .weather-toggle { order:2; } }
-@media print { .home-weather,.weather-toggle { display:none!important; } }
+@media(max-width:560px) { .hiring-roles { grid-template-columns:1fr; gap:1rem; } .home-settings { justify-content:flex-end; } }
+@media print { .home-weather { display:none!important; } }
+
+@media(max-width:360px) { .home-primary { grid-template-columns:repeat(2,minmax(0,1fr)); } }

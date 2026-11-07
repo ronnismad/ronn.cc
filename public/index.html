@@ -48,7 +48,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&amp;family=Noto+Serif+SC:wght@500;600&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/home-showcase.css?v=2">
 <link rel="stylesheet" href="/typography.css?v=1">
-<link rel="stylesheet" href="/home-employer.css?v=1">
+<link rel="stylesheet" href="/home-employer.css?v=3">
 </head>
 <body class="home" data-page="home">
 
@@ -68,7 +68,8 @@
 <canvas class="home-weather" aria-hidden="true"></canvas>
 
 <main class="home__inner">
-<div class="home-settings"><button class="weather-toggle" type="button" hidden aria-pressed="true">Pause background motion</button><div class="site-preferences" role="group" aria-label="Appearance and language" translate="no"><select aria-label="Site language"><option value="en">English</option><option value="ru">Русский</option><option value="zh">中文</option></select><button type="button" aria-label="Switch to light mode" aria-pressed="false" title="Switch to light mode"><span data-theme-icon aria-hidden="true">☼</span></button></div></div>
+<nav class="home-primary" aria-label="Main navigation"><a href="/cv/">CV</a><a href="/science/">Research</a><a href="/software/">Software</a><a href="/english/">English</a><a href="/audio/">Audio</a><a href="/contact/">Contact</a></nav>
+<div class="home-settings"><div class="site-preferences" role="group" aria-label="Appearance and language" translate="no"><select aria-label="Site language"><option value="en">English</option><option value="ru">Русский</option><option value="zh">中文</option></select><button type="button" aria-label="Switch to light mode" aria-pressed="false" title="Switch to light mode"><span data-theme-icon aria-hidden="true">☼</span></button></div></div>
 
   <header>
     <h1 class="logo-line">
@@ -105,20 +106,7 @@
   <p class="hiring-availability">CV downloads are in English (PDF).</p>
 </section>
 
-  <nav>
-    <ul class="links">
-      <li><a class="link" href="/cv"><span class="link__name">CV</span><span class="link__meta">Experience, skills &amp; CVs</span></a></li>
-      <li><a class="link" href="/science"><span class="link__name">Research</span><span class="link__meta">Radiophysics &amp; optoelectronics</span></a></li>
-      <li><a class="link" href="/english"><span class="link__name">English teaching</span><span class="link__meta">TESOL-certified teaching · AI &amp; prompts</span></a></li>
-      <li><a class="link" href="/software"><span class="link__name">Software</span><span class="link__meta">Engineering tools &amp; applications</span></a></li>
 
-      <li><a class="link" href="/audio"><span class="link__name">Music &amp; audio</span><span class="link__meta">Music, recordings &amp; collaborations</span></a></li>
-
-
-      <li><a class="link" href="/contact"><span class="link__name">Contact</span><span class="link__meta">Email, messaging &amp; profiles</span></a></li>
-
-    </ul>
-  </nav>
 
 <section class="home-selected" aria-labelledby="selected-title"><div class="home-section-heading"><h2 id="selected-title">Selected work</h2><p>Four ways to put curiosity to work.</p></div><div class="home-work-grid"><a class="home-work" href="/science/"><div class="home-work-image"><img src="/img/sutanu-research-portrait.jpg" alt="Sutanu in an anechoic chamber" width="640" height="420" loading="lazy"></div><div class="home-work-copy"><span class="home-work-category">Research</span><h3>Radiophysics &amp; optoelectronics</h3><p>From physical models to devices tested in the lab and in real use.</p><span class="home-work-cta"><span>Explore research</span><span aria-hidden="true">↗</span></span></div></a><a class="home-work" href="/software/"><div class="home-work-image"><img src="/img/app-resonlab.jpg" alt="ResonLab acoustic design interface" width="640" height="420" loading="lazy"></div><div class="home-work-copy"><span class="home-work-category">Software</span><h3>ResonLab</h3><p>An interactive acoustic resonator design tool, built around a physics model.</p><span class="home-work-cta"><span>Explore software</span><span aria-hidden="true">↗</span></span></div></a><a class="home-work" href="/audio/#recordings"><div class="home-work-image"><img src="/audio/art/chiaroscuro.svg" alt="Chiaroscuro recording artwork" width="640" height="420" loading="lazy"></div><div class="home-work-copy"><span class="home-work-category">Music &amp; audio</span><h3>Chiaroscuro</h3><p>An original recording, alongside compositions, performances and collaborations.</p><span class="home-work-cta"><span>Explore music</span><span aria-hidden="true">↗</span></span></div></a><a class="home-work" href="/english/#robotics-workshops"><div class="home-work-image"><img src="/english/images/arduino-robotics-workshop.webp" alt="Ronnie guiding a student through a robotics project" width="640" height="420" loading="lazy"></div><div class="home-work-copy"><span class="home-work-category">English teaching</span><h3>English through making</h3><p>Robotics workshops and AI-focused lessons that give language a practical purpose.</p><span class="home-work-cta"><span>Explore teaching</span><span aria-hidden="true">↗</span></span></div></a></div></section>
 
@@ -199,8 +187,8 @@
 })();
 </script>
 
-<script src="/locale-data.js?v=5" defer></script>
+<script src="/locale-data.js?v=6" defer></script>
 <script src="/preferences.js?v=3" defer></script>
-<script src="/home-weather.js?v=1" defer></script>
+<script src="/home-weather.js?v=2" defer></script>
 </body>
 </html>

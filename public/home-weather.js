@@ -1,13 +1,10 @@
 /* Procedural layered clouds and depth-scaled rain. No video or external assets. */
 (() => {
   const canvas = document.querySelector('.home-weather');
-  const button = document.querySelector('.weather-toggle');
-  if (!canvas || !button) return;
+  if (!canvas) return;
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  let paused = false;
-  try { paused = localStorage.getItem('ronn-weather-paused') === 'true'; } catch {}
   let width=0, height=0, frame=0, last=0, time=0, drops=[];
   // Build a small, softly edged fractal cloud texture once, then move the layers.
   const cloud=document.createElement('canvas'); cloud.width=384; cloud.height=192;
@@ -49,7 +46,7 @@
       ctx.drawImage(cloud,-width*.3+drift,-h*.28+i*height*.22,w,h);
     }
     // Rain has a consistent wind direction, with nearer drops longer and faster.
-    if(!reduced.matches && !paused) for(const d of drops){
+    if(!reduced.matches) for(const d of drops){
       d.x-=dt*(22+35*d.z); d.y+=dt*(340+460*d.z);
       if(d.y>height+30){d.y=-30;d.x=Math.random()*(width+80);}
       if(d.x < -30)d.x=width+20;
@@ -61,22 +58,18 @@
   }
   function tick(now){
     frame=0;
-    if(paused||reduced.matches||document.hidden)return;
+    if(reduced.matches||document.hidden)return;
     if(now-last>=32){const dt=last?Math.min((now-last)/1000,.07):0;last=now;time+=dt;draw(dt);}
     frame=requestAnimationFrame(tick);
   }
   function sync(){
     cancelAnimationFrame(frame);frame=0;last=0;
-    const stopped=paused||reduced.matches;
+    const stopped=reduced.matches;
     document.body.dataset.motion=stopped?'paused':'running';
-    button.hidden=false;button.disabled=reduced.matches;
-    button.setAttribute('aria-pressed',String(!stopped));
-    button.textContent=reduced.matches?'Reduced motion enabled':paused?'Play background motion':'Pause background motion';
     window.dispatchEvent(new Event('ronn-motion-change'));
     draw(0);
     if(!stopped&&!document.hidden)frame=requestAnimationFrame(tick);
   }
-  button.addEventListener('click',()=>{paused=!paused;try{localStorage.setItem('ronn-weather-paused',String(paused));}catch{}sync();});
   reduced.addEventListener('change',sync);
   document.addEventListener('visibilitychange',sync);
   new MutationObserver(()=>draw(0)).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
