@@ -48,6 +48,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&amp;family=Noto+Serif+SC:wght@500;600&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/home-showcase.css?v=2">
 <link rel="stylesheet" href="/typography.css?v=1">
+<link rel="stylesheet" href="/home-employer.css?v=1">
 </head>
 <body class="home" data-page="home">
 
@@ -64,9 +65,10 @@
 </div>
 
 <div class="grain" aria-hidden="true"></div>
+<canvas class="home-weather" aria-hidden="true"></canvas>
 
 <main class="home__inner">
-<div class="site-preferences" role="group" aria-label="Appearance and language" translate="no"><select aria-label="Site language"><option value="en">English</option><option value="ru">Русский</option><option value="zh">中文</option></select><button type="button" aria-label="Switch to light mode" aria-pressed="false" title="Switch to light mode"><span data-theme-icon aria-hidden="true">☼</span></button></div>
+<div class="home-settings"><button class="weather-toggle" type="button" hidden aria-pressed="true">Pause background motion</button><div class="site-preferences" role="group" aria-label="Appearance and language" translate="no"><select aria-label="Site language"><option value="en">English</option><option value="ru">Русский</option><option value="zh">中文</option></select><button type="button" aria-label="Switch to light mode" aria-pressed="false" title="Switch to light mode"><span data-theme-icon aria-hidden="true">☼</span></button></div></div>
 
   <header>
     <h1 class="logo-line">
@@ -81,6 +83,27 @@
     <p class="home-motto">Different disciplines. A shared curiosity.</p>
     <div class="home-actions"><a href="/cv/">View my CV</a><a href="/contact/">Get in touch</a></div>
   </div>
+
+<section class="hiring-summary" aria-labelledby="hiring-title">
+  <p class="hiring-kicker">For hiring teams</p>
+  <h2 id="hiring-title">Where I can contribute.</h2>
+  <p class="hiring-context">International research and teaching experience across Europe and Asia. Ongoing doctoral research in Physical and Mathematical Sciences.</p>
+  <div class="hiring-roles">
+    <a href="/cv/#journey"><strong>Research &amp; engineering</strong><span>Radiophysics, optoelectronics and embedded systems. From simulation to lab testing and real-use validation.</span></a>
+    <a href="/software/#software-toolkit"><strong>Software &amp; applied ML</strong><span>Hands-on ML since 2022. Python, C/C++, PyTorch, TensorFlow, SQL, Docker and Linux.</span></a>
+    <a href="/audio/#sound-engineering"><strong>Music &amp; audio production</strong><span>Composition, performance, recording and audio engineering, with a practical understanding of DSP and electronics.</span></a>
+    <a href="/english/#teaching-cv-download"><strong>English teaching &amp; workshops</strong><span>TESOL-certified. Teaching since 2019, including robotics workshops and AI-focused language learning.</span></a>
+  </div>
+  <div class="hiring-proof"><p><strong>A result from client work</strong></p><p>Built an invoice-processing pipeline that reduced manual data-entry time by approximately 40%.</p><a href="/software/#applied-projects">Read the project and technical details</a></div>
+  <div class="hiring-docs">
+    <a href="/cv/files/Sutanu-Chatterjee-Complete-CV-2026.pdf?v=20261104" download>Complete CV</a>
+    <a href="/cv/files/Sutanu-Chatterjee-Academic-CV-2026.pdf?v=20261104" download>Academic CV</a>
+    <a href="/english/files/Sutanu-Chatterjee-English-Teaching-CV.pdf?v=5" download>Teaching CV</a>
+    <a href="mailto:sutanuchatterjee93@gmail.com">Discuss a role</a>
+  </div>
+  <p class="hiring-availability">Remote roles preferred. Relocation can be discussed.</p>
+  <p class="hiring-availability">CV downloads are in English (PDF).</p>
+</section>
 
   <nav>
     <ul class="links">
@@ -139,13 +162,13 @@
   }
 
   function schedule() {
-    if (!frame && !reducedMotion.matches && !document.hidden) frame = requestAnimationFrame(update);
+    if (!frame && !reducedMotion.matches && home.dataset.motion !== 'paused' && !document.hidden) frame = requestAnimationFrame(update);
   }
   function syncMotion() {
     cancelAnimationFrame(frame);
     frame = 0; lastTime = 0; pointerX = 0; pointerY = 0;
-    home.classList.toggle('has-parallax', !reducedMotion.matches);
-    if (reducedMotion.matches) {
+    home.classList.toggle('has-parallax', !reducedMotion.matches && home.dataset.motion !== 'paused');
+    if (reducedMotion.matches || home.dataset.motion === 'paused') {
       currentX = currentY = 0;
       home.style.setProperty('--bg-x', '0');
       home.style.setProperty('--bg-y', '0');
@@ -171,11 +194,13 @@
   });
   reducedMotion.addEventListener('change', syncMotion);
   finePointer.addEventListener('change', syncMotion);
+  window.addEventListener('ronn-motion-change', syncMotion);
   syncMotion();
 })();
 </script>
 
-<script src="/locale-data.js?v=4" defer></script>
+<script src="/locale-data.js?v=5" defer></script>
 <script src="/preferences.js?v=3" defer></script>
+<script src="/home-weather.js?v=1" defer></script>
 </body>
 </html>

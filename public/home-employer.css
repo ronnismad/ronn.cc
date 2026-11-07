@@ -1,0 +1,23 @@
+.home-settings { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.75rem; }
+.weather-toggle { border:1px solid var(--line); border-radius:7px; padding:.6rem .8rem; min-height:44px; font:.8rem/1.4 var(--body); background:var(--panel); color:var(--fg); cursor:pointer; }
+.weather-toggle:disabled { cursor:default; }
+.weather-toggle[hidden] { display:none; }
+.home .mist,.home .aurora { display:none; }
+.home-weather { position:fixed; inset:0; width:100%; height:100%; z-index:0; pointer-events:none; opacity:.75; mask-image:radial-gradient(ellipse at 50% 45%,rgba(0,0,0,.15) 15%,rgba(0,0,0,.65) 65%,#000 100%); }
+html[data-theme="light"] .home-weather { opacity:.55; }
+.hiring-summary { border:1px solid var(--line); border-radius:5px; background:var(--panel); padding:clamp(1.2rem,3vw,2rem); }
+.hiring-summary .hiring-kicker { color:var(--teal); font-size:.875rem; margin:0 0 .5rem; }
+.hiring-summary h2 { font-size:clamp(1.7rem,3vw,2.1rem); margin:0 0 1rem; }
+.hiring-context { margin:0 0 1.5rem; max-width:65ch; }
+.hiring-roles { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.25rem; margin:0; }
+.hiring-roles a { display:block; text-decoration:none; border-top:1px solid var(--line); padding-top:.85rem; }
+.hiring-roles strong { display:block; font-weight:500; color:var(--fg); margin-bottom:.3rem; }
+.hiring-roles span { display:block; color:var(--teal); font-size:.9rem; line-height:1.55; }
+.hiring-proof { margin:1.5rem 0; padding:1rem 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+.hiring-proof p { margin:0 0 .5rem; font-size:.95rem; }
+.hiring-proof a { text-underline-offset:4px; font-size:.9rem; }
+.hiring-docs { display:flex; flex-wrap:wrap; gap:.5rem 1.4rem; }
+.hiring-docs a { display:inline-flex; align-items:center; min-height:44px; text-underline-offset:5px; }
+.hiring-availability { margin:1rem 0 0; color:var(--teal); font-size:.9rem; }
+@media(max-width:560px) { .hiring-roles { grid-template-columns:1fr; gap:1rem; } .home-settings { justify-content:flex-end; } .weather-toggle { order:2; } }
+@media print { .home-weather,.weather-toggle { display:none!important; } }
