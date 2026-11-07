@@ -1,7 +1,7 @@
 /* Shared editorial typography. Body copy and interface controls retain Instrument Sans. */
 :root { --site-serif:"Cormorant Garamond", Georgia, serif; }
 html[lang="zh-CN"] { --site-serif:"Noto Serif SC", "Songti SC", SimSun, serif; }
-body main :is(h1,h2,h3):not(.logo-line),
+body main :is(h1,h2):not(.logo-line),
 body :is(.editorial-line,.audio-editorial,.audio-outro h2,.board-quote) {
   font-family:var(--site-serif);
   font-variation-settings:normal;
@@ -10,15 +10,37 @@ body :is(.editorial-line,.audio-editorial,.audio-outro h2,.board-quote) {
   text-transform:none;
   overflow-wrap:break-word;
 }
-body main :is(h1,h2,h3):not(.logo-line) { font-weight:600; line-height:1.2; }
+body main :is(h1,h2):not(.logo-line) { font-weight:600; line-height:1.2; }
 body .cv-wrap { --editorial:var(--site-serif); }
 body.english-page { --english-serif:var(--site-serif); }
-html[lang="zh-CN"] body main :is(h1,h2,h3):not(.logo-line) { line-height:1.5; font-weight:600; }
+html[lang="zh-CN"] body main :is(h1,h2):not(.logo-line) { line-height:1.5; font-weight:600; }
 html[lang="zh-CN"] body :is(.editorial-line,.audio-editorial,.audio-outro h2,.board-quote),
-html[lang="zh-CN"] body main :is(h1,h2,h3) em { font-style:normal; line-height:1.5; }
+html[lang="zh-CN"] body main :is(h1,h2) em { font-style:normal; line-height:1.5; }
 @media(max-width:640px) {
  body main .page-title { font-size:clamp(2.2rem,9vw,3.5rem); }
  html[lang="ru"] body main h1:not(.logo-line) { overflow-wrap:anywhere; }
 }
 
 html[lang="zh-CN"] :is(.cv-section-head > p,.skill-group > p,.cv-end > p) { font-style:normal; line-height:1.6; }
+
+/* Serifs are reserved for display type, not compact cards, labels or supporting copy. */
+body main :is(h3,.compact-heading),
+body main h2.section-title, body main h3.mini-heading,
+body main :is(.country-strip,.soft-card,.doc,.cv-download,.practice-strip,.track-panel__head) h2,
+body main h2.hero-title,
+body main :is(.english-aside,.dossier-label,.dossier-note,.conversation-bubble,.art-number-note),
+body .cv-section-head > p,
+body .skill-group > p {
+  font-family:var(--body);
+  font-style:normal;
+  font-weight:500;
+  font-variation-settings:normal;
+  line-height:1.5;
+  letter-spacing:normal;
+}
+body main :is(h3,.compact-heading) em { font-family:inherit; font-style:normal; }
+body.home .home-work h3,body main .employer-case h3 { font-family:var(--body); font-size:1.3rem; font-weight:500; line-height:1.4; }
+body .map-centre { font-family:var(--body); font-style:normal; }
+html[lang="zh-CN"] body main h3 { font-family:var(--body); font-weight:500; }
+
+body main h2.section-title, body main .track-panel__head h2 { font-size:.8125rem; }
