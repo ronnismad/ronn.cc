@@ -1,0 +1,93 @@
+/* Readable details, comfortable touch targets and balanced small-screen layouts. */
+body:not(.home) { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; }
+body:not(.home) > main.wrap { width: 100%; flex: 1 0 auto; }
+body:not(.home) > .foot { margin-top: auto; }
+body main .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  min-height: 44px;
+  max-width: 100%;
+  padding: .65rem 1rem;
+  font: 500 .875rem/1.45 var(--body);
+  letter-spacing: .01em;
+  text-transform: none;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+body main :is(.eyebrow,.eyebrow-small,.micro,.practice-index,.research-status,.activity-meta,.telegram-label,.lesson-scenario-label,.lesson-topic-heading) {
+  font-size: .75rem;
+  line-height: 1.6;
+  letter-spacing: .04em;
+}
+body main :is(.publication-filters label,.event-date > span,.dossier-facts dt,.country-strip > div > span) { font-size: .75rem; line-height: 1.6; }
+body main :is(.research-portrait p,.audio-emblem p) { font-size: .8125rem; line-height: 1.6; letter-spacing: .02em; }
+body .foot { font-size: .75rem; line-height: 1.6; letter-spacing: .055em; }
+body .foot .social { display: grid; grid-template-columns: repeat(6,minmax(44px,1fr)); width: min(100%,18.5rem); gap: 0; }
+body .foot .social a { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 44px; border-radius: 7px; }
+body .foot .social a:hover { background: var(--panel); }
+body.home .foot .social { width: 100%; grid-template-columns: repeat(3,minmax(0,1fr)); gap: .35rem 1rem; }
+body.home .foot .social a { justify-content: flex-start; gap: .5rem; }
+body .cv-wrap .practice-strip .practice-index,
+body .cv-wrap .cv-event .event-date > span,
+body .manuscript .research-status,
+body .english-main .classroom-copy .activity-meta,
+body .english-main .robotics-photo-steps span { font-size: .75rem; line-height: 1.6; letter-spacing: .025em; }
+
+/* Software labels retain the palette without relying on tiny, widely spaced capitals. */
+body .soft-kicker { font-size: .75rem; letter-spacing: .035em; line-height: 1.6; }
+body .soft-meta span { font: .8125rem/1.45 var(--body); text-transform: none; letter-spacing: 0; }
+body .soft-cta { font: 500 .875rem/1.5 var(--body); text-transform: none; letter-spacing: 0; }
+body .soft-meta span, body .soft-kicker span { max-width: 100%; overflow-wrap: anywhere; }
+
+/* Audio metadata and the seek bar remain legible and easy to operate by touch. */
+body.audio-page :is(.hero-kicker,.track-panel__count,.seek__times,.row__time,.video-scroll__label) { font-size: .75rem; line-height: 1.5; letter-spacing: .03em; }
+body.audio-page :is(.hero-sub,.row__meta,.mini__sub) { font: .8125rem/1.5 var(--body); text-transform: none; letter-spacing: .01em; }
+body.audio-page .release-artist { font-size: .875rem; }
+body.audio-page .release-play { font: 500 .8125rem/1.5 var(--body); text-transform: none; letter-spacing: 0; }
+body.audio-page .audio-work .audio-work-label { font-size: .75rem; line-height: 1.6; letter-spacing: .035em; }
+body.audio-page .seek__bar { height: 44px; }
+body .english-main .art-caption { font-size: .75rem; line-height: 1.5; letter-spacing: .02em; max-width: calc(100% - 2rem); }
+body .english-main .experience-badge small { font-size: .75rem; }
+
+/* These sections are still in progress, but visitors should know where they are. */
+body main .placeholder-panel {
+  min-height: 0;
+  display: block;
+  text-align: left;
+  max-width: 720px;
+  padding: clamp(1.5rem,4vw,2.5rem);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--panel);
+}
+body main .placeholder-panel .eyebrow { margin: 0 0 1rem; color: var(--teal); font-size: .75rem; }
+body main .placeholder-panel .page-title { margin: 0 0 1.25rem; }
+body main .placeholder-panel p { max-width: 52ch; }
+.placeholder-panel .page-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
+
+@media (min-width: 701px) and (max-width: 1000px) {
+  .contact-routes { grid-template-columns: 1fr; }
+  .contact-routes .enquiry { display: grid; grid-template-columns: 36px minmax(0,1fr); gap: .3rem 1rem; padding: 1.4rem; }
+  .contact-routes .enquiry > svg { grid-column: 1; grid-row: 1 / span 4; margin-top: .15rem; }
+  .contact-routes .enquiry > :not(svg) { grid-column: 2; }
+  .contact-routes .enquiry h3 { margin: 0 0 .35rem; }
+  .contact-routes .enquiry p { margin: 0 0 .5rem; }
+  .contact-routes .enquiry-link { margin-top: 0; }
+}
+@media (max-width: 1000px) {
+  .channel:has(.copy-button) { display: grid; grid-template-columns: 44px minmax(0,1fr); gap: .5rem 1rem; }
+  .channel .copy-button { grid-column: 2; margin-left: 0; justify-self: start; }
+  .copy-button { min-height: 44px; }
+}
+@media (max-width: 600px) {
+  body.home .foot .social { grid-template-columns: repeat(2,minmax(0,1fr)); gap: .25rem .75rem; }
+  .showcase-heading { align-items: flex-start; flex-direction: column; gap: .85rem; }
+  .showcase-heading h2 { max-width: 20ch; }
+  .publication-filters { padding: .9rem; }
+  .placeholder-panel .page-actions { flex-direction: column; align-items: stretch; }
+}
+html[lang="zh-CN"] body main :is(.eyebrow,.eyebrow-small,.micro,.practice-index,.research-status,.soft-kicker) { letter-spacing: .02em; }
+@media print { body:not(.home) { display: block; min-height: 0; } }
