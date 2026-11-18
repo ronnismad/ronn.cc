@@ -15,8 +15,8 @@
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
-<link rel="stylesheet" href="/fonts/faces.css?v=1">
-<link rel="stylesheet" href="/styles.css?v=20261119-type">
+<link rel="stylesheet" href="/fonts/faces.css?v=20261119-desktop">
+<link rel="stylesheet" href="/styles.css?v=20261119-desktop">
 <style>
 /* Homepage-only effects keep the existing interior pages unchanged. */
 .home { --forest-image: url("/img/forest-color.jpg"); overflow-x: clip; }
@@ -49,7 +49,7 @@
 <link rel="stylesheet" href="/site-header.css?v=20261119">
 <link rel="stylesheet" href="/responsive-polish.css?v=1">
 <link rel="stylesheet" href="/mobile-portfolio.css?v=1">
-<link rel="stylesheet" href="/home-portfolio.css?v=20261119-type">
+<link rel="stylesheet" href="/home-portfolio.css?v=20261119-desktop">
 </head>
 <body class="home" data-page="home">
 
@@ -71,7 +71,7 @@
 <main class="home__inner">
 <header class="site-header home-site-header">
 <a class="wordmark" href="/"><img class="header-logo" src="/img/ronn-wordmark.png" width="798" height="212" alt="Ronn"><span class="wordmark-home">← Home</span></a>
-<nav class="home-primary" aria-label="Main navigation"><a href="/cv/">CV</a><a href="/science/">Research</a><a href="/software/">Software</a><a href="/audio/">Music &amp; audio</a><a href="/english/">English teaching</a><a href="/contact/">Contact</a></nav>
+<nav class="home-primary" aria-label="Main navigation"><a href="/cv/">CV</a><a href="/science/">Science</a><a href="/software/">Software</a><a href="/audio/">Audio</a><a href="/english/">English</a><a href="/contact/">Contact</a></nav>
 <div class="home-settings"><div class="site-preferences" role="group" aria-label="Appearance and language" translate="no"><select aria-label="Site language"><option value="en">English</option><option value="ru">Русский</option><option value="zh">中文</option></select><button type="button" aria-label="Switch to light mode" aria-pressed="false" title="Switch to light mode"><span data-theme-icon aria-hidden="true">☼</span></button></div></div>
 </header>
 
@@ -81,9 +81,10 @@
       <p class="home__legal">Sutanu Chatterjee</p>
     </div>
     <div class="home-profile">
-      <p class="home-intro-line">I’m a researcher in radiophysics and optoelectronics. I also build software and use machine learning to model how devices behave. I compose music and teach English.</p>
+      <p class="home-intro-line">I’m a researcher in radiophysics and optoelectronics.</p>
+      <p class="home-intro-detail">I also build software and use machine learning to model how devices behave. I compose music and teach English.</p>
       <nav class="home-disciplines" aria-label="Explore by discipline">
-        <a href="/science/">Research</a><a href="/software/">Software</a><a href="/audio/">Music &amp; audio</a><a href="/english/">English teaching</a>
+        <a href="/science/">Science</a><a href="/software/">Software</a><a href="/audio/">Audio</a><a href="/english/">English</a>
       </nav>
       <p class="home-context">My research and teaching have taken me across Europe and Asia.</p>
       <div class="home-profile-actions"><a class="home-primary-action" href="/cv/">View my CV</a><a href="/contact/">Get in touch</a></div>
@@ -93,24 +94,28 @@
   <section class="home-workbench" aria-labelledby="selected-title">
     <h2 id="selected-title">Selected work</h2>
     <div class="featured-grid">
-      <article class="featured-project">
+      <article class="featured-project featured-project--research">
         <a class="project-media project-media--research" href="https://doi.org/10.48130/wpt-0025-0019" aria-label="Read the published coil estimator paper">
           <img src="/img/sutanu-research-portrait.jpg" alt="Sutanu in an anechoic chamber" width="962" height="962">
           <span class="photo-caption"><span>First-author paper</span><strong lang="en" translate="no">Wireless Power Transfer</strong><span>2025</span></span>
         </a>
         <div class="featured-copy">
-          <p class="featured-field">Research</p>
+          <p class="featured-field">Science</p>
           <h3>11 kW wireless charging</h3>
           <p>I worked on coil modelling and parameter estimation for an electric vehicle charging system with the ITMO and Yablochkov team.</p>
           <a class="featured-link" href="/cv/#wireless-charging">Read the charging case study</a>
         </div>
       </article>
-      <article class="featured-project">
+      <article class="featured-project featured-project--software">
         <a class="project-media project-media--software" href="/software/#app-resonlab" aria-label="Explore the ResonLab design example">
-          <div class="model-output">
-            <span class="model-label">ResonLab</span>
-            <div class="model-readout"><span>Target</span><strong>150.000 <small>Hz</small></strong></div>
-            <div class="model-readout"><span>FEM result</span><strong>149.993 <small>Hz</small></strong></div>
+          <div class="response-preview">
+            <div class="response-head"><span>Resonance peak</span><strong>168.5 Hz</strong></div>
+            <svg class="response-trace" viewBox="0 0 280 85" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+              <path class="trace-grid" d="M0 20h280m-280 32h280m-280 32h280M54 0v84m54-84v84m54-84v84m54-84v84"/>
+              <polyline class="trace-curve" points="0,68.72 43.08,53.80 64.62,43.93 86.15,26.55 96.92,14.41 104.46,4 112,14.94 118.46,27.32 140,45.21 172.31,60.01 280,78.99"/>
+              <circle class="trace-peak" cx="104.46" cy="4" r="3"/>
+            </svg>
+            <div class="trace-axis" aria-hidden="true"><span>120 Hz</span><span>250 Hz</span></div>
           </div>
         </a>
         <div class="featured-copy">
@@ -120,24 +125,25 @@
           <a class="featured-link" href="/software/#app-resonlab">Explore the design tool</a>
         </div>
       </article>
-      <article class="featured-project">
+      <article class="featured-project featured-project--recording">
         <a class="project-media project-media--recording" href="/audio/#recordings" aria-label="Browse the recordings">
-          <img src="/audio/art/chiaroscuro.svg" alt="Chiaroscuro recording artwork" width="400" height="400" loading="lazy">
+          <img class="track-wave" src="/audio/art/chiaroscuro-waveform.svg" alt="" width="420" height="82" loading="lazy">
+          <img class="track-sleeve" src="/audio/art/chiaroscuro-original.jpg" alt="Chiaroscuro recording artwork" width="300" height="268" loading="lazy">
         </a>
         <div class="featured-copy">
-          <p class="featured-field">Music &amp; audio</p>
+          <p class="featured-field">Audio</p>
           <h3>Chiaroscuro</h3>
           <p>An original recording released as Ronn. My other audio work includes composition, performance, restoration and plug-in development.</p>
-          <audio aria-label="Listen to Chiaroscuro" controls preload="none" src="/audio/music/Ronn%20-%20Chiaroschuro.mp3"></audio>
+          <audio aria-label="Listen to Chiaroscuro" controls preload="metadata" src="/audio/music/Ronn%20-%20Chiaroschuro.mp3"></audio>
         </div>
       </article>
-      <article class="featured-project">
+      <article class="featured-project featured-project--workshop">
         <a class="project-media project-media--workshop" href="/english/#robotics-workshops" aria-label="Explore the robotics workshops">
           <img src="/english/images/arduino-robotics-workshop.webp" alt="Ronnie guiding a student through a robotics project" width="780" height="855" loading="lazy">
           <span class="photo-caption"><span>Robotics workshops</span><strong translate="no">Studio 787</strong><span>2024</span></span>
         </a>
         <div class="featured-copy">
-          <p class="featured-field">English teaching</p>
+          <p class="featured-field">English</p>
           <h3>English through robotics</h3>
           <p>I helped run eight Arduino workshops for ages 8 to 17. Learners practise English by building a robot and explaining how it works.</p>
           <a class="featured-link" href="/english/#robotics-workshops">See the workshops</a>
@@ -237,7 +243,7 @@
 </script>
 
 <script src="/locale-data.js?v=20261119" defer></script>
-<script src="/home-portfolio-locales.js?v=2" defer></script>
+<script src="/home-portfolio-locales.js?v=20261119-desktop" defer></script>
 <script src="/preferences.js?v=3" defer></script>
 <script src="/home-weather.js?v=2" defer></script>
 <script src="/site-header.js?v=2" defer></script>

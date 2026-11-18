@@ -1,7 +1,11 @@
 Object.assign(window.RONN_LOCALES, {
-  "I’m a researcher in radiophysics and optoelectronics. I also build software and use machine learning to model how devices behave. I compose music and teach English.": [
-    "Я исследователь в области радиофизики и оптоэлектроники. Я также разрабатываю программы и использую машинное обучение для моделирования работы устройств. Пишу музыку и преподаю английский.",
-    "我是一名科研工作者，研究方向是无线电物理与光电子学。我也开发软件，用机器学习模拟设备的运行表现。我还创作音乐、教授英语。"
+  "I’m a researcher in radiophysics and optoelectronics.": [
+    "Я исследователь в области радиофизики и оптоэлектроники.",
+    "我是一名科研工作者，研究方向是无线电物理与光电子学。"
+  ],
+  "I also build software and use machine learning to model how devices behave. I compose music and teach English.": [
+    "Я также разрабатываю программы и использую машинное обучение для моделирования работы устройств. Пишу музыку и преподаю английский.",
+    "我也开发软件，用机器学习模拟设备的运行表现。我还创作音乐、教授英语。"
   ],
   "My research and teaching have taken me across Europe and Asia.": [
     "Я работал в исследовательских и образовательных проектах в Европе и Азии.",
@@ -17,8 +21,7 @@ Object.assign(window.RONN_LOCALES, {
   ],
   "Read the charging case study": ["Подробнее о проекте", "查看充电项目"],
   "Explore the ResonLab design example": ["Посмотреть пример расчёта в ResonLab", "查看 ResonLab 设计示例"],
-  "Target": ["Целевая частота", "目标频率"],
-  "FEM result": ["Расчёт МКЭ", "有限元计算结果"],
+  "Resonance peak": ["Резонансный пик", "共振峰"],
   "I built an acoustic design tool that lets you set a target frequency, adjust a resonator’s dimensions and check the predicted response.": [
     "Я разработал программу, в которой можно задать целевую частоту, подобрать размеры акустического резонатора и посмотреть расчётную частотную характеристику.",
     "我开发了这款声学设计工具，可以设定目标频率、调整共振器尺寸，并查看预测的频率响应。"
