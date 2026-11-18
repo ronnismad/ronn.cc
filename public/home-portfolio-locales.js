@@ -12,8 +12,8 @@ Object.assign(window.RONN_LOCALES, {
     "我曾在欧洲和亚洲从事研究和教学。"
   ],
   "Explore by discipline": ["Выбрать направление", "按领域浏览"],
-  "Read the published coil estimator paper": ["Прочитать статью об оценке параметров катушек", "阅读已发表的线圈参数估算论文"],
-  "First-author paper": ["Первый автор статьи", "第一作者论文"],
+  "First-author paper": ["Статья, где я первый автор", "第一作者论文"],
+  "Read my first-author paper on coil parameter estimation": ["Прочитать статью об оценке параметров катушек, где я первый автор", "阅读我以第一作者身份发表的线圈参数估算论文"],
   "11 kW wireless charging": ["Беспроводная зарядка на 11 кВт", "11 千瓦无线充电系统"],
   "I worked on coil modelling and parameter estimation for an electric vehicle charging system with the ITMO and Yablochkov team.": [
     "Вместе с командой ИТМО и «Яблочкова» я моделировал катушки и оценивал их параметры для системы зарядки электромобилей.",
@@ -22,12 +22,16 @@ Object.assign(window.RONN_LOCALES, {
   "Read the charging case study": ["Подробнее о проекте", "查看充电项目"],
   "Explore the ResonLab design example": ["Посмотреть пример расчёта в ResonLab", "查看 ResonLab 设计示例"],
   "Resonance peak": ["Резонансный пик", "共振峰"],
+  "168.5 Hz": ["168,5 Гц", "168.5 Hz"],
+  "120 Hz": ["120 Гц", "120 Hz"],
+  "250 Hz": ["250 Гц", "250 Hz"],
   "I built an acoustic design tool that lets you set a target frequency, adjust a resonator’s dimensions and check the predicted response.": [
     "Я разработал программу, в которой можно задать целевую частоту, подобрать размеры акустического резонатора и посмотреть расчётную частотную характеристику.",
     "我开发了这款声学设计工具，可以设定目标频率、调整共振器尺寸，并查看预测的频率响应。"
   ],
   "Explore the design tool": ["Посмотреть программу", "了解设计工具"],
   "Browse the recordings": ["Перейти к записям", "浏览录音作品"],
+  "Original recording": ["Авторская запись", "原创录音"],
   "An original recording released as Ronn. My other audio work includes composition, performance, restoration and plug-in development.": [
     "Моя авторская запись, выпущенная под именем Ronn. Я также сочиняю и исполняю музыку, реставрирую записи и разрабатываю аудиоплагины.",
     "这是我以 Ronn 的名字发行的一首原创作品。我也作曲、演奏、修复录音，并开发音频插件。"

@@ -48,7 +48,7 @@
 <link rel="stylesheet" href="/site-header.css?v=20261119">
 <link rel="stylesheet" href="/responsive-polish.css?v=1">
 <link rel="stylesheet" href="/mobile-portfolio.css?v=1">
-<link rel="stylesheet" href="/home-portfolio.css?v=20261119-gallery">
+<link rel="stylesheet" href="/home-portfolio.css?v=20261119-photo-pairs">
 </head>
 <body class="home" data-page="home">
 
@@ -76,8 +76,10 @@
 
   <header class="home-introduction">
     <div class="home-signature">
-      <h1 class="logo-line"><img class="logo" src="/img/ronn-wordmark.png" width="798" height="212" alt="Ronn"></h1>
-      <p class="home__legal">Sutanu Chatterjee</p>
+      <h1 class="logo-line">
+        <img class="logo" src="/img/ronn-wordmark.png" width="798" height="212" alt="Ronn">
+        <span class="home__legal">Sutanu Chatterjee</span>
+      </h1>
     </div>
     <div class="home-profile">
       <p class="home-intro-line">I’m a researcher in radiophysics and optoelectronics.</p>
@@ -94,10 +96,12 @@
     <h2 id="selected-title">Selected work</h2>
     <div class="featured-grid">
       <article class="featured-project featured-project--research">
-        <a class="project-media project-media--research" href="https://doi.org/10.48130/wpt-0025-0019" aria-label="Read the published coil estimator paper">
-          <img src="/img/sutanu-research-portrait.jpg" alt="Sutanu in an anechoic chamber" width="962" height="962">
-          <span class="photo-caption"><span>First-author paper</span><strong lang="en" translate="no">Wireless Power Transfer</strong><span>2025</span></span>
-        </a>
+        <figure class="project-figure">
+          <a class="project-media project-media--research" href="https://doi.org/10.48130/wpt-0025-0019" aria-label="Read my first-author paper on coil parameter estimation" title="First-author paper">
+            <img src="/img/sutanu-research-portrait.jpg" alt="Sutanu in an anechoic chamber" width="962" height="962">
+          </a>
+          <figcaption class="credit"><span class="preview-source" lang="en" translate="no">Wireless Power Transfer</span><span class="preview-value">2025</span></figcaption>
+        </figure>
         <div class="featured-copy">
           <p class="featured-field">Science</p>
           <h3>11 kW wireless charging</h3>
@@ -106,17 +110,19 @@
         </div>
       </article>
       <article class="featured-project featured-project--software">
-        <a class="project-media project-media--software" href="/software/#app-resonlab" aria-label="Explore the ResonLab design example">
-          <div class="response-preview">
-            <div class="response-head"><span>Resonance peak</span><strong>168.5 Hz</strong></div>
-            <svg class="response-trace" viewBox="0 0 280 85" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-              <path class="trace-grid" d="M0 20h280m-280 32h280m-280 32h280M54 0v84m54-84v84m54-84v84m54-84v84"/>
-              <polyline class="trace-curve" points="0,68.72 43.08,53.80 64.62,43.93 86.15,26.55 96.92,14.41 104.46,4 112,14.94 118.46,27.32 140,45.21 172.31,60.01 280,78.99"/>
-              <circle class="trace-peak" cx="104.46" cy="4" r="3"/>
-            </svg>
-            <div class="trace-axis" aria-hidden="true"><span>120 Hz</span><span>250 Hz</span></div>
-          </div>
-        </a>
+        <figure class="project-figure">
+          <a class="project-media project-media--software" href="/software/#app-resonlab" aria-label="Explore the ResonLab design example">
+            <div class="response-preview">
+              <svg class="response-trace" viewBox="0 0 280 85" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                <path class="trace-grid" d="M0 20h280m-280 32h280m-280 32h280M54 0v84m54-84v84m54-84v84m54-84v84"/>
+                <polyline class="trace-curve" points="0,68.72 43.08,53.80 64.62,43.93 86.15,26.55 96.92,14.41 104.46,4 112,14.94 118.46,27.32 140,45.21 172.31,60.01 280,78.99"/>
+                <circle class="trace-peak" cx="104.46" cy="4" r="3"/>
+              </svg>
+              <div class="trace-axis" aria-hidden="true"><span>120 Hz</span><span>250 Hz</span></div>
+            </div>
+          </a>
+          <figcaption class="credit"><span class="preview-source">Resonance peak</span><span class="preview-value">168.5 Hz</span></figcaption>
+        </figure>
         <div class="featured-copy">
           <p class="featured-field">Software</p>
           <h3>ResonLab</h3>
@@ -125,10 +131,13 @@
         </div>
       </article>
       <article class="featured-project featured-project--recording">
-        <a class="project-media project-media--recording" href="/audio/#recordings" aria-label="Browse the recordings">
-          <img class="track-wave" src="/audio/art/chiaroscuro-waveform.svg" alt="" width="420" height="82" loading="lazy">
-          <img class="track-sleeve" src="/audio/art/chiaroscuro-original.jpg" alt="Chiaroscuro recording artwork" width="300" height="268" loading="lazy">
-        </a>
+        <figure class="project-figure">
+          <a class="project-media project-media--recording" href="/audio/#recordings" aria-label="Browse the recordings">
+            <img class="track-wave" src="/audio/art/chiaroscuro-waveform.svg" alt="" width="420" height="82" loading="lazy">
+            <img class="track-sleeve" src="/audio/art/chiaroscuro-original.jpg" alt="Chiaroscuro recording artwork" width="300" height="268" loading="lazy">
+          </a>
+          <figcaption class="credit"><span class="preview-source">Original recording</span><time class="preview-value" datetime="PT3M39S">3:39</time></figcaption>
+        </figure>
         <div class="featured-copy">
           <p class="featured-field">Audio</p>
           <h3>Chiaroscuro</h3>
@@ -137,10 +146,12 @@
         </div>
       </article>
       <article class="featured-project featured-project--workshop">
-        <a class="project-media project-media--workshop" href="/english/#robotics-workshops" aria-label="Explore the robotics workshops">
-          <img src="/english/images/arduino-robotics-workshop.webp" alt="Ronnie guiding a student through a robotics project" width="780" height="855" loading="lazy">
-          <span class="photo-caption"><span>Robotics workshops</span><strong translate="no">Studio 787</strong><span>2024</span></span>
-        </a>
+        <figure class="project-figure">
+          <a class="project-media project-media--workshop" href="/english/#robotics-workshops" aria-label="Explore the robotics workshops" title="Robotics workshops">
+            <img src="/english/images/arduino-robotics-workshop.webp" alt="Ronnie guiding a student through a robotics project" width="780" height="855" loading="lazy">
+          </a>
+          <figcaption class="credit"><span class="preview-source" translate="no">Studio 787</span><span class="preview-value">2024</span></figcaption>
+        </figure>
         <div class="featured-copy">
           <p class="featured-field">English</p>
           <h3>English through robotics</h3>
@@ -242,7 +253,7 @@
 </script>
 
 <script src="/locale-data.js?v=20261119" defer></script>
-<script src="/home-portfolio-locales.js?v=20261119-desktop" defer></script>
+<script src="/home-portfolio-locales.js?v=20261119-photo-pairs" defer></script>
 <script src="/preferences.js?v=3" defer></script>
 <script src="/home-weather.js?v=2" defer></script>
 <script src="/home-spotlight.js?v=1" defer></script>
