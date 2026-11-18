@@ -3,7 +3,7 @@
 .audio-page::before { content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(ellipse at 80% 15%,#a9c9c20c,transparent 50%),radial-gradient(ellipse at 8% 60%,#d1b27d06,transparent 40%); }
 .audio-intro { display: grid; grid-template-columns: minmax(0,1.8fr) minmax(0,1fr); align-items: center; gap: 3rem; margin-bottom: 2.5rem; }
 .audio-intro .page-title { margin-bottom: 1rem; }
-.audio-editorial { font: italic 500 clamp(1.8rem,3.6vw,2.6rem)/1.15 'Cormorant Garamond',Georgia,serif; color: #c8ddd5; margin: 0 0 1.2rem; }
+.audio-editorial { font: italic 500 clamp(1.8rem,3.6vw,2.6rem)/1.15 var(--site-serif); color: #c8ddd5; margin: 0 0 1.2rem; }
 .audio-intro .lede { font-size: 1rem; color: #bdc9c4; }
 .audio-actions { display: flex; flex-wrap: wrap; gap: .8rem 1.2rem; align-items: center; margin-top: 1.5rem; }
 .audio-actions a { display: inline-flex; align-items: center; min-height: 44px; }
@@ -40,7 +40,7 @@
 .audio-page .video-group-title { color: #c7d7ce; font-size: 1rem; }
 .audio-page .video-card__title { color: #d4e0d9; font-size: .9rem; line-height: 1.5; }
 .audio-outro { margin-top: 3rem; padding: 1.8rem; border: 1px solid #a9c9c22e; border-radius: 16px; background: #a9c9c207; }
-.audio-outro h2 { font: italic 500 2rem/1.2 'Cormorant Garamond',Georgia,serif; margin: 0 0 .8rem; }
+.audio-outro h2 { font: italic 500 2rem/1.2 var(--site-serif); margin: 0 0 .8rem; }
 .audio-outro p { color: #becdc4; }
 @media (max-width: 900px) { .audio-intro { grid-template-columns: minmax(0,1.4fr) minmax(0,1fr); gap: 1.5rem; } .audio-work { grid-template-columns: 1fr; } .audio-work article { display: grid; grid-template-columns: 110px minmax(0,1fr); gap: 1.5rem; align-items: center; } .audio-work svg { margin: 0; } .release-rail { grid-auto-columns: 38%; } }
 @media (max-width: 600px) { .audio-intro { grid-template-columns: 1fr; } .audio-emblem { display: none; } .release-rail { grid-auto-columns: 76%; } .release-info { padding: .9rem; } .audio-work article { display: block; } .audio-work svg { margin-bottom: 1rem; } .audio-outro { padding: 1.3rem; } }

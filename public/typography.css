@@ -1,6 +1,6 @@
-/* Shared editorial typography. Body copy and interface controls retain Instrument Sans. */
-:root { --site-serif:"Cormorant Garamond", Georgia, serif; }
-html[lang="zh-CN"] { --site-serif:"Noto Serif SC", "Songti SC", SimSun, serif; }
+/* The same text and display families are used across all portfolio pages. */
+:root { --site-serif:"PT Serif", Georgia, serif; }
+html[lang="zh-CN"] { --site-serif:var(--body); }
 body main :is(h1,h2):not(.logo-line),
 body :is(.editorial-line,.audio-editorial,.audio-outro h2,.board-quote) {
   font-family:var(--site-serif);
@@ -10,10 +10,10 @@ body :is(.editorial-line,.audio-editorial,.audio-outro h2,.board-quote) {
   text-transform:none;
   overflow-wrap:break-word;
 }
-body main :is(h1,h2):not(.logo-line) { font-weight:600; line-height:1.2; }
+body main :is(h1,h2):not(.logo-line) { font-weight:400; line-height:1.2; letter-spacing:-.015em; }
 body .cv-wrap { --editorial:var(--site-serif); }
 body.english-page { --english-serif:var(--site-serif); }
-html[lang="zh-CN"] body main :is(h1,h2):not(.logo-line) { line-height:1.5; font-weight:600; }
+html[lang="zh-CN"] body main :is(h1,h2):not(.logo-line) { line-height:1.4; font-weight:550; letter-spacing:normal; }
 html[lang="zh-CN"] body :is(.editorial-line,.audio-editorial,.audio-outro h2,.board-quote),
 html[lang="zh-CN"] body main :is(h1,h2) em { font-style:normal; line-height:1.5; }
 @media(max-width:640px) {

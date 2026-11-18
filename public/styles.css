@@ -12,9 +12,9 @@
   --teal:    #A9C9C2;
   --teal-dim:#7FA39C;
 
-  --display: "Archivo", system-ui, sans-serif;
-  --body:    "Instrument Sans", system-ui, sans-serif;
-  --mono:    "JetBrains Mono", ui-monospace, monospace;
+  --display: var(--body);
+  --body: "Source Sans 3", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --mono: ui-monospace, Consolas, "Liberation Mono", "Noto Sans SC", monospace;
 
   --pad: clamp(1.5rem, 5vw, 4.5rem);
 }

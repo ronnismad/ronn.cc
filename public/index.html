@@ -15,10 +15,8 @@
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Instrument+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/styles.css?v=2026-11-02">
+<link rel="stylesheet" href="/fonts/faces.css?v=1">
+<link rel="stylesheet" href="/styles.css?v=20261119-type">
 <style>
 /* Homepage-only effects keep the existing interior pages unchanged. */
 .home { --forest-image: url("/img/forest-color.jpg"); overflow-x: clip; }
@@ -44,15 +42,14 @@
 }
 </style>
 <link rel="stylesheet" href="/preferences-theme.css?v=1">
-<link rel="stylesheet" href="/preferences.css?v=3">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&amp;family=Noto+Serif+SC:wght@500;600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/home-showcase.css?v=2">
-<link rel="stylesheet" href="/typography.css?v=2">
+<link rel="stylesheet" href="/preferences.css?v=20261119-type">
+<link rel="stylesheet" href="/home-showcase.css?v=20261119-type">
+<link rel="stylesheet" href="/typography.css?v=20261119-type">
 <link rel="stylesheet" href="/home-employer.css?v=5">
 <link rel="stylesheet" href="/site-header.css?v=20261119">
 <link rel="stylesheet" href="/responsive-polish.css?v=1">
 <link rel="stylesheet" href="/mobile-portfolio.css?v=1">
-<link rel="stylesheet" href="/home-portfolio.css?v=1">
+<link rel="stylesheet" href="/home-portfolio.css?v=20261119-type">
 </head>
 <body class="home" data-page="home">
 
@@ -84,15 +81,14 @@
       <p class="home__legal">Sutanu Chatterjee</p>
     </div>
     <div class="home-profile">
-      <p class="home-intro-line">I study radiophysics and optoelectronics, build software, make music and teach English.</p>
+      <p class="home-intro-line">I’m a researcher in radiophysics and optoelectronics. I also build software and use machine learning to model how devices behave. I compose music and teach English.</p>
+      <nav class="home-disciplines" aria-label="Explore by discipline">
+        <a href="/science/">Research</a><a href="/software/">Software</a><a href="/audio/">Music &amp; audio</a><a href="/english/">English teaching</a>
+      </nav>
       <p class="home-context">My research and teaching have taken me across Europe and Asia.</p>
       <div class="home-profile-actions"><a class="home-primary-action" href="/cv/">View my CV</a><a href="/contact/">Get in touch</a></div>
     </div>
   </header>
-
-  <nav class="home-disciplines" aria-label="Explore by discipline">
-    <a href="/science/">Research</a><a href="/software/">Software</a><a href="/audio/">Music &amp; audio</a><a href="/english/">English teaching</a>
-  </nav>
 
   <section class="home-workbench" aria-labelledby="selected-title">
     <h2 id="selected-title">Selected work</h2>
@@ -241,7 +237,7 @@
 </script>
 
 <script src="/locale-data.js?v=20261119" defer></script>
-<script src="/home-portfolio-locales.js?v=1" defer></script>
+<script src="/home-portfolio-locales.js?v=2" defer></script>
 <script src="/preferences.js?v=3" defer></script>
 <script src="/home-weather.js?v=2" defer></script>
 <script src="/site-header.js?v=2" defer></script>

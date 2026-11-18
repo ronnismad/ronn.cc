@@ -6,8 +6,6 @@
 .site-preferences :focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
 .site-preferences button:hover { border-color: var(--teal); }
 .home__inner > .site-preferences { align-self: flex-end; margin-bottom: -.5rem; }
-html[lang="zh-CN"] { --body: "Instrument Sans","PingFang SC","Microsoft YaHei",sans-serif; --display: "Archivo","PingFang SC","Microsoft YaHei",sans-serif; }
-html[lang="ru"] { --body: "Instrument Sans","Segoe UI",sans-serif; --display: "Archivo","Segoe UI",sans-serif; }
 html[lang="zh-CN"] :is(.eyebrow,.micro,.tag,.nav,.section-title,.case-label) { letter-spacing: .035em; }
 html[lang="ru"] .nav { letter-spacing: .06em; }
 @media (max-width: 1100px) {

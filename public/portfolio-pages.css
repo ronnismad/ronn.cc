@@ -4,7 +4,7 @@
 .science-page::before, .contact-page::before { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: -1; background: radial-gradient(ellipse at 85% 15%, #a9c9c20b, transparent 48%), radial-gradient(ellipse at 5% 65%, #a9c9c206, transparent 40%); }
 .editorial-hero { display: grid; grid-template-columns: minmax(0,1.4fr) minmax(0,1fr); align-items: center; gap: 3rem; margin-bottom: 4rem; }
 .editorial-hero .page-title { margin-bottom: 1rem; }
-.editorial-line { font: italic 500 clamp(1.8rem,3.5vw,2.7rem)/1.15 'Cormorant Garamond',Georgia,serif; color: #c8ddd5; margin: 0 0 1.3rem; }
+.editorial-line { font: italic 500 clamp(1.8rem,3.5vw,2.7rem)/1.15 var(--site-serif); color: #c8ddd5; margin: 0 0 1.3rem; }
 .editorial-copy { color: #b7c3bf; font-size: 1.05rem; max-width: 60ch; }
 .page-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.2rem; margin-top: 1.7rem; }
 .page-actions a, .copy-button, .enquiry-link { min-height: 44px; display: inline-flex; align-items: center; }

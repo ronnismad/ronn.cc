@@ -1,7 +1,7 @@
 Object.assign(window.RONN_LOCALES, {
-  "I study radiophysics and optoelectronics, build software, make music and teach English.": [
-    "Я занимаюсь радиофизикой и оптоэлектроникой, разрабатываю программы, пишу музыку и преподаю английский.",
-    "我研究无线电物理和光电子学，也开发软件、创作音乐、教授英语。"
+  "I’m a researcher in radiophysics and optoelectronics. I also build software and use machine learning to model how devices behave. I compose music and teach English.": [
+    "Я исследователь в области радиофизики и оптоэлектроники. Я также разрабатываю программы и использую машинное обучение для моделирования работы устройств. Пишу музыку и преподаю английский.",
+    "我是一名科研工作者，研究方向是无线电物理与光电子学。我也开发软件，用机器学习模拟设备的运行表现。我还创作音乐、教授英语。"
   ],
   "My research and teaching have taken me across Europe and Asia.": [
     "Я работал в исследовательских и образовательных проектах в Европе и Азии.",

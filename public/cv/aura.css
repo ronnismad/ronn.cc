@@ -414,7 +414,7 @@
 }
 
 /* A quieter editorial voice for the short reflective lines. */
-.cv-wrap { --editorial: "Cormorant Garamond", Georgia, "Times New Roman", serif; }
+.cv-wrap { --editorial: var(--site-serif); }
 .cv-section-head > p,
 .skill-group > p,
 .cv-end > p {
