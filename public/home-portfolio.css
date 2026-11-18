@@ -63,6 +63,7 @@ html[data-theme="light"] .home {
   letter-spacing: .035em;
   text-transform: none;
 }
+html[data-theme="light"] .home-signature .home__legal { color: #1d3128; }
 .home-intro-line {
   margin: 0;
   max-width: 45ch;
