@@ -1,0 +1,210 @@
+/* Portfolio overview. The navigation, type and theme colours come from the site. */
+.home .home__inner {
+  max-width: 68rem;
+  gap: clamp(1.5rem, 3.5vw, 2.75rem);
+}
+
+.home-introduction {
+  display: grid;
+  grid-template-columns: minmax(12rem, .82fr) minmax(0, 1.18fr);
+  align-items: center;
+  gap: clamp(1.75rem, 6vw, 6rem);
+  padding-block: clamp(.5rem, 2.5vw, 2rem);
+}
+.home-signature .logo { width: min(100%, 20rem); }
+.home-signature .home__legal {
+  margin-top: 1rem;
+  font-size: clamp(.9rem, 1.7vw, 1.15rem);
+}
+.home-intro-line {
+  margin: 0;
+  max-width: 32ch;
+  font: 600 clamp(1.85rem, 3.05vw, 2.65rem)/1.16 var(--site-serif);
+  text-wrap: pretty;
+}
+.home-context { margin: .9rem 0 0; color: var(--fg); line-height: 1.55; }
+.home-profile-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .5rem 1.4rem;
+  margin-top: 1rem;
+}
+.home-profile-actions a, .featured-link, .home-cv-list a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  text-underline-offset: .26em;
+  text-decoration-thickness: 1px;
+}
+.home-profile-actions .home-primary-action {
+  padding: .5rem 1.2rem;
+  border-radius: 5px;
+  background: var(--teal);
+  color: var(--bg);
+  font-weight: 600;
+  text-decoration: none;
+}
+.home-disciplines { display: none; }
+.home-workbench > h2, .home-hiring h2 {
+  margin: 0;
+  font-size: clamp(1.85rem, 3.3vw, 2.7rem);
+}
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.65rem);
+  margin-top: 1.1rem;
+}
+.featured-project {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+}
+.project-media {
+  display: grid;
+  position: relative;
+  place-items: center;
+  height: clamp(12rem, 21vw, 16rem);
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 9px 9px 0 0;
+  border-bottom: 1px solid var(--line);
+  background: #172122;
+  text-decoration: none;
+}
+.project-media > img { display: block; height: 100%; width: 100%; min-height: 0; object-fit: cover; }
+.project-media--research, .project-media--workshop {
+  grid-template-columns: 50% minmax(0, 1fr);
+  background: #1a3034;
+}
+.project-media--workshop { background: #362f26; }
+.project-media--research > img { object-position: center; }
+.project-media--workshop > img { object-position: center 55%; }
+.photo-caption {
+  display: grid;
+  width: 100%;
+  padding: .75rem clamp(.8rem, 2vw, 1.75rem);
+  gap: .45rem;
+  color: #eaf1eb;
+  line-height: 1.35;
+}
+.photo-caption > span { font-size: .9rem; }
+.photo-caption strong { font: 600 clamp(1.35rem, 2.7vw, 2.3rem)/1.1 var(--site-serif); }
+.project-media--recording { background: radial-gradient(ellipse, #394642, #18201f 75%); }
+.project-media--recording > img { object-fit: contain; padding-block: .6rem; }
+.project-media--software {
+  background: linear-gradient(120deg, #142634, #1c343b 54%, #16252e);
+  color: #e6f1ef;
+}
+.model-output {
+  width: min(84%, 23rem);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .9rem 1rem;
+}
+.model-label {
+  grid-column: 1 / -1;
+  padding-bottom: .65rem;
+  border-bottom: 1px solid #628889;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+}
+.model-readout { display: grid; gap: .3rem; line-height: 1.25; }
+.model-readout > span { color: #c4d6d9; font-size: .9375rem; }
+.model-readout > strong {
+  color: #e6f1ef;
+  font: 500 clamp(1.1rem, 2.3vw, 1.85rem)/1.15 var(--mono);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.model-readout:last-child > strong { color: #9ee4cc; }
+.model-readout small { font: 400 .65em var(--body); }
+.home .featured-copy {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: clamp(1.1rem, 2.5vw, 1.65rem);
+}
+.featured-copy p { margin: 0; line-height: 1.55; }
+.featured-field { color: var(--teal); font-size: .9375rem; font-weight: 600; }
+.home .featured-copy h3 {
+  margin: .22rem 0 .5rem;
+  font: 500 clamp(1.35rem, 2.1vw, 1.75rem)/1.22 var(--body);
+  text-wrap: pretty;
+}
+.featured-copy .featured-link { margin-top: auto; padding-top: .8rem; }
+.featured-copy audio { display: block; width: min(100%, 21rem); margin-top: auto; padding-top: .8rem; box-sizing: content-box; }
+.home-hiring {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  padding-top: clamp(1.4rem, 3vw, 2.4rem);
+  border-top: 1px solid var(--line);
+}
+.home-hiring p { margin: .5rem 0; }
+.home-cv-list a { margin-right: 1.15rem; }
+.home-cv-list p { color: var(--fg); }
+.home a:is(:hover, :focus-visible) { text-decoration-thickness: 2px; }
+html[lang="zh-CN"] .home-intro-line { line-height: 1.45; }
+
+@media (min-width: 960px) {
+  body.home[data-page] .home-site-header {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: .75rem;
+    margin: 0;
+    padding: .35rem;
+  }
+  .home-site-header .home-primary {
+    position: static;
+    flex: 1;
+    padding: 0;
+    border: 0;
+    background: none;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .home-site-header .home-primary a { text-align: center; }
+  html[data-theme="light"] .home-site-header .home-primary { background: none; box-shadow: none; }
+  .home-site-header .home-settings { flex: none; }
+}
+@media (max-width: 740px) {
+  .home-introduction { grid-template-columns: 1fr; gap: 1.1rem; padding-block: .2rem 0; }
+  .home-signature .logo { width: clamp(9rem, 33vw, 13rem); }
+  .home-signature .home__legal { margin-top: .65rem; }
+  .home-intro-line { font-size: clamp(1.55rem, 5vw, 2.1rem); max-width: 36ch; }
+  .home-context { margin-top: .6rem; }
+  .home-disciplines {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .5rem;
+  }
+  .home-disciplines a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: .4rem .85rem;
+    border: 1px solid var(--teal-dim);
+    border-radius: 5px;
+    color: var(--fg);
+    background: var(--panel);
+    font: 500 1rem/1.4 var(--body);
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+  .home-disciplines a:is(:hover, :focus-visible) { text-decoration: underline; }
+  .home-hiring { grid-template-columns: 1fr; gap: .75rem; }
+}
+@media (max-width: 590px) {
+  .featured-grid { grid-template-columns: 1fr; }
+  .project-media { height: clamp(10rem, 48vw, 14rem); }
+  .model-readout > strong { font-size: clamp(1.12rem, 5.4vw, 1.65rem); }
+}

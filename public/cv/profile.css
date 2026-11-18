@@ -1,0 +1,105 @@
+/* The first screen contains the profile, direct CV downloads and a compact portrait. */
+body .cv-wrap .cv-profile {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(150px, 23%);
+  grid-template-areas: "title photo" "copy photo" "downloads photo";
+  column-gap: clamp(1.5rem, 5vw, 5rem);
+  padding-block: clamp(.75rem, 2.5vw, 2.2rem) 1.75rem;
+}
+.cv-profile-title { grid-area: title; }
+.cv-profile-title .eyebrow { margin: 0 0 .65rem; }
+body main .cv-profile-title h1 {
+  font: 600 clamp(3.15rem, 6.1vw, 5.7rem)/1.02 var(--site-serif);
+  letter-spacing: -.035em;
+  margin: 0;
+  color: var(--fg);
+}
+.cv-profile-photo {
+  grid-area: photo;
+  align-self: center;
+  margin: 0;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: .75rem;
+  border: 1px solid var(--line);
+}
+.cv-profile-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cv-profile-copy { grid-area: copy; max-width: 66ch; }
+.cv-profile-copy p { margin: .7rem 0 0; }
+.cv-profile-copy .cv-profile-lead { font: 500 clamp(1.1rem, 1.5vw, 1.36rem)/1.5 var(--body); color: var(--fg); }
+.cv-profile-context { font: 400 1rem/1.6 var(--body); color: var(--muted); }
+.cv-work-format { font: 500 .94rem/1.5 var(--body); color: var(--fg); }
+.cv-profile-downloads { grid-area: downloads; margin-top: 1.15rem; }
+.cv-profile-downloads, .cv-highlights, .cv-wrap .work-grid [id], .cv-highlights [id] { scroll-margin-top: 6.5rem; }
+.cv-file-actions, .cv-result-links { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; }
+.cv-file-actions a {
+  display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
+  min-height: 44px; padding: .55rem .95rem;
+  font: 500 .94rem/1.4 var(--body); text-decoration: none;
+  border: 1px solid var(--line); border-radius: .45rem;
+  color: var(--fg);
+}
+.cv-file-actions a:hover { border-color: var(--teal); }
+.cv-file-actions .cv-file-primary { background: var(--teal); color: var(--bg); border-color: var(--teal); }
+.cv-file-note { color: var(--muted); font: .85rem/1.45 var(--body); margin: .55rem 0 0; }
+.cv-highlights { padding-block: 1.4rem .5rem; border-block-start: 1px solid var(--line); }
+body main .cv-highlights h2 { font-size: clamp(2rem, 3.4vw, 3rem); margin: 0 0 .85rem; }
+.cv-highlights-grid, .cv-case-index { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; }
+.cv-highlights-grid article {
+  display: flex; flex-direction: column; align-items: flex-start;
+  padding: clamp(1.1rem, 2.6vw, 1.8rem);
+  background: linear-gradient(135deg, color-mix(in srgb,var(--teal) 9%,var(--panel)), var(--panel) 80%);
+  border: 1px solid var(--line); border-radius: .65rem;
+}
+.cv-result-stat {
+  color: var(--teal); font: 500 clamp(2.4rem, 4vw, 3.8rem)/1.07 var(--site-serif);
+  font-variant-numeric: lining-nums; margin-bottom: .65rem;
+}
+body main .cv-highlights-grid h3 { color: var(--fg); font: 600 clamp(1.1rem,1.6vw,1.35rem)/1.35 var(--body); margin: 0; }
+.cv-highlights-grid p { font: 1rem/1.55 var(--body); color: var(--muted); margin: .5rem 0 .65rem; }
+.cv-highlights-grid article > a, .cv-highlights-grid article > .cv-result-links { margin-top: auto; }
+.cv-highlights-grid a, .cv-resource-list a { display: inline-flex; align-items: center; min-height: 44px; gap: .45rem; font: 500 .93rem/1.45 var(--body); text-underline-offset: .25em; color: var(--teal); }
+.cv-result-links { gap: .35rem 1.3rem; }
+.cv-case-index a {
+  position: relative; display: flex; flex-direction: column; gap: .25rem;
+  padding: 1rem 2rem 1rem 0; color: var(--fg); border-bottom: 1px solid var(--line); text-decoration: none;
+}
+.cv-case-index a:hover strong { text-decoration: underline; text-underline-offset: .2em; }
+.cv-case-index strong { font: 600 1rem/1.4 var(--body); }
+.cv-case-index span { font: .93rem/1.5 var(--body); color: var(--muted); }
+.cv-case-index i { position: absolute; right: .2rem; top: 1.05rem; color: var(--teal); font-style: normal; }
+.cv-resource-list { margin: .5rem 0 1.5rem; color: var(--fg); }
+.cv-resource-list summary { width: fit-content; cursor: pointer; padding-block: .7rem; font: 500 .96rem/1.45 var(--body); }
+.cv-resource-list summary:focus-visible { outline: 2px solid var(--teal); outline-offset: .2rem; }
+.cv-resource-list ul { display: flex; flex-wrap: wrap; gap: .3rem 1.4rem; list-style: none; padding: 0; margin: 0; }
+@media (max-width: 700px) {
+  body .cv-wrap .cv-profile {
+    grid-template-columns: minmax(0,1fr) clamp(72px,19vw,110px);
+    grid-template-areas: "title photo" "copy copy" "downloads downloads";
+    gap: .75rem 1rem; align-items: center; padding-block: .65rem 1.25rem;
+  }
+  body main .cv-profile-title h1 { font-size: clamp(2.5rem, 9vw, 3.65rem); }
+  .cv-profile-title .eyebrow { line-height: 1.5; margin-bottom: .4rem; }
+  .cv-profile-copy p:first-child { margin-top: 0; }
+  .cv-profile-copy .cv-profile-lead { font-size: 1.1rem; }
+  .cv-profile-downloads { margin: 0; }
+  .cv-highlights-grid { gap: .75rem; }
+}
+@media(max-width: 570px) {
+  .cv-highlights-grid, .cv-case-index { grid-template-columns: minmax(0,1fr); }
+  .cv-case-index { gap: 0; }
+  .cv-file-actions { gap: .45rem; }
+  .cv-file-actions a { padding-inline: .75rem; }
+  .cv-highlights-grid article {
+    display: grid; grid-template-columns: auto minmax(0,1fr); column-gap: .85rem;
+    align-items: center;
+  }
+  .cv-result-stat { margin: 0; font-size: 2.5rem; }
+  .cv-highlights-grid p, .cv-highlights-grid article > a, .cv-result-links { grid-column: 1/-1; }
+  .cv-highlights-grid article > a { justify-self: start; }
+}
+@media print {
+  .cv-profile-photo { max-width: 135px; }
+  .cv-highlights-grid article { break-inside: avoid; }
+}
