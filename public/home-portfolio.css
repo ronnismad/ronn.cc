@@ -1,4 +1,19 @@
 /* Portfolio overview. The navigation, type and theme colours come from the site. */
+.home {
+  --signature-light: rgb(118 214 187 / .32);
+  --wave-line: rgb(183 229 204 / .48);
+  --forest-light: rgb(106 205 179 / .31);
+  --card-light: 37%;
+  --card-wash: 10%;
+  --halo-radius: clamp(22px, 2.6vw, 40px);
+}
+html[data-theme="light"] .home {
+  --signature-light: rgb(251 255 224 / .66);
+  --wave-line: rgb(48 103 89 / .36);
+  --forest-light: rgb(75 136 108 / .35);
+  --card-light: 34%;
+  --card-wash: 8%;
+}
 .home .home__inner {
   max-width: 76rem;
   gap: clamp(1.4rem, 2.6vw, 2.25rem);
@@ -10,6 +25,36 @@
   align-items: center;
   gap: clamp(1.75rem, 6vw, 6rem);
   padding-block: clamp(.5rem, 2.5vw, 2rem);
+}
+.home-signature {
+  position: relative;
+  isolation: isolate;
+}
+.home-signature::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  left: -2.75rem;
+  top: 42%;
+  transform: translateY(-50%);
+  width: min(calc(100% + 5rem), 24rem);
+  height: clamp(8.5rem, 16vw, 14.5rem);
+  background: radial-gradient(ellipse closest-side, var(--signature-light), transparent);
+}
+.home-signature::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  top: 48%;
+  right: 0;
+  width: min(45%, 11rem);
+  height: clamp(7rem, 13vw, 12rem);
+  transform: translateY(-50%) rotate(-16deg);
+  background: repeating-radial-gradient(ellipse at -18% 50%,
+    transparent 0 8px, var(--wave-line) 8.5px 9.4px, transparent 10px 12px);
+  mask-image: radial-gradient(ellipse closest-side, #000 18%, #000b 58%, transparent);
 }
 .home-signature .logo { width: min(100%, 15rem); }
 .home-signature .home__legal {
@@ -73,8 +118,8 @@
   content: "";
   flex: 1;
   height: 1px;
-  background: linear-gradient(to right, var(--teal-dim), var(--line) 35%);
-  opacity: .65;
+  background: linear-gradient(to right, var(--teal), var(--teal-dim) 9%, var(--line) 48%, transparent);
+  opacity: .8;
 }
 .featured-grid {
   display: grid;
@@ -86,16 +131,46 @@
   position: relative;
   isolation: isolate;
   --case-accent: #78b6c1;
+  --halo-tint: var(--case-accent);
   display: flex;
   flex-direction: column;
   min-width: 0;
   border: 1px solid var(--line);
   border-radius: 10px;
   background: var(--panel);
+  border-color: color-mix(in srgb, var(--halo-tint) 24%, var(--line));
+  box-shadow:
+    0 -5px var(--halo-radius) -10px color-mix(in srgb, var(--halo-tint) var(--card-light), transparent),
+    0 14px 25px -20px rgb(0 0 0 / .55);
 }
 .featured-project--software { --case-accent: #78bba8; }
 .featured-project--recording { --case-accent: #a99ac7; }
 .featured-project--workshop { --case-accent: #dcb581; }
+html[data-theme="light"] .featured-project {
+  --halo-tint: color-mix(in srgb, var(--case-accent) 69%, #344b45);
+}
+/* The light catches the card edge more strongly than the picture or text. */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  @supports (mask-composite: exclude) {
+    .featured-project[data-spotlit]::before {
+      content: "";
+      position: absolute;
+      z-index: 2;
+      inset: -1px;
+      padding: 1.5px;
+      border-radius: inherit;
+      pointer-events: none;
+      background: radial-gradient(9rem circle at var(--spot-x) var(--spot-y),
+        color-mix(in srgb, var(--case-accent) 65%, white), transparent);
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      mask-composite: exclude;
+    }
+  }
+  .featured-project[data-spotlit]::after {
+    background: radial-gradient(8rem circle at var(--spot-x) var(--spot-y),
+      color-mix(in srgb, var(--halo-tint) 13%, transparent), transparent);
+  }
+}
 .featured-project::after {
   content: "";
   position: absolute;
@@ -183,12 +258,16 @@
 .trace-curve { fill: none; stroke: #9bdebf; stroke-width: 2; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
 .trace-peak { fill: #c8f0d7; }
 .trace-axis { font: 400 .75rem/1.3 var(--body); color: #bbd0c8; }
+.response-head strong, .trace-axis { font-family: var(--mono); }
 .home .featured-copy {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: clamp(1rem, 1.55vw, 1.35rem);
+  border-radius: 0 0 9px 9px;
+  background: radial-gradient(ellipse 95% 10rem at 8% 0,
+    color-mix(in srgb, var(--halo-tint) var(--card-wash), transparent), transparent);
 }
 .featured-copy p { margin: 0; line-height: 1.55; }
 .featured-field { display: inline-flex; align-items: center; gap: .45rem; color: var(--fg); font-size: .8125rem; font-weight: 550; }
@@ -225,6 +304,9 @@ html[lang="zh-CN"] :is(.home-intro-line, .home-intro-detail) { line-height: 1.55
     border: 1px solid var(--line);
     border-radius: 12px;
     background: var(--panel);
+    box-shadow:
+      -8px -6px var(--halo-radius) -9px var(--forest-light),
+      inset 0 1px 0 rgb(216 240 226 / .12);
   }
   .home-introduction::before {
     content: "";
@@ -283,6 +365,8 @@ html[lang="zh-CN"] :is(.home-intro-line, .home-intro-detail) { line-height: 1.55
   .project-media { height: 9.25rem; }
 }
 @media (max-width: 740px) {
+  .home-signature::before { left: -1.75rem; width: 14rem; height: 8rem; }
+  .home-signature::after { right: auto; left: clamp(6.75rem, 27vw, 11rem); width: 6.25rem; height: 6rem; }
   .home-introduction { grid-template-columns: 1fr; gap: 1.1rem; padding-block: .2rem 0; }
   .home-signature .logo { width: clamp(9rem, 33vw, 13rem); }
   .home-signature .home__legal { margin-top: .65rem; }
@@ -309,6 +393,10 @@ html[lang="zh-CN"] :is(.home-intro-line, .home-intro-detail) { line-height: 1.55
   }
   .home-disciplines a:is(:hover, :focus-visible) { text-decoration: underline; }
   .home-hiring { grid-template-columns: 1fr; gap: .75rem; }
+}
+
+@media (forced-colors: active) {
+  .home-signature::before, .home-signature::after, .featured-project::after { display: none; }
 }
 @media (max-width: 590px) {
   .featured-grid { grid-template-columns: 1fr; }

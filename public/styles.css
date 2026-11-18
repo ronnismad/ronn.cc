@@ -13,8 +13,8 @@
   --teal-dim:#7FA39C;
 
   --display: var(--body);
-  --body: "Inter", "Source Sans 3", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
-  --mono: ui-monospace, Consolas, "Liberation Mono", "Noto Sans SC", monospace;
+  --body: "Geist", "Inter", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --mono: "Geist Mono", ui-monospace, Consolas, "Liberation Mono", "Noto Sans SC", monospace;
 
   --pad: clamp(1.5rem, 5vw, 4.5rem);
 }
